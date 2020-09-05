@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #062489 !important;
+    background:url('./img/bg.png');
+    background-repeat: no-repeat center center fixed;
+    color: #fff;
+    font-size: 13px;
+}
+
+html body {
+    height: 100%;
+    direction: ltr;
+}
+
+/* loginf page file styling  */
+h3 {
+    color: #f5f5f5;
+}
+
+#logo-column {
+    background: rgb(2,0,36);
+    background: linear-gradient(117deg, rgba(2,0,36,1) 0%, rgba(8,169,255,0.9640231092436975) 51%, rgba(0,212,255,1) 100%);
+}
+
+#form-column {
+    background-color: #f5f5f5;
+    color: rgb(2, 0, 36);
+}
+
+.card-body {
+    padding-bottom: 35px;
+}
+
+.login-logo {
+    position: relative;
+    top: 110px;
+}
+
+/* Registration page file styling  */
+.registration-card {
+    background-color: #f5f5f5;
+    color: rgb(2, 0, 36);
+    border-radius: 4px;
+    position: relative;
+    top: 30px;
+}
