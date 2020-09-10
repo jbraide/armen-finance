@@ -3,30 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armen Finance</title>
 
+  
+    <!-- jquery and popper cdn -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <!-- bootstrapcdn  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    <!-- jquery and popper cdn -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <title>home</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+    <!-- main css file -->
+    <link rel="stylesheet" href="./static/css/style.css">
+
+    <!-- owl carousel -->
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+
+    <!-- custom script tag -->
+    <script src="./static/js/main.js"></script>
+
 </head>
 <body>
+    
 
-    <!-- login body  -->
-   <div class="container-fluid">
-       <div class="row">
-           <div class="col">
-                <h2 class="text-center"></h2>
-           </div>
+    <!-- banner -->
+    <div class="home-banner">
+        <!-- navigation -->
+    <nav class="navigation">
+        <div class="container">
+            <div class="row">
 
-       </div>
-   </div> 
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon"></span>
+                </div>
+                <!-- open an account nav -->
+                <div class="col-2" id="open-account-nav">
+                    <a href="" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                </div>
+
+                <!-- about us and search bar -->
+                <div class="col-lg-4" id="about-us-nav">
+                    <a href="">About Us</a>
+                    <a href="">
+                        <span class="fas fa-search"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>        
+    </nav>
+    <!-- end of navigation -->
+        <div class="container">
+            <div class="row">
+                <!-- login form -->
+                <div class="col-lg-3">
+                    <div class="home-login-bg">
+                        <form action="" >
+                            <!-- online id form -->
+                            <input type="text" class="form-control flat" placeholder="Online ID">
+                            <!-- password form -->
+                            <input type="password" class="form-control flat" placeholder="Input Password">
+
+                            <input type="checkbox" > Save Online ID
+                            <button class="btn btn-outline-dark btn-block" type="button">LOGIN</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- promotional offer -->
+                <div class="col-lg-3" id="promotional-offer-banner">
+                    <h3>Enjoy</h3>
+                    <span><sup>$</sup>200</span>
+                </div>
+
+                <!-- create account  -->
+                <div class="col-lg-6" id="create-account-banner">
+                    <!-- new customers title -->
+                    <h3>New Armen Finance Customers:</h3>
+                    <p>Open a New Armen Account and set Up Direct Deposit</p>
+                    <a href="" class="btn btn-success btn-block flat">Open an account</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of banner -->
+
+    <!-- choose what's right for you section -->
+    <!-- 
+        .choose-wrfy(choose what's right for you)
+     -->
+    <div class="container text-center">
+        <h3 class="choose-wrfy-header">Choose What's right for you.</h3>
+        <div class="row">
+            <!-- owl carousel -->
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-handshake"></span>
+                        <h4>Schedule a meeting</h4>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-money-check"></span>
+                        <h4>Checking Accounts</h4>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-chart-line"></span>
+                        <h4>Invest</h4>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-credit-card"></span>
+                        <h4>Find a Credit Card</h4>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-home"></span>
+                        <h4>Home Lending</h4>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class="choose-wrfy">
+                        <span class="fas fa-piggy-bank"></span>
+                        <h4>Savings Accounts</h4>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of choose whats right for you section -->
+
+    <!-- unlimited commission free trades -->
+    <!-- 
+        unltd-comm = unlimited commissions
+     -->
+    <div id="commission-free-trade-border">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://sites.chase.com/content/services/structured-image/image.copy.jpg/XCRT/Tile-Secondary/2020/August/61562-and-62405_IC20-1533-youinvest-rt.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h3 id="unltd-comm-header">Unlimited Commission-Free Online Trades</h3>
+                    <p id="unltd-comm-body" class="my-5">Trade on your own: Open and fund an <strong>Armen Finance</strong> self-directed investment account.</p>
+                    <a href="" class="btn btn-primary">
+                        Open an Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of unlimited commission free trades -->
+
+    <!-- footer -->
+    <footer id="footer-bg">
+        <div class="container">
+            <div class="row">
+                <!-- about armen finance footer section -->
+                <div class="col-lg-4" id="footer-logo">
+                    <!-- insert logo here -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                    
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, culpa doloremque? Similique corrupti architecto iste ipsa soluta non numquam illum veritatis! Facilis nulla iusto molestias placeat officia qui vitae, itaque a magni perferendis quis sit nesciunt adipisci illum ad et?
+                    </p>
+                </div>
+
+                <!-- Account types -->
+                <div class="col-lg-4" id="choose-wrfy-footer">
+                    <h3>Choose What's Right For You</h3>
+
+                    <!-- schedule a meeting -->
+                    <a href="">
+                        Schedule a meeting
+                    </a>
+                    <!-- checking accounts -->
+                    <a href="">
+                        Checking Accounts
+                    </a>
+                    <!-- invest -->
+                    <a href="">
+                        Invest
+                    </a>
+                    <!-- find a credit card -->
+                    <a href="">
+                        Find a Credit Card
+                    </a>
+                    <!-- home lending -->
+                    <a href="">
+                        Home Lending
+                    </a>
+                    <!-- savings account -->
+                    <a href="">
+                        Savings Account
+                    </a>
+                </div>
+
+                <!-- security badges-->
+                <div class="col-lg-4" id="security-badge">
+                    <h3>Backed by</h3>
+                    <img src="./static/img/badge.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
