@@ -1,14 +1,15 @@
 * {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
 body {
     background-color: #062489 !important;
-    background:url('./img/bg.png');
+    background:url('/frontend/static/img/bg.png');
     background-repeat: no-repeat center center fixed;
     color: #fff;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 /* loginf page file styling  */
@@ -64,4 +65,10 @@ button:hover {
 
 a {
     text-decoration: none !important;
+}
+
+/* about section styling  */
+.about-armen {
+    font-size: 20px;
+    color: #343a40;
 }
