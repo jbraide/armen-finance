@@ -1,0 +1,157 @@
+﻿{% extends 'main/dashboard/dashboard-base.html' %}
+{% block body %}
+<div class="wrapper">
+
+	<nav class="navbar navbar-static-top">
+	  <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+		  <i class="ti-align-left"></i>
+	  </a>
+	</nav>
+	
+	{% include "main/dashboard/dashboard-sidebar.html" %}
+  
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<div class="container-full">
+		  <!-- Content Header (Page header) -->	  
+		  <div class="content-header">
+			  {% include "main/dashboard/dashboard-online-id.html" %}
+				<ol class="breadcrumb">
+				  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+				  <li class="breadcrumb-item active">Transfer to Foreign Account</li>
+				</ol>
+		  </div>
+  
+		  <!-- Main content -->
+		  <section class="content">
+			  <div class="row">
+				  <!-- account balance things -->
+				  <div class="col-lg-12 col-12">
+					  <a class="box box-link-pop " href="javascript:void(0)">
+						  <div class="box-body py-20 bg-success">
+							  <h3 class="font-weight-600 mt-0">
+								  Account Number
+								  <br>
+								  65222157855
+							  </h3>
+						  </div>
+					 </a>			
+					</div>
+					<div class="col-12">
+						
+					  <div class="box box-body">
+						<h6>
+						  <span class="text-uppercase">Total Account Balance</span>
+						  <!-- <span class="float-right"><a class="btn btn-xs btn-primary" href="#">View</a></span> -->
+						</h6>
+						<br>
+						<p class="font-size-26">$845,1258</p>
+					  </div>
+				  </div>
+				  
+  
+				  <!-- Transfer Form -->
+				  <div class="col-lg-12">
+					  <div class="box box-link-pop">
+						  <div class="box-body">
+							  <h3 class="text-center">Transfer To A Foreign Account</h3>
+							  <section>
+								  <div class="row">
+									  <div class="col-md-3"></div>
+									  <div class="col-md-6">
+										  <form action="" method="post">
+											  <div class="form-group">
+  
+												  <!-- Select a Purpose -->
+												  <label for="" class="my-4">
+													  Select A Purpose
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Select Purpose" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>
+											  <div class="form-group">
+  
+												  <!-- Select a Country -->
+												  <label for="" class="my-4">
+													  Select A Country
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Select Country" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>
+											  <div class="form-group">
+  
+												  <!-- Beneficiary Name -->
+												  <label for="" class="my-4">
+													  Beneficiary Name
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Name" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>		
+											  <div class="form-group">
+												  <!-- Beneficiary Account -->
+												  <label for="" class="my-4">
+													  Beneficiary Account
+												  </label>
+												  <input type="number" class="form-control" placeholder="Account" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Beneficiary Address
+												  </label>
+												  <input type="Text" class="form-control" placeholder="Address" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Beneficiary Branch Address
+												  </label>
+												  <input type="Text" class="form-control" placeholder="Branch Address" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Account Number -->
+												  <label for="" class="my-4">
+													  City
+												  </label>
+												  <input type="text" class="form-control" placeholder="City" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Amount
+												  </label>
+												  <input type="number" class="form-control" placeholder="0.00" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Routing Number
+												  </label>
+												  <input type="number" class="form-control" placeholder="Routing Number" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Transaction Description -->
+												  <label for="" class="my-4">
+													  Transaction Description
+												  </label>
+												  <input type="text" class="form-control" placeholder="Transaction Description" class="my-4">
+											  </div>
+												  
+												  
+												  <button class="btn btn-flat btn-warning btn-block  my-4">Continue</button>
+											  </div>
+										  </form>
+									  </div>
+									  <div class="col-md-3"></div>
+								  </div>
+							  </section>
+						  </div>
+					  </div>
+				  </div>
+				  
+	  </div>
+	</aside>
+	
+  </div>  
+<!-- ./wrapper -->
+{% endblock  %}	 	

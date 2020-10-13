@@ -1,752 +1,1134 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
+<!-- Mirrored from crypto-admin-templates.multipurposethemes.com/sass/dark-multi/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Sep 2020 14:44:17 GMT -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://crypto-admin-templates.multipurposethemes.com/sass/images/favicon.ico">
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <title>Crypto Admin - Responsive Bootstrap Admin HTML Templates + Bitcoin Dashboards + ICO </title>
+    
+	<!-- Bootstrap 4.0-->
+	<link rel="stylesheet" href="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
+	
+	<!-- bootstrap wysihtml5 - text editor -->
+	<link rel="stylesheet" href="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
+    
+	<!--amcharts -->
+	<link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
+	  
+	<!-- Data Table-->
+	<link rel="stylesheet" type="text/css" href="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/datatable/datatables.min.css"/>
+	
+	<!-- Morris charts -->
+	<link rel="stylesheet" href="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/morris.js/morris.css">
+	
+	<!-- theme style -->
+	<link rel="stylesheet" href="./static/css/dashboard.css">
+	
+	<!-- Crypto Admin skins -->
+	<link rel="stylesheet" href="./static/css/dashboard-color.css">
 
-  <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+     
+  </head>
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-</head>
+<body class="hold-transition dark-skin dark-sidebar sidebar-mini theme-mix">
+	
+<div class="wrapper">
 
-<body>
-  <section id="container">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-    <!--header start-->
-    <header class="header black-bg">
-      <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-      </div>
-      <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
-      <!--logo end-->
-      <div class="nav notify-row" id="top_menu">
-        <!--  notification start -->
-        <ul class="nav top-menu">
-          <!-- settings start -->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
-              </a>
-            <ul class="dropdown-menu extended tasks-bar">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 4 pending tasks</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
-              </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox dropdown end -->
-          <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-bell-o"></i>
-              <span class="badge bg-warning">7</span>
-              </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-yellow"></div>
-              <li>
-                <p class="yellow">You have 7 new notifications</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
-                  <span class="small italic">4 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
-                  <span class="small italic">30 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
-                  <span class="small italic">2 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
-                  <span class="small italic">3 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- notification dropdown end -->
-        </ul>
-        <!--  notification end -->
-      </div>
-      <div class="top-menu">
-        <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
-        </ul>
-      </div>
-    </header>
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
-          <li class="mt">
-            <a href="index.html">
-              <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a class="active" href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li class="active"><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="404.html">404 Error</a></li>
-              <li><a href="500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
-              <li><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>Charts</span>
-              </a>
-            <ul class="sub">
-              <li><a href="morris.html">Morris</a></li>
-              <li><a href="chartjs.html">Chartjs</a></li>
-              <li><a href="flot_chart.html">Flot Charts</a></li>
-              <li><a href="xchart.html">xChart</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
-          </li>
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper site-min-height">
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="row content-panel">
-              <div class="col-md-4 profile-text mt mb centered">
-                <div class="right-divider hidden-sm hidden-xs">
-                  <h4>1922</h4>
-                  <h6>FOLLOWERS</h6>
-                  <h4>290</h4>
-                  <h6>FOLLOWING</h6>
-                  <h4>$ 13,980</h4>
-                  <h6>MONTHLY EARNINGS</h6>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 profile-text">
-                <h3>Sam Soffes</h3>
-                <h6>Main Administrator</h6>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 centered">
-                <div class="profile-pic">
-                  <p><img src="img/ui-sam.jpg" class="img-circle"></p>
-                  <p>
-                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
-                    <button class="btn btn-theme02">Add</button>
-                  </p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-          </div>
-          <!-- /col-lg-12 -->
-          <div class="col-lg-12 mt">
-            <div class="row content-panel">
-              <div class="panel-heading">
-                <ul class="nav nav-tabs nav-justified">
-                  <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
-                  </li>
-                  <li>
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
-                  </li>
-                  <li>
-                    <a data-toggle="tab" href="#edit">Edit Profile</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /panel-heading -->
-              <div class="panel-body">
-                <div class="tab-content">
-                  <div id="overview" class="tab-pane active">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <textarea rows="3" class="form-control" placeholder="Whats on your mind?"></textarea>
-                        <div class="grey-style">
-                          <div class="pull-left">
-                            <button class="btn btn-sm btn-theme"><i class="fa fa-camera"></i></button>
-                            <button class="btn btn-sm btn-theme"><i class="fa fa-map-marker"></i></button>
-                          </div>
-                          <div class="pull-right">
-                            <button class="btn btn-sm btn-theme03">POST</button>
-                          </div>
-                        </div>
-                        <div class="detailed mt">
-                          <h4>Recent Activity</h4>
-                          <div class="recent-activity">
-                            <div class="activity-icon bg-theme"><i class="fa fa-check"></i></div>
-                            <div class="activity-panel">
-                              <h5>1 HOUR AGO</h5>
-                              <p>Purchased: Dashio Admin Panel & Front-end theme.</p>
-                            </div>
-                            <div class="activity-icon bg-theme02"><i class="fa fa-trophy"></i></div>
-                            <div class="activity-panel">
-                              <h5>5 HOURS AGO</h5>
-                              <p>Task Completed. Resolved issue with Disk Space.</p>
-                            </div>
-                            <div class="activity-icon bg-theme04"><i class="fa fa-rocket"></i></div>
-                            <div class="activity-panel">
-                              <h5>3 DAYS AGO</h5>
-                              <p>Launched a new product: Flat Pack Heritage.</p>
-                            </div>
-                          </div>
-                          <!-- /recent-activity -->
-                        </div>
-                        <!-- /detailed -->
-                      </div>
-                      <!-- /col-md-6 -->
-                      <div class="col-md-6 detailed">
-                        <h4>User Stats</h4>
-                        <div class="row centered mt mb">
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-money"></i></h1>
-                            <h3>$22,980</h3>
-                            <h6>LIFETIME EARNINGS</h6>
-                          </div>
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-trophy"></i></h1>
-                            <h3>37</h3>
-                            <h6>COMPLETED TASKS</h6>
-                          </div>
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-shopping-cart"></i></h1>
-                            <h3>1980</h3>
-                            <h6>ITEMS SOLD</h6>
-                          </div>
-                        </div>
-                        <!-- /row -->
-                        <h4>My Friends</h4>
-                        <div class="row centered mb">
-                          <ul class="my-friends">
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-01.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-02.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-03.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-04.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-05.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-06.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-07.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-08.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-09.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-10.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-11.jpg"></div>
-                            </li>
-                          </ul>
-                          <div class="row mt">
-                            <div class="col-md-4 col-md-offset-4">
-                              <h6><a href="#">VIEW ALL</a></h6>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /row -->
-                        <h4>Pending Tasks</h4>
-                        <div class="row centered">
-                          <div class="col-md-8 col-md-offset-2">
-                            <h5>Dashboard Update (40%)</h5>
-                            <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">40% Complete (success)</span>
-                              </div>
-                            </div>
-                            <h5>Unanswered Messages (80%)</h5>
-                            <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                <span class="sr-only">80% Complete (success)</span>
-                              </div>
-                            </div>
-                            <h5>Product Review (60%)</h5>
-                            <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                <span class="sr-only">60% Complete (success)</span>
-                              </div>
-                            </div>
-                            <h5>Friend Requests (90%)</h5>
-                            <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                <span class="sr-only">90% Complete (success)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- /col-md-8 -->
-                        </div>
-                        <!-- /row -->
-                      </div>
-                      <!-- /col-md-6 -->
-                    </div>
-                    <!-- /OVERVIEW -->
-                  </div>
-                  <!-- /tab-pane -->
-                  <div id="contact" class="tab-pane">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div id="map"></div>
-                      </div>
-                      <!-- /col-md-6 -->
-                      <div class="col-md-6 detailed">
-                        <h4>Location</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Postal Address<br/> PO BOX 12988, Sutter Ave<br/> Brownsville, New York.
-                          </p>
-                          <br>
-                          <p>
-                            Headquarters<br/> 844 Sutter Ave,<br/> 9003, New York.
-                          </p>
-                        </div>
-                        <h4>Contacts</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Phone: +33 4898-4303<br/> Cell: 48 4389-4393<br/>
-                          </p>
-                          <br>
-                          <p>
-                            Email: hello@dashiotheme.com<br/> Skype: UseDashio<br/> Website: http://Alvarez.is
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                  <div id="edit" class="tab-pane">
-                    <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">Personal Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label"> Avatar</label>
-                            <div class="col-lg-6">
-                              <input type="file" id="exampleInputFile" class="file-pos">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Company</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Lives In</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Country</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Description</label>
-                            <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
-                        <h4 class="mb">Contact Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 1</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr1" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 2</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr2" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Phone</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="phone" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Cell</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="cell" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="email" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Skype</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="skype" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">Save</button>
-                              <button class="btn btn-theme04" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- /col-lg-8 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                </div>
-                <!-- /tab-content -->
-              </div>
-              <!-- /panel-body -->
-            </div>
-            <!-- /col-lg-12 -->
-          </div>
-          <!-- /row -->
+  
+  
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar-->
+    <section class="sidebar">	
+		
+        <div class="user-profile">
+			<div class="ulogo">
+				 <a href="index.html">
+				  <!-- logo for regular state and mobile devices -->
+				  <h3><b>Crypto</b>Admin</h3>
+				</a>
+			</div>
+			<div class="profile-pic">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/user5-128x128.jpg" alt="user">	
+					<div class="profile-info"><h5 class="mt-15">John Doe</h5>
+						<div class="text-center d-inline-block">
+							<a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ion ion-gear-b"></i></a>
+            				<a href="#" class="link px-15" data-toggle="tooltip" title="" data-original-title="Email"><i class="ion ion-android-mail"></i></a>
+            				<a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ion ion-power"></i></a>
+						</div>
+					</div>
+			</div>
         </div>
-        <!-- /container -->
-      </section>
-      <!-- /wrapper -->
-    </section>
-    <!-- /MAIN CONTENT -->
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="profile.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
+      
+      <!-- sidebar menu-->
+      <ul class="sidebar-menu" data-widget="tree">
+		  
+        <li class="header nav-small-cap">PERSONAL</li>
+		
+		<li class="treeview active">
+          <a href="#">
+            <i class="ti-dashboard"></i>
+            <span>Dashboard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
           </a>
-      </div>
-    </footer>
-    <!--footer end-->
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="lib/jquery.scrollTo.min.js"></script>
-  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
-  <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
-  <!--script for this page-->
-  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-  <script>
-    $('.contact-map').click(function() {
+          <ul class="treeview-menu">
+            <li class="active"><a href="index.html"><i class="ti-more"></i>Dashboard 1</a></li>
+            <li><a href="index-2.html"><i class="ti-more"></i>Dashboard 2</a></li>
+            <li><a href="index-3.html"><i class="ti-more"></i>Dashboard 3</a></li>
+            <li><a href="index-4.html"><i class="ti-more"></i>Dashboard 4</a></li>
+            <li><a href="index-5.html"><i class="ti-more"></i>Dashboard 5</a></li>
+            <li><a href="index-6.html"><i class="ti-more"></i>Dashboard 6</a></li>
+            <li><a href="index-7.html"><i class="ti-more"></i>Dashboard 7</a></li>
+            <li><a href="index-8.html"><i class="ti-more"></i>Dashboard 8</a></li>
+            <li><a href="index-9.html"><i class="ti-more"></i>Dashboard 9</a></li>
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-bar-chart"></i>
+            <span>Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="pages/reports_transactions.html"><i class="ti-more"></i>Transactions</a></li>
+            <li><a href="pages/reports_top_gainers_losers.html"><i class="ti-more"></i>Top Gainers/Losers</a></li>
+            <li><a href="pages/reports_market_capitalizations.html"><i class="ti-more"></i>Market Capitalizations</a></li>
+            <li><a href="pages/reports_crypto_stats.html"><i class="ti-more"></i>Crypto Stats</a></li>
+          </ul>
+        </li> 
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-pie-chart"></i>
+            <span>Initial Coin Offering</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="pages/ico_distribution_countdown.html"><i class="ti-more"></i>Countdown</a></li>
+            <li><a href="pages/ico_roadmap_timeline.html"><i class="ti-more"></i>Roadmap/Timeline</a></li>
+            <li><a href="pages/ico_progress.html"><i class="ti-more"></i>Progress Bar</a></li>
+            <li><a href="pages/ico_details.html"><i class="ti-more"></i>Details</a></li>
+            <li><a href="pages/ico_listing.html"><i class="ti-more"></i>ICO Listing</a></li>
+            <li><a href="pages/ico_filter.html"><i class="ti-more"></i>ICO Listing - Filters</a></li>	
+          </ul>
+        </li> 
+		<li>
+          <a href="pages/currency_exchange.html">
+            <i class="ti-reload"></i>
+            <span>Currency Exchange</span>
+          </a>
+        </li> 
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-user"></i>
+            <span>Members</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="pages/members.html"><i class="ti-more"></i>Members Grid</a></li>
+            <li><a href="pages/members_list.html"><i class="ti-more"></i>Members List</a></li>
+            <li><a href="pages/member_profile.html"><i class="ti-more"></i>Member Profile</a></li>	
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-panel"></i>
+            <span>Tickers</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tickers.html"><i class="ti-more"></i>Ticker</a></li>
+            <li><a href="pages/tickers_live_pricing.html"><i class="ti-more"></i>Live Crypto Prices</a></li>	
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-wallet"></i>
+            <span>Transactions</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/transactions_tables.html"><i class="ti-more"></i>Transactions Tables</a></li>
+            <li><a href="pages/transaction_search.html"><i class="ti-more"></i>Transactions Search</a></li>	
+            <li><a href="pages/transaction_details.html"><i class="ti-more"></i>Single Transaction</a></li>
+            <li><a href="pages/transactions_counter.html"><i class="ti-more"></i>Transactions Counter</a></li>
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-stats-up"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">			
+            <li><a href="pages/charts_chartjs.html"><i class="ti-more"></i>ChartJS</a></li>
+            <li><a href="pages/charts_flot.html"><i class="ti-more"></i>Flot</a></li>
+            <li><a href="pages/charts_inline.html"><i class="ti-more"></i>Inline charts</a></li>
+            <li><a href="pages/charts_morris.html"><i class="ti-more"></i>Morris</a></li>
+            <li><a href="pages/charts_peity.html"><i class="ti-more"></i>Peity</a></li>
+            <li><a href="pages/charts_chartist.html"><i class="ti-more"></i>Chartist</a></li>
+            <li><a href="pages/charts_rickshaw.html"><i class="ti-more"></i>Rickshaw Charts</a></li>
+            <li><a href="pages/charts_nvd3.html"><i class="ti-more"></i>NVD3 Charts</a></li>
+			<li><a href="pages/charts_echart.html"><i class="ti-more"></i>eChart</a></li>
+			  
+			<li><a href="pages/charts_amcharts.html"><i class="ti-more"></i>amCharts Charts</a></li>
+			<li><a href="pages/charts_amstock_charts.html"><i class="ti-more"></i>amCharts Stock Charts</a></li>
+			<li><a href="pages/charts_ammaps.html"><i class="ti-more"></i>amCharts Maps</a></li>
+          </ul>
+        </li>
+		
+        <li class="treeview">
+          <a href="#">
+            <i class="ti-files"></i>
+            <span>Layout Options</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/layout_boxed.html"><i class="ti-more"></i>Boxed</a></li>
+            <li><a href="pages/layout_fixed.html"><i class="ti-more"></i>Fixed</a></li>
+            <li><a href="pages/layout_collapsed_sidebar.html"><i class="ti-more"></i>Mini Sidebar</a></li>
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-user"></i>
+            <span>Apps</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/app_chat.html"><i class="ti-more"></i>Chat app</a></li>
+            <li><a href="pages/app_contact.html"><i class="ti-more"></i>Contact / Employee</a></li>
+            <li><a href="pages/app_userlist_grid.html"><i class="ti-more"></i>Userlist Grid</a></li>
+			<li><a href="pages/app_userlist.html"><i class="ti-more"></i>Userlist</a></li>
+			<li><a href="pages/app_ticket.html"><i class="ti-more"></i>Support Ticket</a></li>
+			<li><a href="pages/app_calendar.html"><i class="ti-more"></i>Calendar</a></li>
+            <li><a href="pages/app_profile.html"><i class="ti-more"></i>Profile</a></li>
+            <li><a href="pages/app_taskboard.html"><i class="ti-more"></i>Project DashBoard</a></li>
+			<li><a href="pages/app_project_table.html"><i class="ti-more"></i>Project</a></li>			  
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-email"></i> <span>Mailbox</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
+            <li><a href="pages/mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
+            <li><a href="pages/mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+          </ul>
+        </li>
+		  
+        <li class="header nav-small-cap">UI & COMPONENTS</li>		  
+		  
+        <li class="treeview">
+          <a href="#">
+            <i class="ti-pencil-alt"></i>
+            <span>UI Components</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/ui_badges.html"><i class="ti-more"></i>Badges</a></li>
+            <li><a href="pages/ui_border_utilities.html"><i class="ti-more"></i>Border</a></li>
+            <li><a href="pages/ui_buttons.html"><i class="ti-more"></i>Buttons</a></li>	
+            <li><a href="pages/ui_color_utilities.html"><i class="ti-more"></i>Color</a></li>
+            <li><a href="pages/ui_dropdown.html"><i class="ti-more"></i>Dropdown</a></li>
+            <li><a href="pages/ui_dropdown_grid.html"><i class="ti-more"></i>Dropdown Grid</a></li>
+            <li><a href="pages/ui_typography.html"><i class="ti-more"></i>Typography</a></li>
+            <li><a href="pages/ui_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
+            <li><a href="pages/ui_grid.html"><i class="ti-more"></i>Grid</a></li>
+            <li><a href="pages/ui_ribbons.html"><i class="ti-more"></i>Ribbons</a></li>
+            <li><a href="pages/ui_sliders.html"><i class="ti-more"></i>Sliders</a></li>
+            <li><a href="pages/ui_tab.html"><i class="ti-more"></i>Tabs</a></li>
+            <li><a href="pages/ui_timeline.html"><i class="ti-more"></i>Timeline</a></li>
+            <li><a href="pages/ui_timeline_horizontal.html"><i class="ti-more"></i>Horizontal Timeline</a></li>
+			<li class="treeview">
+              <a href="#"><i class="ti-more"></i>Components
+                <span class="pull-right-container">
+				  <i class="fa fa-angle-right pull-right"></i>
+				</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/component_bootstrap_switch.html"><i class="ti-more"></i>Bootstrap Switch</a></li>
+				<li><a href="pages/component_date_paginator.html"><i class="ti-more"></i>Date Paginator</a></li>
+				<li><a href="pages/component_media_advanced.html"><i class="ti-more"></i>Advanced Medias</a></li>
+				<li><a href="pages/component_modals.html"><i class="ti-more"></i>Modals</a></li>
+				<li><a href="pages/component_nestable.html"><i class="ti-more"></i>Nestable</a></li>
+				<li><a href="pages/component_notification.html"><i class="ti-more"></i>Notification</a></li>
+				<li><a href="pages/component_portlet_draggable.html"><i class="ti-more"></i>Draggable Portlets</a></li>
+				<li><a href="pages/component_sweatalert.html"><i class="ti-more"></i>Sweet Alert</a></li>
+				<li><a href="pages/component_rangeslider.html"><i class="ti-more"></i>Range Slider</a></li>
+				<li><a href="pages/component_rating.html"><i class="ti-more"></i>Ratings</a></li>
+				<li><a href="pages/component_animations.html"><i class="ti-more"></i>Animations</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="#"><i class="ti-more"></i>Box Cards
+                <span class="pull-right-container">
+				  <i class="fa fa-angle-right pull-right"></i>
+				</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/box_cards.html"><i class="ti-more"></i>User Card</a></li>
+				<li><a href="pages/box_advanced.html"><i class="ti-more"></i>Advanced Card</a></li>
+				<li><a href="pages/box_basic.html"><i class="ti-more"></i>Basic Card</a></li>
+				<li><a href="pages/box_color.html"><i class="ti-more"></i>Card Color</a></li>
+				<li><a href="pages/box_group.html"><i class="ti-more"></i>Card Group</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>  
+		
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-smallcap"></i>
+            <span>Icons</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
+            <li><a href="pages/icons_glyphicons.html"><i class="ti-more"></i>Glyphicons</a></li>
+            <li><a href="pages/icons_material.html"><i class="ti-more"></i>Material Icons</a></li>	
+            <li><a href="pages/icons_themify.html"><i class="ti-more"></i>Themify Icons</a></li>
+            <li><a href="pages/icons_simpleline.html"><i class="ti-more"></i>Simple Line Icons</a></li>
+            <li><a href="pages/icons_cryptocoins.html"><i class="ti-more"></i>Cryptocoins Icons</a></li>
+            <li><a href="pages/icons_flag.html"><i class="ti-more"></i>Flag Icons</a></li>
+            <li><a href="pages/icons_weather.html"><i class="ti-more"></i>Weather Icons</a></li>
+          </ul>
+        </li> 	  
+        
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-palette"></i>
+            <span>Widgets</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/widgets_blog.html"><i class="ti-more"></i>Blog</a></li>
+            <li><a href="pages/widgets_chart.html"><i class="ti-more"></i>Chart</a></li>
+            <li><a href="pages/widgets_list.html"><i class="ti-more"></i>List</a></li>
+            <li><a href="pages/widgets_social.html"><i class="ti-more"></i>Social</a></li>
+            <li><a href="pages/widgets_statistic.html"><i class="ti-more"></i>Statistic</a></li>
+            <li><a href="pages/widgets_weather.html"><i class="ti-more"></i>Weather</a></li>
+            <li><a href="pages/widgets.html"><i class="ti-more"></i>Widgets</a></li>
+          </ul>
+        </li>
+		  
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-envelope"></i>
+            <span>Extra Components</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/email_index.html"><i class="ti-more"></i>Emails</a></li>
+			<li class="treeview">
+              <a href="#"><i class="ti-more"></i>Maps
+                <span class="pull-right-container">
+				  <i class="fa fa-angle-right pull-right"></i>
+				</span>
+              </a>
+              <ul class="treeview-menu">
+            	<li><a href="pages/map_google.html"><i class="ti-more"></i>Google Map</a></li>
+            	<li><a href="pages/map_vector.html"><i class="ti-more"></i>Vector Map</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="#"><i class="ti-more"></i>Extension
+                <span class="pull-right-container">
+				  <i class="fa fa-angle-right pull-right"></i>
+				</span>
+              </a>
+              <ul class="treeview-menu">
+            	<li><a href="pages/extension_fullscreen.html"><i class="ti-more"></i>Fullscreen</a></li>
+				<li><a href="pages/extension_pace.html"><i class="ti-more"></i>Pace</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+		  
+		
+        <li class="header nav-small-cap">FORMS And TABLES</li> 
+		
+		
+        <li class="treeview">
+          <a href="#">
+            <i class="ti-write"></i>
+			<span>Forms</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/forms_advanced.html"><i class="ti-more"></i>Advanced Elements</a></li>
+            <li><a href="pages/forms_code_editor.html"><i class="ti-more"></i>Code Editor</a></li>
+            <li><a href="pages/forms_editor_markdown.html"><i class="ti-more"></i>Markdown</a></li>
+            <li><a href="pages/forms_editors.html"><i class="ti-more"></i>Editors</a></li>
+            <li><a href="pages/forms_validation.html"><i class="ti-more"></i>Form Validation</a></li>
+            <li><a href="pages/forms_wizard.html"><i class="ti-more"></i>Form Wizard</a></li>
+            <li><a href="pages/forms_general.html"><i class="ti-more"></i>General Elements</a></li>
+            <li><a href="pages/forms_mask.html"><i class="ti-more"></i>Formatter</a></li>
+            <li><a href="pages/forms_xeditable.html"><i class="ti-more"></i>Xeditable Editor</a></li>
+            <li><a href="pages/forms_dropzone.html"><i class="ti-more"></i>Dropzone</a></li>
+          </ul>
+        </li>
+		  
+        <li class="treeview">
+          <a href="#">
+            <i class="ti-layout-grid4"></i>
+			<span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tables_simple.html"><i class="ti-more"></i>Simple tables</a></li>
+            <li><a href="pages/tables_data.html"><i class="ti-more"></i>Data tables</a></li>
+            <li><a href="pages/tables_editable.html"><i class="ti-more"></i>Editable Tables</a></li>
+            <li><a href="pages/tables_color.html"><i class="ti-more"></i>Table Color</a></li>
+          </ul>
+        </li>
+		  
+		<li class="header nav-small-cap">SAMPLE PAGES</li>		  
+		  
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-shield"></i>
+			<span>Authentication</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/auth_login.html"><i class="ti-more"></i>Login</a></li>
+			<li><a href="pages/auth_register.html"><i class="ti-more"></i>Register</a></li>
+			<li><a href="pages/auth_lockscreen.html"><i class="ti-more"></i>Lockscreen</a></li>
+			<li><a href="pages/auth_user_pass.html"><i class="ti-more"></i>Recover password</a></li>	
+          </ul>
+        </li> 		  
+		  
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-alert"></i>
+			<span>Error Pages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="pages/error_404.html"><i class="ti-more"></i>Error 404</a></li>
+			<li><a href="pages/error_500.html"><i class="ti-more"></i>Error 500</a></li>
+			<li><a href="pages/error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>	
+          </ul>
+        </li>   
+		  
+		<li class="treeview">
+          <a href="#">
+            <i class="ti-files"></i>
+			<span>Sample Pages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/sample_blank.html"><i class="ti-more"></i>Blank</a></li>
+            <li><a href="pages/sample_coming_soon.html"><i class="ti-more"></i>Coming Soon</a></li>
+            <li><a href="pages/sample_custom_scroll.html"><i class="ti-more"></i>Custom Scrolls</a></li>
+			<li><a href="pages/sample_faq.html"><i class="ti-more"></i>FAQ</a></li>
+			<li><a href="pages/sample_gallery.html"><i class="ti-more"></i>Gallery</a></li>
+			<li><a href="pages/sample_lightbox.html"><i class="ti-more"></i>Lightbox Popup</a></li>
+			<li><a href="pages/sample_pricing.html"><i class="ti-more"></i>Pricing</a></li>
+			<li><a href="pages/sample_invoice.html"><i class="ti-more"></i>Invoice</a></li>
+			<li><a href="pages/sample_invoicelist.html"><i class="ti-more"></i>Invoice List</a></li>
+          </ul>
+        </li>
+		  
+		  
+		<li class="header nav-small-cap">EXTRA</li>		  
+		  
+        <li class="treeview">
+          <a href="#">
+            <i class="ti-view-list"></i>
+			<span>Multilevel</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">Level One</a></li>
+            <li class="treeview">
+              <a href="#">Level One
+                <span class="pull-right-container">
+				  <i class="fa fa-angle-right pull-right"></i>
+				</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#">Level Two</a></li>
+                <li class="treeview">
+                  <a href="#">Level Two
+                    <span class="pull-right-container">
+				  		<i class="fa fa-angle-right pull-right"></i>
+					</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">Level Three</a></li>
+                    <li><a href="#">Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Level One</a></li>
+          </ul>
+        </li>  
+		  
+		<li>
+          <a href="pages/auth_login.html">
+            <i class="ti-power-off"></i>
+			<span>Log Out</span>
+          </a>
+        </li> 
+        
+      </ul>
+    </section>
+  </aside>
 
-      //google map in tab click initialize
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
-        var mapOptions = {
-          zoom: 11,
-          scrollwheel: false,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Dashio Admin Theme!'
-        });
-      }
-      google.maps.event.addDomListener(window, 'click', initialize);
-    });
-  </script>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			  <h3>
+				Online ID
+				<small>6efaa0b7-69ac-4a93-ad72-32394ea648e6</small>
+		  	</h3>
+		  	<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+				<li class="breadcrumb-item active">Dashboard</li>
+		  	</ol>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+            <div class="row">
+                <div class="col-xl-4 col-lg-5">
+
+                    <!-- Profile Image -->
+                    <div class="box bg-warning bg-deathstar-dark">
+                      <div class="box-body box-profile">
+                        <img class="rounded img-fluid mx-auto d-block max-w-150" src="http://crypto-admin-templates.multipurposethemes.com/sass/images/5.jpg" alt="User profile picture">
+  
+                        <h2 class="profile-username text-center mb-0">Jhone Mical</h2>
+  
+                        <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>jhone.mical@yahoo.com</h4>
+  
+                        <div class="row social-states">
+                            <div class="col-6 text-right"><a href="#" class="link text-white"><i class="ion ion-ios-people-outline"></i> 254</a></div>
+                            <div class="col-6 text-left"><a href="#" class="link text-white"><i class="ion ion-images"></i> 54</a></div>
+                        </div>
+  
+                        <div class="row">
+                          <div class="col-12">
+                              <div class="media-list media-list-hover media-list-divided w-p100 mt-30">
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">My Profile</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">Invests</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">The Wallet</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">Deposit</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">Reports</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">Services</span>
+                                  </h4>
+                                  <h4 class="media media-single p-15">
+                                    <i class="fa fa-arrow-circle-o-right mr-10"></i><span class="title">Support</span>
+                                  </h4>
+                              </div>
+                          </div>
+                          <h2 class="title w-p100 mt-10 mb-0 p-20">Last Transactions</h2>
+                          <div class="col-12">
+                              <div class="media-list media-list-hover w-p100 mt-0">
+                                  <h5 class="media media-single py-10 px-0 w-p100 justify-content-between">
+                                        <p>
+                                        <i class="fa fa-circle text-red pr-10 font-size-12"></i>Deal number 1548
+                                        <span class="subtitle pl-20 mt-10">by<span class="text-red">Johen Doe</span></span>						  
+                                        </p>
+                                        <p class="text-right pull-right"><span class="badge badge-sm badge-danger mb-10">sell</span><br>0.12458921 BTC</p>
+                                  </h5>
+                                  <h5 class="media media-single py-10 px-0 w-p100 justify-content-between">
+                                        <p>
+                                        <i class="fa fa-circle text-success pr-10 font-size-12"></i>Deal number 1548
+                                        <span class="subtitle pl-20 mt-10">by<span class="text-success">Johen Doe</span></span>						  
+                                        </p>
+                                        <p class="text-right pull-right"><span class="badge badge-sm badge-success mb-10">sell</span><br>0.12458921 BTC</p>
+                                  </h5>
+                                  <h5 class="media media-single py-10 px-0 w-p100 justify-content-between">
+                                        <p>
+                                        <i class="fa fa-circle text-success pr-10 font-size-12"></i>Deal number 1548
+                                        <span class="subtitle pl-20 mt-10">by<span class="text-success">Johen Doe</span></span>						  
+                                        </p>
+                                        <p class="text-right pull-right"><span class="badge badge-sm badge-success mb-10">sell</span><br>0.12458921 BTC</p>
+                                  </h5>
+                                  <h5 class="media media-single py-10 px-0 w-p100 justify-content-between">
+                                        <p>
+                                        <i class="fa fa-circle text-red pr-10 font-size-12"></i>Deal number 1548
+                                        <span class="subtitle pl-20 mt-10">by<span class="text-red">Johen Doe</span></span>						  
+                                        </p>
+                                        <p class="text-right pull-right"><span class="badge badge-sm badge-danger mb-10">sell</span><br>0.12458921 BTC</p>
+                                  </h5>
+                                  <h5 class="media media-single py-10 px-0 w-p100 justify-content-between">
+                                        <p>
+                                        <i class="fa fa-circle text-success pr-10 font-size-12"></i>Deal number 1548
+                                        <span class="subtitle pl-20 mt-10">by<span class="text-success">Johen Doe</span></span>						  
+                                        </p>
+                                        <p class="text-right pull-right"><span class="badge badge-sm badge-success mb-10">sell</span><br>0.12458921 BTC</p>
+                                  </h5>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-xl-8 col-lg-7">
+                    <div class="box box-solid box-inverse box-dark">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Personal details</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">First Name</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="Johon">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Last Name</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="Doe">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Email Adress</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="email" placeholder="johone@dummy.com">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Phone Number</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="tel" placeholder="123 456 7890">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                  <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                              </div>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <div class="box box-solid box-inverse box-dark">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Personal address</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Street</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="A-458, Lorem Ipsum, city">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">City</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="Your City">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">State</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="Your State">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Post Code</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="number" placeholder="123456">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                  <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                              </div>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <div class="box box-solid box-inverse box-dark">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Social media</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Facebook</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="facebook id">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Instagram</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="instagram id">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Twitter</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="twitter id">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Linkedin</label>
+                                <div class="col-sm-10">
+                                  <input class="form-control" type="text" placeholder="linkedin id">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                  <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                              </div>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.box-body -->
+                    </div>
+            </div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right d-none d-sm-inline-block">
+        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+		  <li class="nav-item">
+			<a class="nav-link" href="javascript:void(0)">FAQ</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Purchase Now</a>
+		  </li>
+		</ul>
+    </div>
+	  &copy; 2019 <a href="https://www.multipurposethemes.com/">Multi-Purpose Themes</a>. All Rights Reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar">
+	  
+	<div class="rpanel-title"><span class="pull-right btn btn-circle btn-danger"><i class="ion ion-close text-white" data-toggle="control-sidebar"></i></span> </div>  <!-- Create the tabs -->
+    <ul class="nav nav-tabs control-sidebar-tabs">
+      <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab">Chat</a></li>
+      <li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab">Todo</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Users</p>
+			<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
+		  </div>
+		  <div class="lookup lookup-sm lookup-right d-none d-lg-block">
+			<input type="text" name="s" placeholder="Search" class="w-p100">
+		  </div>
+          <div class="media-list media-list-hover mt-20">
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>			
+			
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="http://crypto-admin-templates.multipurposethemes.com/sass/images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+			  
+		  </div>
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Todo List</p>
+			<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
+		  </div>
+        <ul class="todo-list mt-20">
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_1" class="filled-in">
+			  <label for="basic_checkbox_1" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_2" class="filled-in">
+			  <label for="basic_checkbox_2" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_3" class="filled-in">
+			  <label for="basic_checkbox_3" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_4" class="filled-in">
+			  <label for="basic_checkbox_4" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_5" class="filled-in">
+			  <label for="basic_checkbox_5" class="mb-0 h-15"></label>
+			  <span class="text-line">Maecenas scelerisque</span>
+			  <small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_6" class="filled-in">
+			  <label for="basic_checkbox_6" class="mb-0 h-15"></label>
+			  <span class="text-line">Vivamus nec orci</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 1 month</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_7" class="filled-in">
+			  <label for="basic_checkbox_7" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_8" class="filled-in">
+			  <label for="basic_checkbox_8" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_9" class="filled-in">
+			  <label for="basic_checkbox_9" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_10" class="filled-in">
+			  <label for="basic_checkbox_10" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+		  </ul>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+  
+</div>
+<!-- ./wrapper -->
+  	
+	 
+	
+	<!-- jQuery 3 -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+	
+	<!-- fullscreen -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/screenfull/screenfull.js"></script>
+	
+	<!-- jQuery UI 1.11.4 -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/jquery-ui/jquery-ui.js"></script>
+	
+	<!-- popper -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/popper/dist/popper.min.js"></script>
+	
+	<!-- Bootstrap 4.0-->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>	
+	
+	<!-- Slimscroll -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+	
+	<!-- FastClick -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/fastclick/lib/fastclick.js"></script>
+	
+	<!-- Bootstrap WYSIHTML5 -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+	
+	<!-- Morris.js charts -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/raphael/raphael.min.js"></script>
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/morris.js/morris.min.js"></script>
+	
+	<!-- ChartJS -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/chart.js-master/Chart.min.js"></script>
+	
+    <!--amcharts charts -->
+	<script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/gauge.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/pie.js" type="text/javascript"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+	<script src="http://www.amcharts.com/lib/3/plugins/animate/animate.min.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/plugins/export/export.min.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/themes/patterns.js" type="text/javascript"></script>
+	<script src="http://www.amcharts.com/lib/3/themes/dark.js" type="text/javascript"></script>	
+	
+	<!-- webticker -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js"></script>
+	
+	<!-- EChartJS JavaScript -->
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/echarts-master/dist/echarts-en.min.js"></script>
+	<script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js"></script>
+	
+	<!-- This is data table -->
+    <script src="http://crypto-admin-templates.multipurposethemes.com/sass/assets/vendor_components/datatable/datatables.min.js"></script>
+	
+	<!-- Crypto Admin App -->
+	<script src="./static/js/dashboard/js/template.js"></script>
+	
+	<!-- Crypto Admin dashboard demo (This is only for demo purposes) -->
+	<script src="./static/js/dashboard/js/pages/dashboard.js"></script>
+	<script src="./static/js/dashboard/js/pages/dashboard-chart.js"></script>
+	
+	<!-- Crypto Admin for demo purposes -->
+	<script src="./static/js/dashboard/js/demo.js"></script>
+	
+	
 </body>
 
+<!-- Mirrored from crypto-admin-templates.multipurposethemes.com/sass/dark-multi/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Sep 2020 14:46:40 GMT -->
 </html>

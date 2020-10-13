@@ -1,0 +1,554 @@
+﻿{% extends "main/dashboard/dashboard-base.html" %}
+{% block body %}
+	
+	<div class="wrapper">
+	
+	  <nav class="navbar navbar-static-top">
+		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+			<i class="ti-align-left"></i>
+		</a>
+	  </nav>
+	  
+	  {% include "main/dashboard/dashboard-sidebar.html" %}
+	
+	  <!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+		  <div class="container-full">
+			<!-- Content Header (Page header) -->	  
+			<div class="content-header">
+				  <h3>
+					Online ID
+					<small>{{ request.user.online_id }}</small>
+				  </h3>
+				  <ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+					<li class="breadcrumb-item active">Dashboard</li>
+				  </ol>
+			</div>
+	
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<!-- account balance things -->
+					<div class="col-lg-12 col-12">
+						<a class="box box-link-pop " href="javascript:void(0)">
+							<div class="box-body py-20 bg-success">
+								<h3 class="font-weight-600 mt-0">
+									Account Number
+									<br>
+									65222157855
+								</h3>
+							</div>
+					   </a>			
+					  </div>
+					  <div class="col-12">
+						  
+						<div class="box box-body">
+						  <h6>
+							<span class="text-uppercase">Total Account Balance</span>
+							<!-- <span class="float-right"><a class="btn btn-xs btn-primary" href="#">View</a></span> -->
+						  </h6>
+						  <br>
+						  <p class="font-size-26">$845,1258</p>
+						</div>
+					</div>
+					
+	
+					<!-- current balance -->
+					<div class="col-lg-4">
+						<div class="box box-body pull-up">
+							<div class="media align-items-center p-0 justify-content-between">
+							  <div class="text-center m-0">
+								<a href="#"><i class="fas fa-wallet mr-5" title="ADA"></i></a>
+							</div>
+							  <div class="m-0 text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">62%</span></p>
+								<p class="no-margin">9d left</p>
+							  </div>
+							</div>
+							<div class="flexbox align-items-center mt-25">
+							  <div>
+								<h3 class="no-margin text-bold">Savings</h3>
+								<span>Account</span>
+							  </div>
+							  <div class="text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">$13.900</span></p>
+								<p class="no-margin">Balance</p>
+							  </div>
+							</div>
+						  </div>
+					</div>
+	
+					<!-- Savings Balance -->
+					<div class="col-lg-4">
+						<div class="box box-body pull-up">
+							<div class="media align-items-center p-0 justify-content-between">
+							  <div class="text-center m-0">
+								<a href="#"><i class="fas fa-wallet mr-5" title="ADA"></i></a>
+							</div>
+							  <div class="m-0 text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">62%</span></p>
+								<p class="no-margin">9d left</p>
+							  </div>
+							</div>
+							<div class="flexbox align-items-center mt-25">
+							  <div>
+								<h3 class="no-margin text-bold">Investment</h3>
+								<span>Account</span>
+							  </div>
+							  <div class="text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">$13.900</span></p>
+								<p class="no-margin">Balance</p>
+							  </div>
+							</div>
+						  </div>
+					</div>
+	
+					<!-- Retirement balance -->
+					<div class="col-lg-4">
+						<div class="box box-body pull-up">
+							<div class="media align-items-center p-0 justify-content-between">
+							  <div class="text-center m-0">
+								<a href="#"><i class="fas fa-wallet mr-5" title="ADA"></i></a>
+							</div>
+							  <div class="m-0 text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">62%</span></p>
+								<p class="no-margin">9d left</p>
+							  </div>
+							</div>
+							<div class="flexbox align-items-center mt-25">
+							  <div>
+								<h3 class="no-margin text-bold">Retirement</h3>
+								<span>Account</span>
+							  </div>
+							  <div class="text-right">
+								<p class="no-margin font-weight-600"><span class="text-danger">$13.900</span></p>
+								<p class="no-margin">Balance</p>
+							  </div>
+							</div>
+						  </div>
+					</div>
+					<!-- <div class="col-12">
+						<div class="box box-inverse box-dark">
+						  <div class="box-body tickers-block">
+							  <ul id="webticker-1">
+								<li><i class="cc BTC"></i> BTC <span class="text-yellow"> $11.039232</span></li> 
+								<li><i class="cc ETH"></i> ETH <span class="text-yellow"> $1.2792</span></li> 
+								<li><i class="cc GAME"></i> GAME <span class="text-yellow"> $11.039232</span></li> 
+								<li><i class="cc LBC"></i> LBC <span class="text-yellow"> $0.588418</span></li> 
+								<li><i class="cc NEO"></i> NEO <span class="text-yellow"> $161.511</span></li> 
+								<li><i class="cc STEEM"></i> STE <span class="text-yellow"> $0.551955</span></li> 
+								<li><i class="cc LTC"></i> LIT <span class="text-yellow"> $177.80</span></li> 
+								<li><i class="cc NOTE"></i> NOTE <span class="text-yellow"> $13.399</span></li>
+								<li><i class="cc MINT"></i> MINT <span class="text-yellow"> $0.880694</span></li> 
+								<li><i class="cc IOTA"></i> IOT <span class="text-yellow"> $2.555</span></li> 
+								<li><i class="cc DASH"></i> DAS <span class="text-yellow"> $769.22</span></li>   
+							  </ul>
+						  </div>
+					  </div>
+					</div> -->
+	
+					<!-- shortcuts  -->
+					<div class="col-12 my-4">
+						<h3 class="text-center">SHORTCUTS</h3>
+					</div>
+					<div class="col-lg-6 col-12">
+						<div class="row">
+							  <!--Transfer  -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="">
+							  <div class="box-body py-25">
+								  <p class="mt-5"><i class="ti-exchange-vertical fa-4x"></i></p>
+								  <p class="font-weight-600">Transfer</p>
+							  </div>
+							  </a>
+						  </div>
+	
+						  <!-- cards -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="javascript:void(0)">
+								  <div class="box-body py-25">
+									  <p class="mt-5">
+										  <i class="ti-credit-card fa-4x text-success"></i>
+									  </p>
+									  <p class="font-weight-600">Cards</p>
+								  </div>
+							  </a>
+						  </div>
+	
+						  <!-- services -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="javascript:void(0)">
+								  <div class="box-body py-25">
+									  <p class="mt-5">
+										  <i class="ti-light-bulb fa-4x text-danger"></i>
+									  </p>
+									  <p class="font-weight-600">Services</p>
+								  </div>
+							  </a>
+						  </div>
+	  
+						</div>
+						<!-- /.row -->
+					</div>
+					<div class="col-lg-6 col-12">
+						<div class="row">
+							  <!-- messages -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="">
+							  <div class="box-body py-25">
+								  <p class="mt-5"><i class="ti-email fa-4x"></i></p>
+								  <p class="font-weight-600">Messages</p>
+							  </div>
+							  </a>
+						  </div>
+	
+						  <!-- messages -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="javascript:void(0)">
+								  <div class="box-body py-25">
+									  <p class="mt-5">
+										  <i class="ti-settings fa-4x text-success"></i>
+									  </p>
+									  <p class="font-weight-600">Settings</p>
+								  </div>
+							  </a>
+						  </div>
+	
+						  <!-- bill payment -->
+						  <div class="col-12 col-md-4">
+							  <a class="box box-link-shadow text-center" href="javascript:void(0)">
+								  <div class="box-body py-25">
+									  <p class="mt-5">
+										  <i class="ti-wallet fa-4x text-danger"></i>
+									  </p>
+									  <p class="font-weight-600">Bill Payments </p>
+								  </div>
+							  </a>
+						  </div>
+	  
+						</div>
+						<!-- /.row -->
+					</div>
+					
+					<!-- transactions Table -->
+					<div class="col-lg-12 col-12">
+						<div class="box">
+						  <div class="box-header with-border">
+							<h4 class="box-title">Latest Transactions</h4>
+						  </div>
+						  <div class="box-body">
+							  <div class="table-responsive">
+								  <table class="table no-margin table-hover">
+									<thead>					
+									  <tr class="bg-dark">
+										<th class="text-warning">Transaction Hash</th>
+										<th class="text-warning">Date Time</th>
+										<th class="text-warning">Debit</th>
+										<th class="text-warning">Credit</th>
+										<th class="text-warning">Balance</th>
+									  </tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center">-</td>
+											<td class="text-center">-</td>
+											<td class="text-center">-</td>
+											<td class="text-center">-</td>
+											<td class="text-center">-</td>
+										</tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											7d2c7b06afa0
+										  </a>
+										  ...
+										</td>
+										<td>1.0126281 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>medium</td>
+										<td><span class="label label-success">Confirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											5de67405bfc6
+										  </a>
+										  ...
+										</td>
+										<td>0.10522881 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-warning">Unconfirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											583de1b0cec
+										  </a>
+										  ...
+										</td>
+										<td>0.40622033 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-success">Confirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											5493bcfa5f7f
+										  </a>
+										  ...
+										</td>
+										<td>4.43670578 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-danger">Canceled</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											4d66087926b5
+										  </a>
+										  ...
+										</td>
+										<td>22.01099978 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-danger">Canceled</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											60935e53c894
+										  </a>
+										  ...
+										</td>
+										<td>0.0024534 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:38:00Z" title="2018-02-01 13:38 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-warning">Unconfirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											b1236b76cf5e
+										  </a>
+										  ...
+										</td>
+										<td>0.00518486 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:37:59Z" title="2018-02-01 13:37 GMT">2 minutes ago</time>
+										</td>
+										<td>medium</td>
+										<td><span class="label label-success">Confirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											d0125cb78c078
+										  </a>
+										  ...
+										</td>
+										<td>0.08039395 BTC</td>
+	  
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:37:59Z" title="2018-02-01 13:37 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-success">Confirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											b6b591254835c
+										  </a>
+										  ...
+										</td>
+										<td>55.99698306 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:37:58Z" title="2018-02-01 13:37 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-success">Confirmed</span></td>
+									  </tr>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">
+											d261fb1d717d
+										  </a>
+										  ...
+										</td>
+										<td>0.0281818 BTC</td>
+										<td>
+										  <time class="timeago" datetime="2018-02-01T13:37:58Z" title="2018-02-01 13:37 GMT">2 minutes ago</time>
+										</td>
+										<td>high</td>
+										<td><span class="label label-danger">Canceled</span></td>
+									  </tr>
+									</tbody>
+								  </table>
+							  </div>
+						  </div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-12">
+						<div class="box box-inverse box-dark">
+						  <div class="box-header with-border">
+							<h4 class="box-title">Recent Transactions</h4>
+						  </div>
+						  <div class="box-body">
+							  <div class="table-responsive">
+								  <table class="table no-margin no-border bg-dark">
+									<thead>
+									  <tr class="bg-warning">
+										<th>Id</th>
+										<th>Time</th>
+										<th>Transactions</th>
+										<th>Sent</th>
+										<th>Fees</th>
+										<th>Block Size</th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145236</a>
+										</td>
+										<td>59&nbsp;seconds ago</td>
+										<td>2,122</td>
+										<td>16,819.638 BTC</td>
+										<td>1.796 BTC</td>
+										<td>546,573</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145237</a>
+										</td>
+										<td>10&nbsp;minutes ago</td>
+										<td>1,807</td>
+										<td>6,410.154 BTC</td>
+										<td>0.982 BTC</td>
+										<td>458,027</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145238</a>
+										</td>
+										<td>13&nbsp;minutes ago</td>
+										<td>1,980</td>
+										<td>16,541.708 BTC</td>
+										<td>1.855 BTC</td>
+										<td>458,440</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145239</a>
+										</td>
+										<td>21&nbsp;minutes ago</td>
+										<td>1,781</td>
+										<td>12,009.855 BTC</td>
+										<td>1.963 BTC</td>
+										<td>515,484</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145239</a>
+										</td>
+										<td>21&nbsp;minutes ago</td>
+										<td>1,781</td>
+										<td>12,009.855 BTC</td>
+										<td>1.963 BTC</td>
+										<td>515,484</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145240</a>
+										</td>
+										<td>31&nbsp;minutes ago</td>
+										<td>1,590</td>
+										<td>8,166.284 BTC</td>
+										<td>1.923 BTC</td>
+										<td>125,979</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145236</a>
+										</td>
+										<td>59&nbsp;seconds ago</td>
+										<td>2,122</td>
+										<td>16,819.638 BTC</td>
+										<td>1.796 BTC</td>
+										<td>546,573</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145237</a>
+										</td>
+										<td>10&nbsp;minutes ago</td>
+										<td>1,807</td>
+										<td>6,410.154 BTC</td>
+										<td>0.982 BTC</td>
+										<td>458,027</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145238</a>
+										</td>
+										<td>13&nbsp;minutes ago</td>
+										<td>1,980</td>
+										<td>16,541.708 BTC</td>
+										<td>1.855 BTC</td>
+										<td>458,440</td>
+									  </tr>
+	  
+									  <tr>
+										<td>
+										  <a href="#" class="text-warning hover-warning">145239</a>
+										</td>
+										<td>21&nbsp;minutes ago</td>
+										<td>1,781</td>
+										<td>12,009.855 BTC</td>
+										<td>1.963 BTC</td>
+										<td>515,484</td>
+									  </tr>
+	  
+									</tbody>
+								  </table>
+							  </div>
+						  </div>
+						</div>	
+					</div>
+		  <!-- /.tab-pane -->
+		</div>
+	  </aside>
+	  <!-- /.control-sidebar -->
+	  
+	  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+	  <div class="control-sidebar-bg"></div>
+	  
+	</div>
+	<!-- ./wrapper -->
+		  
+{% endblock  %}
+

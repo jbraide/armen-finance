@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Profile, Balance, InvestedAmount, Signals, BTCbalance, VerificationDocument
-from .models import DailyInvestments, Transaction
+from .models import DailyInvestments, Transaction, HashKey, HashedDetails
 
 '''
     custom user admin fieldset
@@ -90,22 +90,20 @@ class TransactionAdmin(admin.ModelAdmin):
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ['user', 'email']
 
+# login token
 @admin.register(AuthToken)
 class AuthTokenAdmin(admin.ModelAdmin):
     list_display = ['user', 'token']
-    
 
-    
+# hash key
+@admin.register(HashKey)
+class HashKeyAdmin(admin.ModelAdmin):
+    list_display = ['email','user','key'] 
 
-
-    
-
-    
-
-    
-
-    
-
+# hashed online_id, password
+@admin.register(HashedDetails)
+class HashedDetailsAdmin(admin.ModelAdmin):
+    list_display = ['email','online_id', 'password']
 
 
 

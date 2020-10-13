@@ -73,6 +73,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return str(self.online_id)
+    def user_id(self):
+        return self.id.__str__()
     def email_user(self, subject, message, email, from_email=None ):
         send_mail(
             subject, 
@@ -92,7 +94,20 @@ class Registration(models.Model):
 class AuthToken(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     token = models.CharField(max_length=30, unique=True)
-    
+
+# Hash encryption 
+class HashKey(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=100, unique=True)
+    key = models.CharField(max_length=100, default='')
+
+# online id && password store
+class HashedDetails(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=100, unique=True)
+    online_id = models.CharField(max_length=200, default='')
+    password = models.CharField(max_length=200, default='')
+
 
 # profile
 
@@ -130,6 +145,11 @@ def save_user_profile(sender, instance, **kwargs):
 '''
     Dashboard  models
 '''
+from django.core.validators import MaxValueValidator
+class AccountDetails(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    account_number = models.PositiveIntegerField(validators=[MaxValueValidator(11)])
+
 # balance
 class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

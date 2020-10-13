@@ -11,3 +11,21 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'thea1technologiesio@gmail.com'
 EMAIL_HOST_PASSWORD = 'lkbncdxncpybgmnt'
+
+
+# the scheduler config will 
+# - store jobs in the project databasde
+# - execute jobs in threads inside the application process
+
+SCHEDULER_CONFIG = {
+    'apscheduler.jobstores.default': {
+        'class': 'django_apschduler.jobstore:DjangoJobStore'
+    },
+    'apscheduler.executors.processpool': {
+        'type': 'threadpool'
+    },
+}
+
+SCHEDULER_AUTOSTART = True 
+
+DEBUG = True

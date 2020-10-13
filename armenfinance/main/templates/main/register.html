@@ -1,76 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Dashio - Bootstrap Admin Template</title>
 
-    <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- bootstrapcdn  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    <!-- jquery and popper cdn -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <title>registration</title>
+  <!-- Bootstrap core CSS -->
+  <link href="/static/dashboard/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="/static/dashboard/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="/static/dashboard/style.css" rel="stylesheet">
+  <link href="/static/dashboard/style-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  {% load widget_tweaks %}
 </head>
-<body class="text-monospace">
 
-    <!-- login body  -->
-   <div class="container">
-       <!-- breadcrumb section -->
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page"><a href="#">Step 1: Register</a></li>
-          <li class="breadcrumb-item"><a href="#">Step 2: Form</a></li>
-          <li class="breadcrumb-item">Step 3: Verify</li>
-        </ol>
-      </nav>
-
-      <div class="col-lg">
-          <div class="col-lg">
-              <h3 class="text-center py-5">Step 1: Registration Form</h3>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4"></div>
-              <div class="col-lg-4">
-                <div class="card-body registration-card">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                  <!-- <div class="form-group">
-                    <label for="emailAddress">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                    <label for="confirmPasword">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
-                  </div> -->
-                  <button type="submit" class="btn btn-info btn-block py-2">Sign Up</button>
-                </form>
+<body>
+  <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+  <div id="login-page">
+    <div class="container reg-page">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="modal-content">
+              <form action="" method="POST">
+                <div class="modal-header">
+                <h4 class="modal-title">Forgot Password ?</h4>
               </div>
-              </div> 
-              <div class="col-lg-4"></div>
-            </div> 
+              <div class="modal-body">
+                <p>Enter your e-mail address below to reset your password.</p>
+                  {% csrf_token %}
+                  {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
+                <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
+                <button class="btn btn-theme">Submit</button>
+              </div>
+              <div class="modal-footer">
+                <a href="" class="btn btn-default" type="button">Cancel</a>
+                <a href="" class="btn btn-theme" type="Submit">Submit</a>
+              </div>
+            </form>
           </div>
-
+          <div class="col-md-2"></div>
+        </div>
       </div>
-    </div> 
-
+    </div>
+  </div>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="/static/dashboard/lib/jquery/jquery.min.js"></script>
+  <script src="/static/dashboard/lib/bootstrap/js/bootstrap.min.js"></script>
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="/static/dashboard/lib/jquery.backstretch.min.js"></script>
+  <script>
+    $.backstretch("/static/img/login-bg.jpg", {
+      speed: 500
+    });
+  </script>
 </body>
+
 </html>

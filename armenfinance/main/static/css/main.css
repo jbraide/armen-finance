@@ -72,3 +72,16 @@ a {
     font-size: 20px;
     color: #343a40;
 }
+
+
+/* registration  */
+.reg-page{
+    padding: 14% 0;
+}
+
+
+@media only screen and (max-width: 600px){
+    .reg-page{
+        padding: 50% 0;
+    }
+}

@@ -7,11 +7,11 @@ from django.contrib.auth import get_user_model
 
 from django.contrib.auth.decorators import login_required
 
-from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, VerificationDocumentForm, TokenForm
+from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, VerificationDocumentForm, TokenForm, ChangePassword
 
 # models
 from .models import Balance, Signals, InvestedAmount, BTCbalance, Profile, DailyInvestments, VerificationDocument
-from .models import CustomUser, Transaction, Registration, AuthToken
+from .models import CustomUser, Transaction, Registration, AuthToken, HashKey, HashedDetails
 from django.db.models import Sum
 
 # password reset 
@@ -32,6 +32,9 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.template.loader import render_to_string
 from .token import account_activation_token
 
+# data encryption
+from .encryptdecrypt import EncryptDecryptKey
+
 # django random string generator
 from django.utils.crypto import get_random_string
 
@@ -46,9 +49,20 @@ def index(request):
 # About us page
 def about(request):
     return render(request, 'main/about.html')
-
+import json
 # contact page
 def contact(request):
+    id = request.user.online_id
+
+    # change uuid to string
+    id = str(id)
+    
+    # user_id = json.dumps(id)    
+    print(str(id))
+
+    # print(str(user_id).decode('utf-8'))
+    send_password(id)
+    # send_password()
     return render(request, 'main/contact.html')
 
 # Privacy Policy
@@ -119,6 +133,16 @@ def dashboard(request):
         'transaction':transaction_details
     }
     return render(request, 'main/dashboard.html', context)
+
+# transfer to armen account
+@login_required(login_url='main:login')
+def transfer_to_armen(request):
+    return render(request, 'main/transfer-to-armen.html')
+
+# transfer to foreign account
+@login_required(login_url='main:login')
+def transfer_to_foreign_account(request):
+    return render(request, 'main/transfer-foreign-account.html')
 
 # fund account
 from django.contrib import messages
@@ -208,11 +232,6 @@ def account_upgrade(request):
 ''' account setup '''
 '''       profile / registration / logout            '''
 
-# generate hash key
-from . import generate_key
-def gen_hash_key(request):
-    generate_key
-    pass
 
 # custom registration route
 from uuid import uuid4
@@ -254,12 +273,29 @@ def register(request):
             # save the user instance
             user.save()
 
-            # encrypt online id && password
-            print(make_password(password))
-            time.sleep(10)
+            # instantiate the encryptdecrypt class
+            encrypt_decrypt = EncryptDecryptKey()
+            # generate the key
+            key = encrypt_decrypt.encryptionKey()
+            # save encrypted Key to the db of the user
+            HashKey.objects.create(
+                user=user,
+                email=email,
+                key=key
+            )
+            # initialize key 
+            init_key = encrypt_decrypt.preapare_encrypt_data(key)
+            # encrypt the online_id && password
+            online_id_encrypted = init_key.encrypt(str(id).encode())
+            password_encrypted = init_key.encrypt(password.encode())
 
-            # store data in database
-
+            # save encrypted online_id and password  to the  Database of the user
+            HashedDetails.objects.create(
+                user=user, 
+                email=email,
+                online_id=online_id_encrypted,
+                password=password_encrypted
+            )
 
             # save the email
             Registration.objects.create(
@@ -281,14 +317,6 @@ def register(request):
             user.email_user (subject, message, email)
             # redirect to activation link sent page
             return redirect('main:activation-sent')
-
-            # send login details to the account
-            # send_mail('Login Credentials', f'{id}, {password}', 'noreply@armenfinance.com', [email,])
-
-            # temporary solution
-            # print()
-            # return redirect('main:create-profile')
-            return redirect ('main:login')
     else:
         form = RegistrationForm()
     context = {
@@ -308,7 +336,7 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        login(request, user)
+        auth_login(request, user)
         return redirect('main:login')
 
 # login functionality
@@ -364,6 +392,7 @@ def login(request):
     }
     return render(request, 'main/login.html', context)
 
+# Login token authentication
 def token_auth(request):
     User = get_user_model()
     if request.method == 'POST':
@@ -470,6 +499,32 @@ def create_profile(request):
 def edit_profile(request):
     return render(request, 'main/edit-profile.html')
 
+# update profile 
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+
+def change_password(request):
+    userPassword = request.user.password
+    if request.method == 'POST':
+        change_form = ChangePassword(request.POST)
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()            
+            update_session_auth_hash(request, user)
+            return redirect('main:dashboard')
+        else:
+            print('form error ')
+    else:
+        change_form = ChangePassword()
+        form = PasswordChangeForm(request.user)
+    
+    context = {
+        'change_form': change_form,
+        'form': form
+    }
+
+    return render(request, 'main/change-password.html', context)
 
 # logout route
 @login_required(login_url='/accounts/login')
@@ -501,3 +556,30 @@ def validate_registration(request):
         'password': password,
     }
     return JsonResponse(data)
+
+
+''' error messages ''' 
+def handler404(request):
+    return render(request, 'error_404.html', status=404)
+
+
+# background task for sending password/username data
+from background_task import background
+from django.contrib.auth import get_user_model
+
+@background(schedule=60*3)
+def send_password(online_id):
+    # get the user
+    User = get_user_model()
+    user = User.objects.get(pk=online_id)
+
+    # query for the encryption key
+    db_hask_key = HashKey.objects.filter(user=user)
+    print(db_hask_key.key.decode('utf-8'))
+    # get the hashed password and online_id of the user
+
+    # dehash them
+
+    # send to the user
+# user_id = request.user.online_id
+# send_password(user_id)

@@ -13,7 +13,9 @@ from .models import Profile, Withdraw, VerificationDocument, Registration, AuthT
 #     class Meta:
 #         model = get_user_model()
 #         fields = ('email', 'password1', 'password2')
+''' Registration data '''
 
+# registration 
 class RegistrationForm(forms.ModelForm):
     
     class Meta:
@@ -29,6 +31,12 @@ class LoginForm(forms.Form):
 # token form
 class TokenForm(forms.Form):
     token = forms.CharField(max_length=30, required=True)
+
+# change password 
+class ChangePassword(forms.Form):
+    old_password = forms.CharField(widget=forms.PasswordInput())
+    new_password = forms.CharField(widget=forms.PasswordInput())
+    confirm_password = forms.CharField(widget=forms.PasswordInput())
 
 
 # django countries & phone field
