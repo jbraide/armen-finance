@@ -29,3 +29,13 @@ SCHEDULER_CONFIG = {
 SCHEDULER_AUTOSTART = True 
 
 DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'armenfinance',
+        'USER': 'armenfinance',
+        'PASSWORD': 'armenfinance',
+        'HOST': 'localhost',
+    }
+}

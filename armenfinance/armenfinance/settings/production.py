@@ -1,4 +1,14 @@
 from armenfinance.settings.base import *
 
 
-SECRET_KEY = 'rgrnmr#zk2st-m9mc43pjirup+lv&3gw04$&1bu&i%l6z(nz40'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'armenfinance',
+        'USER': 'armenfinance',
+        'PASSWORD': 'armenfinance',
+        'HOST': 'localhost',
+    }
+}
+
+USER_AUTH_MODEL = 'main.CustomUser'
