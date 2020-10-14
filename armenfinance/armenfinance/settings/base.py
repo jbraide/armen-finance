@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'background_task',
     # 'phonenumber-field',
-    'django_apscheduler',
+    # 'django_apscheduler',
 ]
 
 MIDDLEWARE = [
