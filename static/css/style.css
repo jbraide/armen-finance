@@ -62,6 +62,8 @@
     background-size: cover;
     width: 100%;
     color: white;
+    background-color: rgba(200,100,0,.5);
+    background-blend-mode: multiply;
     /* height: 300px; */
 }
 
@@ -185,6 +187,71 @@
     color: white;
     margin: 0.6rem 0;
 }
+/* dashboard */
+.savings-amount {
+    color: white;
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 4rem 0;
+}
+
+/* email sent */
+.mail-sent-img{
+    width: 50%;
+    margin: 0 24%;
+}
+
+.mail-sent-container{
+    margin-top: 12%;
+}
+
+.mail-sent-container > h3 {
+    font-size: 250% !important; 
+    margin: 3%;
+    letter-spacing: 2%;
+}
+
+.mail-sent-container > p {
+    font-size: 112%;
+}
+
+/* home page side navbar */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  
+  }
+  
+  .sidenav a:hover{
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
 
 }
 
@@ -366,5 +433,71 @@
     color: white;
     margin: 0.6rem 0;
 }
+/* dashboard */
+.savings-amount {
+    color: white;
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 4rem 0;
+}
+
+/* email sent */
+.mail-sent-img{
+    width: 50%;
+    margin: 0 24%;
+}
+
+.mail-sent-container{
+    margin-top: 12%;
+}
+
+.mail-sent-container > h3 {
+    font-size: 250% !important; 
+    margin: 3%;
+    letter-spacing: 2%;
+}
+
+.mail-sent-container > p {
+    font-size: 112%;
+}
+
+/* home page side navbar */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  
+  }
+  
+  .sidenav a:hover{
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
 
 }

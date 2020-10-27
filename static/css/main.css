@@ -189,7 +189,6 @@ h5 {
     box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
     margin: 10px 51px;
 }
-
 .manager_para {
     padding: 0px 10px;
     font-size: 15px;
@@ -211,7 +210,7 @@ h5 {
 
 .sign-img {
     position: relative;
-    left: 120px;
+    left: 88px;
 }
 
 .sign-text {
@@ -305,7 +304,6 @@ h5 {
         position: relative;
         left: 10px;
     }
-    /* <!-- choose what's right for you section --> */       
     /* choose what's right for you section */
     .choose-wrfy-header {
         font-size: 20px;
