@@ -190,25 +190,12 @@ h5 {
     margin: 10px 51px;
 }
 
-/* .manager_para {
-    padding: 0px 50px;
-    font-size: 15px;
-    text-align: center;
-    font-weight: 450;
-} */
 .manager_para {
     padding: 0px 10px;
     font-size: 15px;
     text-align: center;
     font-weight: 450;
 }
-
-/* .manager-para {
-    padding: 0px 92px;
-    font-size: 15px;
-    text-align: center;
-    font-weight: 450;
-} */
 .manager-para {
     padding: 0px 7px;
     font-size: 15px;
@@ -292,7 +279,6 @@ h5 {
     margin-top: 30px;
 }
 .map-img {
-    /* margin-left: 127px; */
     position: relative;
     left: 20%;
     margin-top: 20px;
@@ -319,7 +305,8 @@ h5 {
         position: relative;
         left: 10px;
     }
-    /* <!-- choose what's right for you section --> */
+    /* <!-- choose what's right for you section --> */       
+    /* choose what's right for you section */
     .choose-wrfy-header {
         font-size: 20px;
         font-family: 500;
@@ -357,7 +344,6 @@ h5 {
         margin-left: 100px;
         padding: 0;
     }
-
     /* free-trade  */
     .free-trade-btn {
         position: relative;
