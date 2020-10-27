@@ -278,7 +278,6 @@ h5 {
     margin-top: 30px;
 }
 .map-img {
-    /* margin-left: 127px; */
     position: relative;
     left: 20%;
     margin-top: 20px;
@@ -305,7 +304,7 @@ h5 {
         position: relative;
         left: 10px;
     }
-    /* <!-- choose what's right for you section --> */
+    /* choose what's right for you section */
     .choose-wrfy-header {
         font-size: 20px;
         font-family: 500;
@@ -343,7 +342,6 @@ h5 {
         margin-left: 100px;
         padding: 0;
     }
-
     /* free-trade  */
     .free-trade-btn {
         position: relative;

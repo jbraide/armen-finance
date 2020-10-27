@@ -91,11 +91,15 @@
     margin-top: 5rem;
     font-size: 1.9rem;
     font-weight: bold;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 #create-account-banner > p{
     font-size: 1.8rem;
     font-weight: 300;
     margin: 2rem 0;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 
 #create-account-banner > a {
@@ -109,9 +113,13 @@
     margin-top: 5.1rem;
     font-size: 2.0rem;
     text-align: right;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 #promotional-offer-banner > span {
     font-size: 2.4rem;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 /* choose what's right for you  */
 .choose-wrfy-header {
