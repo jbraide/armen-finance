@@ -1,6 +1,6 @@
 from armenfinance.settings.base import *
 
-# SECRET_KEY = 'rgrnmr#zk2st-m9mc43pjirup+lv&3gw04$&1bu&i%l6z(nz40'
+SECRET_KEY = 'rgrnmr#zk2st-m9mc43pjirup+lv&3gw04$&1bu&i%l6z(nz40'
 
 AUTH_USER_MODEL = 'main.CustomUser'
 
@@ -28,6 +28,9 @@ SCHEDULER_CONFIG = {
 
 SCHEDULER_AUTOSTART = True 
 
+<<<<<<< HEAD
+DEBUG = True
+=======
 DEBUG = True
 
 DATABASES = {
@@ -39,3 +42,4 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
+>>>>>>> e5b35467535ef849ede39b1c3dd2c85ad888773a

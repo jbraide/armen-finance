@@ -25,7 +25,11 @@ SECRET_KEY = 'rgrnmr#zk2st-m9mc43pjirup+lv&3gw04$&1bu&i%l6z(nz40'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+=======
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '143.110.189.108', 'armenfinance.com']
+>>>>>>> e5b35467535ef849ede39b1c3dd2c85ad888773a
 
 
 # Application definition
@@ -41,7 +45,11 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'background_task',
     # 'phonenumber-field',
+<<<<<<< HEAD
     'django_apscheduler',
+=======
+    # 'django_apscheduler',
+>>>>>>> e5b35467535ef849ede39b1c3dd2c85ad888773a
 ]
 
 MIDDLEWARE = [
@@ -123,9 +131,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
+=======
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+>>>>>>> e5b35467535ef849ede39b1c3dd2c85ad888773a
 
 handler404 = 'main.views.handler404'
