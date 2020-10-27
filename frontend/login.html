@@ -12,6 +12,7 @@
 
     <!-- main.css file  -->
     <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 
     <!-- jquery and popper cdn -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
@@ -23,32 +24,74 @@
 </head>
 <body class="text-monospace">
 
-    <!-- navigation menu  -->
-     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">armen-finance</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+   <!-- navigation -->
+   <nav class="navigation desktop">
+      <div class="container">
+          <div class="row">
+
+              <!-- icon -->
+              <div class="col-1">
+                  <span class="fas fa-bars" id="nav-menu-icon"  onclick="openNav()"></span>
+              </div>
+              <!-- open an account nav -->
+              <div class="col-2" id="open-account-nav">
+                  <a href="./login.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+              </div>
+              <!-- logo -->
+              <div class="col-5" id="logo-nav">
+                  <!-- <h3>Armen Finance</h3> -->
+                  <!-- insert logo her -->
+                  <img src="./static/img/logo_transparent.png" alt="">
+              </div>
+
+              <!-- about us and search bar -->
+              <div class="col-lg-4" id="about-us-nav">
+                  <a href="about-us.html">About Us</a>
+                  <a href="">
+                      <span class="fas fa-search"></span>
+                  </a>
+              </div>
+          </div>
+        </div>        
+    </nav>
+
+    <!-- sidebar content -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- navigation -->
+    <nav class="navigation mobile">
+        <div class="container">
+            <div class="row">
+
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon"></span>
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                </div>
+
+                <!-- LOGIN -->
+                <div class="col-4" id="about-us-nav">
+                    <a href="" class="btn btn-outline-success px-4">LOGIN</a>
+                </div>
+
+            </div>
+        </div>        
+    </nav>
+    <!-- end of navigation -->
     
       <div class="col content-body">
-          <h3 class="text-center p-5">
+          <h3 class="text-secondary text-center p-5">
               login
           </h3>
       </div>
