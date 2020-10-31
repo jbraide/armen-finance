@@ -3,6 +3,328 @@
     border-radius: 0;
 }
 
+/* 
+----------------------------
+       sam's styles
+----------------------------
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    color: #343a40;
+    font-size: 14px;
+    height: 100%;
+    font-family: monospace;
+}
+
+/* login page file styling  */
+/* h3 {
+    color: #f5f5f5;
+} */
+
+#logo-column {
+    background: rgb(2,0,36);
+    background: linear-gradient(117deg, rgba(2,0,36,1) 0%, rgba(8,169,255,0.9640231092436975) 51%, rgba(0,212,255,1) 100%);
+}
+
+#form-column {
+    background-color: #f5f5f5;
+    color: rgb(2, 0, 36);
+}
+
+.card-body {
+    padding-bottom: 35px;
+   
+}
+
+.login-logo {
+    position: relative;
+    top: 110px;
+}
+
+/* Registration page file styling  */
+.registration-div {
+    margin-bottom: 30px;
+}
+.registration-card {
+    background-color: #f5f5f5;
+    color: rgb(2, 0, 36);
+    border-radius: 4px;
+    position: relative;
+    top: 10px;
+    margin: 4px;
+}
+
+.footer-note {
+    position: relative;
+    top:30px;
+}
+
+button {
+    background: linear-gradient(117deg, rgba(2,0,36,1) 0%, rgba(8,169,255,0.9640231092436975) 51%, rgba(0,212,255,1) 100%);
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(241deg, rgba(2,0,36,1) 0%, rgba(8,169,255,0.9640231092436975) 51%, rgba(0,212,255,1) 100%);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* about section styling  */
+.about-armen {
+    font-size: 20px;
+    color: #343a40;
+}
+
+.about-img1, .about-img2, .about-img3 {
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
+}
+.about-img1 {
+    background-image: url(../img/pexels-pixabay-269077.jpg);
+    height: 500px;
+}
+
+.about-img2 {
+    background-image: url(../img/pexels-fauxels-3184433.jpg);
+    min-height: 400px;
+}
+
+.about-img3 {
+    background-image: url(../img/pexels-startup-stock-photos-7374.jpg);
+    min-height: 400px;
+
+}
+
+.section {
+    text-align: center;
+    padding: 50px 80px;
+}
+
+.section-light {
+    background-color: #f4f4f4;
+}
+
+.section-dark {
+    background-color: #282e34;
+    color: #f5f5f5;
+}
+
+.ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+ .border {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+}
+
+.trans {
+    background-color: transparent;
+    color: #008080;
+}
+
+/* contact section styling  */
+.contact-img1 {
+    background-image: url('../img/pexels-snapwire-618613.jpg');
+    height: 600px;
+}
+
+.contact-img2 {
+    background-image: url('../img/pexels-andrea-piacquadio-3769021\ \(2\).jpg');
+    min-height: 600px;
+}
+
+.contact-img3 {
+    background-image: url('../img/pexels-andrea-piacquadio-840996.jpg');
+    min-height: 600px;
+}
+
+.contact-img1, .contact-img2, .contact-img3 {
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
+}
+
+.contact-form {
+    background-image: url('../img/undraw_contact_us_15o2.svg');
+    color: #111;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* home-banner  */
+    .home-banner {
+        background-position: center;
+        background-size: cover;
+    }
+    /* map image  */
+
+    .map-img {
+        width: 60%;
+        margin-left: -86px
+    }
+    /* <!-- choose what's right for you section --> */
+    .choose-wrfy-header {
+        font-size: 20px;
+        font-family: 500;
+        text-align: center;
+    }
+    /* <!--about manager --> */
+    .manager {
+        display: block;
+        padding: 0px;
+        margin-bottom: 50px;
+    }
+
+    .manager-heading {
+        position: relative;
+        left: 3px;
+    } 
+
+    .manager-div {
+        box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
+        margin: 20px 60px;
+    }
+
+    .manager-para {
+        padding-bottom: 2px;
+        padding: 0px 30px;
+        margin: 10px 0px;
+    }
+
+    .manager-team {
+        min-width: 320px;
+        width: 70%;
+        margin-left: 18%;
+    }
+    .sign-img {
+        margin-left: 100px;
+        padding: 0;
+    }
+
+    /* gallery  */
+    .gallery {
+        position: relative;
+        align-items: center;
+        justify-items: center;
+        margin-left: 18px;
+        padding: 0;
+    }
+
+    .gallery-section_1 {
+        position: relative;
+        left: 20px;
+    }
+
+    /* testimonials  */
+    .testimonials-msg {
+        position: relative;
+        margin-left: -10px;
+    }
+
+    
+    .img-te1, .img-te2, .img-te3 {
+    position: relative;
+    margin-left: 100px;
+    left: 89px;
+    border-radius: 50%;
+    }
+
+    .img-te4 {
+        position: relative;
+        margin-left: 80px;
+        width: 31%;
+    }
+
+    /* style css class  */
+    #unltd-comm-header {
+        font-size: 25px;
+    }
+
+    #unltd-comm-body {
+        font-size: 18px;
+    }
+/* unlimited commission-free online trade  */
+    #unltd-comm-body {
+        font-size: 15px;
+        padding: 0px 20px;
+        margin: 0px 3px;
+    }
+
+    #start-0-investing > img {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .unltd-comm-btn {
+        margin-left: 40px;
+        position: relative;
+        left: 40px;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    /* manager  */
+    .manager-team {
+        min-width: 320px;
+    }
+
+    .sign-img {
+        margin-left: 25px;
+    }
+
+    .img-te1, .img-te2, .img-te3 {
+        position: relative;
+        margin-left: 0px;
+        left: 85px;
+        border-radius: 50%;
+    }
+
+    .img-te4 {
+        position: relative;
+        margin-left: -18px;
+        width: 50%;
+    }
+
+    .map-img {
+        width: 60%
+    }
+}
+
 
 /* desktop view */
 @media only screen and (min-width: 800px){

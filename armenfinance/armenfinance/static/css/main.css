@@ -5,17 +5,17 @@
 
 
 body {
-    background-color: #062489 !important;
-    background:url('/frontend/static/img/bg.png');
     background-repeat: no-repeat center center fixed;
-    color: #fff;
+    color: #343a40;
     font-size: 14px;
+    height: 100%;
+    font-family: monospace;
 }
 
-/* loginf page file styling  */
-h3 {
+/* login page file styling  */
+/* h3 {
     color: #f5f5f5;
-}
+} */
 
 #logo-column {
     background: rgb(2,0,36);
@@ -38,6 +38,9 @@ h3 {
 }
 
 /* Registration page file styling  */
+.registration-div {
+    margin-bottom: 30px;
+}
 .registration-card {
     background-color: #f5f5f5;
     color: rgb(2, 0, 36);
@@ -73,15 +76,376 @@ a {
     color: #343a40;
 }
 
+.about-img1, .about-img2, .about-img3 {
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-/* registration  */
-.reg-page{
-    padding: 14% 0;
+    background-attachment: fixed;
+}
+.about-img1 {
+    background-image: url(../img/pexels-pixabay-269077.jpg);
+    height: 500px;
+}
+
+.about-img2 {
+    background-image: url(../img/pexels-fauxels-3184433.jpg);
+    min-height: 400px;
+}
+
+.about-img3 {
+    background-image: url(../img/pexels-startup-stock-photos-7374.jpg);
+    min-height: 400px;
+
+}
+
+.section {
+    text-align: center;
+    padding: 50px 80px;
+}
+
+.section-light {
+    background-color: #f4f4f4;
+}
+
+.section-dark {
+    background-color: #282e34;
+    color: #f5f5f5;
+}
+
+.ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+ .border {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+}
+
+.trans {
+    background-color: transparent;
+    color: #008080;
+}
+
+/* contact section styling  */
+.contact-img1 {
+    background-image: url('../img/pexels-snapwire-618613.jpg');
+    height: 600px;
+}
+
+.contact-img2 {
+    background-image: url('../img/pexels-andrea-piacquadio-3769021\ \(2\).jpg');
+    min-height: 600px;
+}
+
+.contact-img3 {
+    background-image: url('../img/pexels-andrea-piacquadio-840996.jpg');
+    min-height: 600px;
+}
+
+.contact-img1, .contact-img2, .contact-img3 {
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
+}
+
+.contact-form {
+    background-image: url('../img/undraw_contact_us_15o2.svg');
+    color: #111;
+}
+
+/* manager section  paragraph styling  */
+h5 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    color: #343a40;
+    padding: 0px 10px;
+    margin-bottom: 30px;
+}
+
+.manager {
+    padding: 0px 200px;
+    margin: 30px 0px;
+}
+ .manager-heading {
+     position: relative;
+     left: 10px;
+ }
+ .manager-div {
+    box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
+    margin: 10px 51px;
+}
+.manager_para {
+    padding: 0px 10px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 450;
+}
+.manager-para {
+    padding: 0px 7px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 450;
+}
+
+.manager-team {
+    margin-top: 20% ;
+    width: 100%;
+    height: 70%;
+}
+
+.sign-img {
+    position: relative;
+    left: 88px;
+}
+
+.sign-text {
+    font-weight: 800;
+    text-align: center;
+    padding: 0px 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+/* gallery section  */
+.gallery {
+    margin: 100px 0px;
+    align-items: center;
+}
+
+.gallery-image {
+    margin-top: 30px;
+    border-top-left-radius: 4px;
+    width: 80%;
+    cursor: pointer;
+}
+
+.gallery-image:hover {
+    box-shadow: rgba(216, 216, 216, 0.78) 10px 15px 15px 0px;
+    width: 90%;
+}
+
+.gallery-section_1 {
+    margin: 0px 30px;
+    padding: 0px 20px;
+}
+
+.gallery-section_3 {
+    margin: 0px 30px;
+    padding: 0px 20px;
+}
+
+/* testimonials section styling  */
+.testimonials {
+    align-items: center;
+}
+
+.img-te1, .img-te2,
+.img-te3, .img-te4 {
+    position: relative;
+    left: 96px;
+    border-radius: 50%;
+}
+
+.img-te1-name,.img-te2-name,
+.img-te3-name,.img-te4-name  {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(8,169,255,0.9640231092436975);
+}
+.testimonials-msg {
+    padding: 0px 50px;
+}
+
+/* map  */
+
+.map-heading {
+    margin-top: 30px;
+}
+.map-img {
+    position: relative;
+    left: 20%;
+    margin-top: 20px;
 }
 
 
-@media only screen and (max-width: 600px){
-    .reg-page{
-        padding: 50% 0;
+@media only screen and (max-width: 600px) {
+
+    body {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* home-banner  */
+    .home-banner {
+        background-position: center;
+        background-size: cover;
+    }
+    /* map image  */
+    .map-img {
+        width: 100%;
+        position: relative;
+        left: 10px;
+    }
+    /* choose what's right for you section */
+    .choose-wrfy-header {
+        font-size: 20px;
+        font-family: 500;
+        text-align: center;
+    }
+    /* <!--about manager --> */
+    .manager {
+        display: block;
+        padding: 0px;
+        margin-bottom: 50px;
+    }
+
+    .manager-heading {
+        position: relative;
+        left: 3px;
+    } 
+
+    .manager-div {
+        box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
+        margin: 20px 60px;
+    }
+
+    .manager-para {
+        padding-bottom: 2px;
+        padding: 0px 30px;
+        margin: 10px 0px;
+    }
+
+    .manager-team {
+        min-width: 320px;
+        width: 70%;
+        margin-left: 10%;
+    }
+    .sign-img {
+        margin-left: 100px;
+        padding: 0;
+    }
+    /* free-trade  */
+    .free-trade-btn {
+        position: relative;
+        left: 23%;
+    }
+    /* gallery  */
+    .gallery {
+        position: relative;
+        align-items: center;
+        justify-items: center;
+        margin-left: 18px;
+        padding: 0;
+    }
+
+    .gallery-section_1 {
+        position: relative;
+        left: 20px;
+    }
+
+    /* testimonials  */
+    .testimonials-msg {
+        position: relative;
+        margin-left: -10px;
+    }
+
+    
+    .img-te1, .img-te2, .img-te3 {
+    position: relative;
+    margin-left: 100px;
+    left: 89px;
+    border-radius: 50%;
+    }
+
+    .img-te4 {
+        position: relative;
+        margin-left: 80px;
+        width: 31%;
+    }
+
+    /* style css class  */
+    #unltd-comm-header {
+        font-size: 25px;
+    }
+
+    #unltd-comm-body {
+        font-size: 18px;
+    }
+/* unlimited commission-free online trade  */
+    #unltd-comm-body {
+        font-size: 15px;
+        padding: 0px 20px;
+        margin: 0px 3px;
+    }
+
+    #start-0-investing > img {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .unltd-comm-btn {
+        margin-left: 40px;
+        position: relative;
+        left: 40px;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    /* manager  */
+    .manager-team {
+        min-width: 320px;
+    }
+
+    .sign-img {
+        margin-left: 25px;
+    }
+
+    .img-te1, .img-te2, .img-te3 {
+        position: relative;
+        margin-left: 0px;
+        left: 85px;
+        border-radius: 50%;
+    }
+
+    .img-te4 {
+        position: relative;
+        margin-left: -18px;
+        width: 50%;
+    }
+    #create-account-banner > p {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    #create-account-banner > h3 {
+        margin-top: 2rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    #promotional-offer-banner > h3 {
+        margin-top: 1.4rem;
+        font-size: 1.9rem;
+        text-align: right;
+    }
+    sup {
+        top: -0.1em;
+        font-size: 33px;
     }
 }

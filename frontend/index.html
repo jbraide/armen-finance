@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Armen Finance</title>
+    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
 
   
     <!-- jquery and popper cdn -->
@@ -22,6 +23,7 @@
 
     <!-- main css file -->
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/main.css">
     <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 
     <!-- owl carousel -->
@@ -37,49 +39,108 @@
 </head>
 <body>
     
+        <!-- banner -->
+        <div class="home-banner">
+            <!-- navigation -->
+            <nav class="navigation desktop">
+                <div class="container">
+                    <div class="row">
+                        <!-- icon -->
+                        <div class="col-1">
+                            <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+                        </div>
+                        <!-- open an account nav -->
+                        <div class="col-2" id="open-account-nav">
+                            <a href="" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                        </div>
+                        <!-- logo -->
+                        <div class="col-5" id="logo-nav">
+                            <!-- <h3>Armen Finance</h3> -->
+                            <!-- insert logo her -->
+                            <img src="./static/img/logo_transparent.png" alt="">
+                        </div>
+                        <!-- about us and search bar -->
+                        <div class="col-lg-4" id="about-us-nav">
+                            <a href="">About Us</a>
+                            <a href="">
+                                <span class="fas fa-search"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>        
+            </nav>
+            <!-- sidebar content -->
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="{% url 'main:login' %}">Login</a>
+                <a href="{% url 'main:register' %}">Signup</a>
+                <a href="{% url 'main:about' %}">About</a>
+                <a href="{% url 'main:contact' %}">Contact</a>
+            </div>
+            <!-- navigation -->
+            <nav class="navigation mobile">
+                <div class="container">
+                    <div class="row">
+                        <!-- icon -->
+                        <div class="col-1">
+                            <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
 
+                        </div>
+                        <!-- logo -->
+                        <div class="col-5" id="logo-nav">
+                            <!-- <h3>Armen Finance</h3> -->
+                            <!-- insert logo her -->
+                            <img src="./static/img/logo_transparent.png" alt="">
+                        </div>
+
+                        <!-- LOGIN -->
+                        <div class="col-4" id="about-us-nav">
+                            <a href="" class="btn btn-outline-success px-4">LOGIN</a>
+                        </div>
+
+                    </div>
+                </div>        
+            </nav>
     <!-- banner -->
     <div class="home-banner">
         <!-- navigation -->
-    <nav class="navigation desktop">
-        <div class="container">
-            <div class="row">
+        <nav class="navigation desktop">
+            <div class="container">
+                <div class="row">
 
-                <!-- icon -->
-                <div class="col-1">
-                    <span class="fas fa-bars" id="nav-menu-icon"  onclick="openNav()"></span>
+                    <!-- icon -->
+                    <div class="col-1">
+                        <span class="fas fa-bars" id="nav-menu-icon"  onclick="openNav()"></span>
+                    </div>
+                    <!-- open an account nav -->
+                    <div class="col-2" id="open-account-nav">
+                        <a href="login.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                    </div>
+                    <!-- logo -->
+                    <div class="col-5" id="logo-nav">
+                        <!-- <h3>Armen Finance</h3> -->
+                        <!-- insert logo her -->
+                        <img src="./static/img/logo_transparent.png" alt="">
+                    </div>
+                    <!-- about us and search bar -->
+                    <div class="col-lg-4" id="about-us-nav">
+                        <a href="about-us.html">About Us</a>
+                        <a href="">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
                 </div>
-                <!-- open an account nav -->
-                <div class="col-2" id="open-account-nav">
-                    <a href="" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
-                </div>
-                <!-- logo -->
-                <div class="col-5" id="logo-nav">
-                    <!-- <h3>Armen Finance</h3> -->
-                    <!-- insert logo her -->
-                    <img src="./static/img/logo_transparent.png" alt="">
-                </div>
+            </div>        
+        </nav>
 
-                <!-- about us and search bar -->
-                <div class="col-lg-4" id="about-us-nav">
-                    <a href="">About Us</a>
-                    <a href="">
-                        <span class="fas fa-search"></span>
-                    </a>
-                </div>
-
-            </div>
-        </div>        
-    </nav>
-
-    <!-- sidebar content -->
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-      </div>
+        <!-- sidebar content -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
 
         <!-- navigation -->
         <nav class="navigation mobile">
@@ -105,7 +166,7 @@
                 </div>
             </div>        
         </nav>
-    <!-- end of navigation -->
+        <!-- end of navigation -->
         <div class="container">
             <div class="row">
                 <!-- login form -->
@@ -139,7 +200,7 @@
                     <!-- new customers title -->
                     <h3>New Armen Finance Customers:</h3>
                     <p>Open a New Armen Account and set Up Direct Deposit</p>
-                    <a href="" class="btn btn-success btn-block flat">Open an account</a>
+                    <a href="login.html" class="btn btn-success button btn-block flat">Open an account</a>
                 </div>
 
             </div>
@@ -198,11 +259,58 @@
     </div>
     <!-- end of choose whats right for you section -->
 
-    <!-- unlimited commission free trades -->
+       <!--about manager -->
+       <div class="col-lg manager">
+        <h3 class="text-center mb-5"><span class="text-primary">K</span>now More</h3>
+        <div class="row">
+            <div class="col-lg-4 pl-lg-2">
+                <h5 class="text-center manager-heading">
+                    Ensuring there's a high level of customer service. 
+                </h5>
+                <p class="manager_para">
+                    To provide excellent customer service, you first need understand their needs, experiences, and pain points.
+                    Improving our customer service begins with building a strong customer service. Armen-Finance aren't lacking this.
+                </p>
+                <img src="./static/img/sign.png" alt="" width="30%" class="sign-img">
+                <p class="sign-text text-primary">Management</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="manager-div">
+                    <h5>
+                        Know Your Product or Service
+                    </h5>
+                    <p class="manager-para">
+                        Our Clients goals is our priority. Thats our Products and Service.
+                    </p>
+                </div>
+                <div class="manager-div">
+                    <h5>
+                        Be Friendly
+                    </h5>
+                    <p class="manager-para">
+                        Our support team are your friends you can always count on anytime.
+                    </p>
+                </div>
+                <div class="manager-div">
+                    <h5>
+                        Say Thank You
+                    </h5>
+                    <p class="manager-para">
+                       Our support team as well as the entire Armen-Finance will always be grateful to our Clients.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img src="./static/img/manager.jpg" alt="" class="manager-team">
+            </div>
+        </div>
+    </div>
+    <!-- //about manager -->
+     <!-- unlimited commission free trades -->
     <!-- 
         unltd-comm = unlimited commissions
      -->
-    <div id="commission-free-trade-border">
+     <div id="commission-free-trade-border">
         <div class="container">
             <div class="row">
                 <div class="col-md-6" id="start-0-investing">
@@ -211,7 +319,7 @@
                 <div class="col-md-6">
                     <h3 id="unltd-comm-header">Unlimited Commission-Free Online Trades</h3>
                     <p id="unltd-comm-body" class="my-5">Trade on your own: Open and fund an <strong>Armen Finance</strong> self-directed investment account.</p>
-                    <a href="" class="btn btn-primary">
+                    <a href="" class="btn btn-primary free-trade-btn">
                         Open an Account
                     </a>
                 </div>
@@ -219,6 +327,77 @@
         </div>
     </div>
     <!-- end of unlimited commission free trades -->
+    <!-- gallery -->
+    <div class="col-lg gallery">
+        <h3 class="text-center">
+            <span class="text-primary">G</span>allery
+        </h3>
+        <div class="row">
+            <div class="col-lg-4 gallery-image-div">
+                <div class="gallery-section_1">
+                    <img src="./static/img/g1.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/g4.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/g2.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/pexels-snapwire-618613.jpg" alt="" class="gallery-image">
+                </div>
+            </div>
+            <div class="col-lg-4 gallery-image-div">
+                <div class="gallery-section_2">
+                    <img src="./static/img/pexels-andrea-piacquadio-840996.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/g6.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/pexels-fauxels-3184433.jpg" alt=""  class="gallery-image">
+                </div>
+            </div>
+            <div class="col-lg-4 gallery-image-div">
+                <div class="gallery-section_3">
+                    <img src="./static/img/g2.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/g5.jpg" alt=""  class="gallery-image">
+                    <img src="./static/img/g1.jpg" alt=""  class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- //gallery -->
+<!-- testimonials -->
+    <div class="col-lg testimonials">
+        <h3 class="text-center testimonials-heading"><span class="text-primary">T</span>estimonials</h3>
+        <div class="row testimonials-row">
+            <div class=" col-lg-3 testimonials_1">
+                <img src="./static/img/te1.jpg" alt="" srcset="" class="img-te1">
+                <p class="text-center img-te1-name">hael fgul</p>
+                <p class="text-center testimonials-msg">Within the first few hours of signing up, I had doubled my yearly subscription. The information,
+                     the team, and the entire community are always so helpful. I would consider this one of the best crypto communities in the entire space! </p>
+            </div>
+            <div class="col-lg-3 testimonials_2">
+                <img src="./static/img/new-te4.jpeg" alt="" width="45%" class="img-te4">
+                <p class="text-center img-te4-name">Samuel Archibong</p>
+                <p class="text-center testimonials-msg">I want to thank Armen-Finance for getting me setup to trade cryptocurrency. 
+                    It’s an exciting time in the market and with only a week of hobby level trading I’ve been making $1000+ per day! Now is the time to invest.</p>
+            </div>
+            <div class="col-lg-3 testimonials_3">
+                <img src="./static/img/te2.jpg" alt="" class="img-te2">
+                <p class="text-center img-te3-name">Linda Carl</p>
+                <p class="text-cente testimonials-msg">I've made quite a fortune on Armen-Finance and I can't tell you how much it has really helped me in this hard times!</p>
+            </div>
+            <div class="col-lg-3 testimonials_4">
+                <img src="./static/img/te3.jpg" alt="" srcset="" class="img-te3">
+                <p class="text-center img-te4-name">Michael Paul</p>
+                <p class="text-center testimonials-msg">
+                    Thanks Armen-Finance, you help me make over £20,000 in 2 months. Is absolute game changer for me.
+                    Thanks.
+                </p>
+            </div>
+        </div>
+    </div>
+<!-- //testimonials -->
+<!-- map  -->
+<div class="col-lg">
+    <div class="map">
+        <h3 class="text-center map-heading">Our wide range branches</h3>
+        <img src="./static/img/map.jpg" alt="" class="map-img">
+    </div>
+</div>
+
 
     <!-- footer -->
     <footer id="footer-bg">
@@ -230,7 +409,7 @@
                     <img src="./static/img/logo_transparent.png" alt="">
                     
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, culpa doloremque? Similique corrupti architecto iste ipsa soluta non numquam illum veritatis! Facilis nulla iusto molestias placeat officia qui vitae, itaque a magni perferendis quis sit nesciunt adipisci illum ad et?
+                        We are committed to being a driving force in the cryptocurrency trading revolution by increasing adoption of this innovative technology around the world. Using our streamlined trade listing process, we will advance new, innovative cryptocurrency projects that could potentially transform the way goods, services and operations are managed globally
                     </p>
                 </div>
 
