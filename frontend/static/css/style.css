@@ -10,57 +10,60 @@
         display: none;
     }
     /* home page styling */
-/* navigation */
-.navigation {
-    background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0) 100%);
-    padding: 1.3rem 0;
-    padding-top: 2.2rem;
-    /* height: 300px; */
-}
-.navigation-fixed {
-    background: linear-gradient(to bottom,rgba(0, 0, 139,1) 0%,rgba(0, 0, 139,0.9) 86%,rgba(0, 0, 139,0) 100%);
-    padding-bottom: 2rem;
-    /* background: rgb(0, 0, 139); */
-    width: 100%;
-    position: fixed;
-    z-index:10;
-    transition: 1s width ease-in-out ;
-}
+    /* navigation */
+    .navigation {
+        background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0) 100%);
+        padding: 1.3rem 0;
+        padding-top: 2.2rem;
+        /* height: 300px; */
+    }
+    .navigation-fixed {
+        background: linear-gradient(to bottom,rgba(0, 0, 139,1) 0%,rgba(0, 0, 139,0.9) 86%,rgba(0, 0, 139,0) 100%);
+        padding-bottom: 2rem;
+        /* background: rgb(0, 0, 139); */
+        width: 100%;
+        position: fixed;
+        z-index:10;
+        transition: 1s width ease-in-out ;
+    }
 
-#nav-menu-icon {
-    font-size: 1.5rem;
-    margin-top: 14%;
-}
-#open-account-nav {
-    margin-top: 0.6rem;
-}
-#open-account-nav > a {
-    color: white;
-}
+    #nav-menu-icon {
+        font-size: 1.5rem;
+        margin-top: 14%;
+    }
+    #open-account-nav {
+        margin-top: 0.6rem;
+    }
+    #open-account-nav > a {
+        color: white;
+    }
 
-#logo-nav > img {
-    width:50%;
-    height: auto;
-    margin-left:40%;
-}
+    #logo-nav > img {
+        width:50%;
+        height: auto;
+        margin-left:40%;
+    }
 
-#about-us-nav {
-    margin-top: 1%;
-    padding-left: 17%;
-}
-#about-us-nav > a {
-    color: white;
-    padding-right: 1.5rem;
-}
+    #about-us-nav {
+        margin-top: 1%;
+        padding-left: 17%;
+    }
+    #about-us-nav > a {
+        color: white;
+        padding-right: 1.5rem;
+    }
 
-/* banner */
-.home-banner {
+    /* banner */
+    .home-banner {
     /* background-color: #0056A9; */
     /* background: linear-gradient(71deg, rgba(0,169,166,1) 13%, rgba(0,86,169,1) 61%, rgba(0,3,169,1) 93%); */
     background: url('../img/banner-wallpaper.jpg');
-    
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     color: white;
+    background-color: rgba(200,100,0,.5);
+    background-blend-mode: multiply;
     /* height: 300px; */
 }
 
@@ -86,13 +89,17 @@
 /* create account banner */
 #create-account-banner > h3{
     margin-top: 5rem;
-    font-size: 3rem;
+    font-size: 1.9rem;
     font-weight: bold;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 #create-account-banner > p{
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 300;
     margin: 2rem 0;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 
 #create-account-banner > a {
@@ -103,13 +110,16 @@
     text-align: right;
 }
 #promotional-offer-banner > h3 {
-    margin-top: 8.4rem;
-    font-size: 2.9rem;
+    margin-top: 5.1rem;
+    font-size: 2.0rem;
     text-align: right;
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 #promotional-offer-banner > span {
     font-size: 2.4rem;
-    /* text-align: right; */
+    color: rgb(82, 59, 32);
+    text-shadow: 2px 4px rgba(232, 230, 230, 0.75);
 }
 /* choose what's right for you  */
 .choose-wrfy-header {
@@ -130,11 +140,11 @@
     top: -32%;
 }
 .owl-prev > span{
-    left: 0%;
+    left: -5%;
 }
 
 .owl-next > span{
-    right: 0%;
+    right: -5%;
 }
 .owl-next > span:hover, .owl-prev > span:hover {
     color: blue;
@@ -177,7 +187,6 @@
     color: white;
     margin: 0.6rem 0;
 }
-
 /* dashboard */
 .savings-amount {
     color: white;
@@ -246,17 +255,6 @@
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* mobile view */
 @media only screen and (max-width: 800px){
     .desktop {
@@ -313,7 +311,6 @@
     /* background: linear-gradient(71deg, rgba(0,169,166,1) 13%, rgba(0,86,169,1) 61%, rgba(0,3,169,1) 93%); */
     background: url('../img/banner-wallpaper-mobile.jpg') no-repeat;
     height: 100%;
-    
     width: 100%;
     color: white;
     /* height: 300px; */
@@ -436,8 +433,35 @@
     color: white;
     margin: 0.6rem 0;
 }
+/* dashboard */
+.savings-amount {
+    color: white;
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 4rem 0;
+}
 
-/* homepage sidebar */
+/* email sent */
+.mail-sent-img{
+    width: 50%;
+    margin: 0 24%;
+}
+
+.mail-sent-container{
+    margin-top: 12%;
+}
+
+.mail-sent-container > h3 {
+    font-size: 250% !important; 
+    margin: 3%;
+    letter-spacing: 2%;
+}
+
+.mail-sent-container > p {
+    font-size: 112%;
+}
+
+/* home page side navbar */
 
 .sidenav {
     height: 100%;
@@ -475,61 +499,5 @@
     margin-left: 50px;
   }
 
+
 }
-
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-
-
-  .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-  
-  .overlay-content {
-    position: relative;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-  }
-  
-  .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
-  }
