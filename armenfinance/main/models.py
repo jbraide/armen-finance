@@ -205,3 +205,6 @@ class Transaction(models.Model):
     transaction_id = models.UUIDField(default=uuid.uuid4())
     amount = models.IntegerField()
     type = models.CharField(max_length=30, choices=types)
+
+
+    

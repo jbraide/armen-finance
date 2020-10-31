@@ -1,4 +1,5 @@
 from armenfinance.settings.base import *
+import djcelery 
 
 SECRET_KEY = 'rgrnmr#zk2st-m9mc43pjirup+lv&3gw04$&1bu&i%l6z(nz40'
 
@@ -39,3 +40,14 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
+
+
+# # celery settings
+# ''' specify which broker you will use '''
+
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Africa/Lagos'

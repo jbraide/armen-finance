@@ -38,12 +38,15 @@ from .encryptdecrypt import EncryptDecryptKey
 # django random string generator
 from django.utils.crypto import get_random_string
 
-
+''' scheduler '''
+from .celery.tasks import activation_link_send_task
 
 ''' views with no logic  '''
 
 # homepage
 def index(request):
+    # my_first_task.delay(10)
+    # print('immediately or after')
     return render(request, 'main/index.html')
 
 # About us page
@@ -238,9 +241,10 @@ from uuid import uuid4
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 
-
-# test time
+# django serializer
+from django.core import serializers
 import time
+
 
 def register(request):
     if request.method == "POST":
@@ -250,7 +254,7 @@ def register(request):
         # account and password generator 
         id = uuid4()
         password = get_random_string(14)
-        print(f'username {id}, password {password}')
+        # print(f'username {id}, password {password}')
 
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -312,9 +316,16 @@ def register(request):
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)), 
                     'token': account_activation_token.make_token(user),
                 }
-            )
+            )   
 
-            user.email_user (subject, message, email)
+            # serialize the django user to json at this point
+            # serialized_user = serializers.serialize('json', user.online_id)
+            # print(serialized_user)
+            # time.sleep(50)
+
+            activation_link_send_task.delay(40, id, subject, message, email)
+            
+
             # redirect to activation link sent page
             return redirect('main:activation-sent')
     else:
