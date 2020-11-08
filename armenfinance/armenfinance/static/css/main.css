@@ -5,6 +5,7 @@
 
 
 body {
+    
     background-repeat: no-repeat center center fixed;
     color: #343a40;
     font-size: 14px;
@@ -170,10 +171,9 @@ a {
 /* manager section  paragraph styling  */
 h5 {
     text-align: center;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
     color: #343a40;
-    padding: 0px 10px;
     margin-bottom: 30px;
 }
 
@@ -183,18 +183,20 @@ h5 {
 }
  .manager-heading {
      position: relative;
-     left: 10px;
+     left: 15px;
  }
  .manager-div {
     box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
     margin: 10px 51px;
 }
+
 .manager_para {
     padding: 0px 10px;
     font-size: 15px;
     text-align: center;
     font-weight: 450;
 }
+
 .manager-para {
     padding: 0px 7px;
     font-size: 15px;
@@ -210,7 +212,7 @@ h5 {
 
 .sign-img {
     position: relative;
-    left: 88px;
+    left: 83px;
 }
 
 .sign-text {
@@ -276,11 +278,13 @@ h5 {
 
 .map-heading {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .map-img {
+    margin-left: 50px;
     position: relative;
-    left: 20%;
-    margin-top: 20px;
+    left: 140px;
+    width: 80%;
 }
 
 
@@ -299,11 +303,14 @@ h5 {
         background-size: cover;
     }
     /* map image  */
+
     .map-img {
         width: 100%;
-        position: relative;
-        left: 10px;
-    }
+        margin-left: 0px;
+        position: none;
+        left: 0px;
+        top: 0px;
+    }        
     /* choose what's right for you section */
     .choose-wrfy-header {
         font-size: 20px;
@@ -317,10 +324,10 @@ h5 {
         margin-bottom: 50px;
     }
 
-    .manager-heading {
+    /* .manager-heading {
         position: relative;
         left: 3px;
-    } 
+    }  */
 
     .manager-div {
         box-shadow: rgba(216, 216, 216, 0.78) 5px 10px 10px 0px;
@@ -336,17 +343,13 @@ h5 {
     .manager-team {
         min-width: 320px;
         width: 70%;
-        margin-left: 10%;
+        margin-left: 9%;
     }
     .sign-img {
         margin-left: 100px;
         padding: 0;
     }
-    /* free-trade  */
-    .free-trade-btn {
-        position: relative;
-        left: 23%;
-    }
+
     /* gallery  */
     .gallery {
         position: relative;
@@ -383,7 +386,7 @@ h5 {
 
     /* style css class  */
     #unltd-comm-header {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     #unltd-comm-body {
@@ -430,22 +433,8 @@ h5 {
         margin-left: -18px;
         width: 50%;
     }
-    #create-account-banner > p {
-        font-size: 1.1rem;
-        font-weight: 300;
-    }
-    #create-account-banner > h3 {
-        margin-top: 2rem;
-        font-size: 1.8rem;
-        font-weight: bold;
-    }
-    #promotional-offer-banner > h3 {
-        margin-top: 1.4rem;
-        font-size: 1.9rem;
-        text-align: right;
-    }
-    sup {
-        top: -0.1em;
-        font-size: 33px;
-    }
+
+    /* .map-img {
+        width: 60%
+    } */
 }
