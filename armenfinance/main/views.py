@@ -4,15 +4,17 @@ from django.contrib.auth import login as auth_login
 
 # import user settings
 from django.contrib.auth import get_user_model
-
 from django.contrib.auth.decorators import login_required
 
+# forms 
 from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, VerificationDocumentForm, TokenForm, ChangePassword
+from .forms import ArmenToArmenTransferForm
 
 # models
 from .models import Balance, Signals, InvestedAmount, BTCbalance, Profile, DailyInvestments, VerificationDocument
 from .models import CustomUser, Transaction, Registration, AuthToken, HashKey, HashedDetails
 from django.db.models import Sum
+from .models import AccountDetails
 
 # password reset 
 from django.contrib.auth import update_session_auth_hash
@@ -32,11 +34,16 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.template.loader import render_to_string
 from .token import account_activation_token
 
+# create account 
+from .create_ac_number import accountNumber
+
 # data encryption
 from .encryptdecrypt import EncryptDecryptKey
 
 # django random string generator
 from django.utils.crypto import get_random_string
+
+from django.shortcuts import get_object_or_404
 
 ''' scheduler '''
 from .celery.tasks import activation_link_send_task
@@ -45,27 +52,15 @@ from .celery.tasks import activation_link_send_task
 
 # homepage
 def index(request):
-    # my_first_task.delay(10)
-    # print('immediately or after')
     return render(request, 'main/index.html')
 
 # About us page
 def about(request):
     return render(request, 'main/about.html')
-import json
+
+
 # contact page
 def contact(request):
-    id = request.user.online_id
-
-    # change uuid to string
-    id = str(id)
-    
-    # user_id = json.dumps(id)    
-    print(str(id))
-
-    # print(str(user_id).decode('utf-8'))
-    send_password(id)
-    # send_password()
     return render(request, 'main/contact.html')
 
 # Privacy Policy
@@ -140,7 +135,87 @@ def dashboard(request):
 # transfer to armen account
 @login_required(login_url='main:login')
 def transfer_to_armen(request):
-    return render(request, 'main/transfer-to-armen.html')
+    user_id = request.user.online_id
+    print(user_id)
+    # time.sleep(40)
+    # get form details 
+    if request.method == 'POST':
+        form = ArmenToArmenTransferForm(request.POST)
+        
+        # check if a/c no exists
+        if form.is_valid():
+            # get form details 
+            destination_account = form.cleaned_data.get('destination_account')
+            transfer_amount = form.cleaned_data.get('amount')    
+            transfer_description = form.cleaned_data.get('transfer_description')
+
+            # if destination_account:
+            
+            ''' get account info from the account number ''' 
+            # have to fix bug if account details does not exist
+            try:
+                # filtered_account = get_object_or_404(AccountDetails, account_number=destination_account)
+                filtered_account = AccountDetails.objects.get(account_number= destination_account)
+            except AccountDetails.DoesNotExist:
+                messages.error(request, 'That account Number doesn\'t exist')
+                return redirect('main:transfer-to-armen')
+
+            # get the filtered account number
+            receivers_account_number = filtered_account.account_number
+            # get the filtered account numbers user
+            receivers_online_id = filtered_account.user.online_id
+            print(receivers_online_id)
+            
+
+            # if a/c no exists check for the balance left in the bank
+            if destination_account == receivers_account_number:
+                print('equal')
+                # query the sum in the account balance 
+                print(user_id)
+
+                my_account_balance = Balance.objects.get(user=user_id).amount
+                
+                # if amount to transfer is smaller than what available in my account balance
+                # then proceed
+                if my_account_balance > transfer_amount:
+                    # process the transfer
+                    '''remove amount from my account''' 
+                    # deduct transfered amount from account balance
+                    # which gives a new balance for senders account
+                    new_balance = my_account_balance - transfer_amount
+                    new_balance = str(new_balance)
+
+                    # update senders account information
+                    Balance.objects.filter(user=user_id).update(amount=new_balance)
+
+                    '''add transfer amount to receivers account '''
+                    # get users balance
+                    receivers_balance = Balance.objects.get(user=receivers_online_id).amount
+                    # add new amount to recepients existing amount
+                    receivers_new_balance = receivers_balance + transfer_amount
+                    # update recepients accout with the new amount 
+                    Balance.objects.filter(user=receivers_online_id).update(amount=receivers_new_balance)
+                    messages.success(request, f'You have successfully transferred $ {transfer_amount} to { receivers_account_number } ')
+                    return redirect('main:dashboard')
+                else:
+                # else the balance is too low
+                    print('balance too low')
+                    messages.error(request, f'Your account Balance is too low for the Transaction')
+                    return redirect('main:transfer-to-armen')
+            else:
+            # a/c no does not exist
+                messages.error(request, 'That Account Number Does Not exist')
+                print('not found')
+
+        # match an existing account number
+
+        # 
+    else:
+        form = ArmenToArmenTransferForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main/transfer-to-armen.html', context)
 
 # transfer to foreign account
 @login_required(login_url='main:login')
@@ -258,6 +333,7 @@ def register(request):
 
         form = RegistrationForm(request.POST)
         if form.is_valid():
+
             # get email from the form
             email = form.cleaned_data.get('email')           
 
@@ -277,6 +353,22 @@ def register(request):
             # save the user instance
             user.save()
 
+            ''' create account number '''
+            # run account number function
+            account_number = accountNumber()
+
+            AccountDetails.objects.create(
+                user=user, 
+                account_number=account_number
+            )
+
+            '''save the email'''
+            Registration.objects.create(
+                user=user, 
+                email=email
+            )
+
+            ''' Encrypting online_id and password to be mailed to user '''
             # instantiate the encryptdecrypt class
             encrypt_decrypt = EncryptDecryptKey()
             # generate the key
@@ -301,12 +393,8 @@ def register(request):
                 password=password_encrypted
             )
 
-            # save the email
-            Registration.objects.create(
-                user=user, 
-                email=email
-            )
-            # send activation link
+            
+            '''send activation link'''
             current_site = get_current_site(request)
             subject = 'Activate Your Armen Finance Account'
             message = render_to_string(
@@ -323,7 +411,8 @@ def register(request):
             # print(serialized_user)
             # time.sleep(50)
 
-            activation_link_send_task.delay(40, id, subject, message, email)
+            # activation_link_send_task.delay(40, user, subject, message, email)
+            # activation_link_send_task.delay(40, id, subject, message, email)
             
 
             # redirect to activation link sent page
@@ -356,6 +445,7 @@ def login(request):
     if request.method == 'POST':
         # login POST request
         form = LoginForm(request.POST)
+        # generate token key
         token_key = get_random_string(30)
         if form.is_valid():
             # get login form data form 
@@ -375,13 +465,22 @@ def login(request):
                     # get the user instance
                     user = User.objects.get(online_id=current_usr)
 
+                    # Token authentication and error handling 
+                    # get existing  auth  token 
+                    auth_token = get_object_or_404(AuthToken, user=user)
+                    if auth_token:
+                        auth_token.delete()
+                        AuthToken.objects.create(
+                            user=user,
+                            token=token_key
+                        )
 
-                    # time.sleep(5)
-                    # generate token 
-                    AuthToken.objects.create(
-                       user=user,
-                       token=token_key
-                    )
+                    else:
+                        AuthToken.objects.create(
+                            user=user,
+                            token=token_key
+                        )                        
+                    
                     
                     # email the token to The user
 

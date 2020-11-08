@@ -1,0 +1,15 @@
+{% block messages %}
+    {% for message in messages  %}
+        <div class="alert {{ message.tags }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ message }} 
+        </div>
+    {% endfor %}
+<!-- <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>   -->
+{% endblock  %}
