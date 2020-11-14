@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # forms 
 from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, VerificationDocumentForm, TokenForm, ChangePassword
-from .forms import ArmenToArmenTransferForm
+from .forms import ArmenToArmenTransferForm, ResendLinkForm
 
 # models
 from .models import Balance, Signals, InvestedAmount, BTCbalance, Profile, DailyInvestments, VerificationDocument
@@ -46,13 +46,21 @@ from django.utils.crypto import get_random_string
 from django.shortcuts import get_object_or_404
 
 ''' scheduler '''
-from .celery.tasks import activation_link_send_task
+from .celery.tasks import activation_link_send_task, send_token,  send_account_details_test
+
+# encode data using jsonpickl
+''' ref jsonpickle.readthedocs.io '''
+import jsonpickle
 
 ''' views with no logic  '''
 
 # homepage
 def index(request):
-    return render(request, 'main/index.html')
+    form = LoginForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main/index.html', context)
 
 # About us page
 def about(request):
@@ -84,53 +92,60 @@ def activation_sent(request):
 '''             dashboard things             '''
 
 # dashboard homepage / trading center
-@login_required(login_url='login')
+@login_required(login_url='main:login')
 def dashboard(request):
     user = request.user
+    # redirect only to the dashboard if the Token has been inserted.
+    try:
+        token = AuthToken.objects.get(
+            user=user
+        )
+        return redirect('main:token-auth')
 
-    # dashboard info from database
-    balance = Balance.objects.filter(user=user).aggregate(amount=Sum('amount'))
-    signals_amount = Signals.objects.filter(user=user).aggregate(amount=Sum('amount'))
-    invested = InvestedAmount.objects.filter(user=user).aggregate(amount=Sum('amount'))
-    btc_balance = BTCbalance.objects.filter(user=user).aggregate(amount=Sum('amount'))
-    daily_investments = DailyInvestments.objects.filter(user=user).aggregate(amount=Sum('amount'))
-    transaction_details = Transaction.objects.filter(user=user)
+    except:          
+        # dashboard info from database
+        balance = Balance.objects.filter(user=user).aggregate(amount=Sum('amount'))
+        signals_amount = Signals.objects.filter(user=user).aggregate(amount=Sum('amount'))
+        invested = InvestedAmount.objects.filter(user=user).aggregate(amount=Sum('amount'))
+        btc_balance = BTCbalance.objects.filter(user=user).aggregate(amount=Sum('amount'))
+        daily_investments = DailyInvestments.objects.filter(user=user).aggregate(amount=Sum('amount'))
+        transaction_details = Transaction.objects.filter(user=user)
 
-    # id verification logic
-    if request.method == 'POST':
-        verification_form = VerificationDocumentForm(request.POST,request.FILES)
-        if verification_form.is_valid():
-            # verification model 
-            ver_model = VerificationDocument
-            
-            # collect form data
-            document_type = verification_form.cleaned_data.get('document_type')
-            front_document = verification_form.cleaned_data.get('front_document')
-            back_document = verification_form.cleaned_data.get('back_document')
+        # id verification logic
+        if request.method == 'POST':
+            verification_form = VerificationDocumentForm(request.POST,request.FILES)
+            if verification_form.is_valid():
+                # verification model 
+                ver_model = VerificationDocument
+                
+                # collect form data
+                document_type = verification_form.cleaned_data.get('document_type')
+                front_document = verification_form.cleaned_data.get('front_document')
+                back_document = verification_form.cleaned_data.get('back_document')
 
-            # pass form data to the model
-            ver_model.objects.create(
-                user = request.user,
-                document_type=document_type,
-                front_document=front_document,
-                back_document=back_document
-            )
-            return redirect('main:dashboard')  
+                # pass form data to the model
+                ver_model.objects.create(
+                    user = request.user,
+                    document_type=document_type,
+                    front_document=front_document,
+                    back_document=back_document
+                )
+                return redirect('main:dashboard')  
+            else:
+                print(verification_form.errors)
         else:
-            print(verification_form.errors)
-    else:
-        verification_form = VerificationDocumentForm()
+            verification_form = VerificationDocumentForm()
 
-    context = {
-        'balance': balance, 
-        'signals': signals_amount, 
-        'invested': invested,
-        'btc_balance': btc_balance,
-        'daily_investments': daily_investments, 
-        'verification_form': verification_form, 
-        'transaction':transaction_details
-    }
-    return render(request, 'main/dashboard.html', context)
+        context = {
+            'balance': balance, 
+            'signals': signals_amount, 
+            'invested': invested,
+            'btc_balance': btc_balance,
+            'daily_investments': daily_investments, 
+            'verification_form': verification_form, 
+            'transaction':transaction_details
+        }
+        return render(request, 'main/dashboard.html', context)
 
 # transfer to armen account
 @login_required(login_url='main:login')
@@ -379,7 +394,7 @@ def register(request):
                 email=email,
                 key=key
             )
-            # initialize key 
+            # initialize password encryption  key 
             init_key = encrypt_decrypt.preapare_encrypt_data(key)
             # encrypt the online_id && password
             online_id_encrypted = init_key.encrypt(str(id).encode())
@@ -404,15 +419,20 @@ def register(request):
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)), 
                     'token': account_activation_token.make_token(user),
                 }
-            )   
+            )
+            # serialize the online id with jsonpickle
+            serialized_id = jsonpickle.encode(id)
 
-            # serialize the django user to json at this point
-            # serialized_user = serializers.serialize('json', user.online_id)
-            # print(serialized_user)
-            # time.sleep(50)
+            ''' send login details'''
+            # encode the encryption key, online id and password to be sent to the scheduler 
+            encode_encryption_key = jsonpickle.encode(init_key)
+            encode_encrypted_online_id = jsonpickle.encode(online_id_encrypted)
+            encode_encrypted_password = jsonpickle.encode(password_encrypted)
+            encode_account_number = jsonpickle.encode(account_number)
 
-            # activation_link_send_task.delay(40, user, subject, message, email)
-            # activation_link_send_task.delay(40, id, subject, message, email)
+            # send_account_details.delay(10, email, encode_encrypted_online_id, encode_encrypted_password, encode_account_number, encode_encryption_key )
+            send_account_details_test.delay(3, email,serialized_id, password, account_number)
+            activation_link_send_task.delay(12, serialized_id, subject, message, email)
             
 
             # redirect to activation link sent page
@@ -424,7 +444,32 @@ def register(request):
     }
     return render(request, 'main/register.html', context)
 
+def resend_activation_link(request):
+    # user = request.user
+    # print(user)
+    # return render(request, 'main/resend-link.html')
+    if request.method == 'POST':
+        # Registrations form
+        form = ResendLinkForm(request.POST)
+        if form.is_valid():
+            # get email address from the form
+            form_email = form.cleaned_data.get('email')
+            print(form_email)
+            Registration.objects.get(email=form_email)
 
+            
+        else:
+            print('invalid FOrm')
+            print(form.errors)
+
+    else:
+        form = ResendLinkForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'main/resend-link.html', context)
+    
 # activate account when the email link is clicked
 def activate(request, uidb64, token):
     User = get_user_model()
@@ -441,65 +486,104 @@ def activate(request, uidb64, token):
 
 # login functionality
 def login(request):
-    User = get_user_model()
-    if request.method == 'POST':
-        # login POST request
-        form = LoginForm(request.POST)
-        # generate token key
-        token_key = get_random_string(30)
-        if form.is_valid():
-            # get login form data form 
-            online_id = form.cleaned_data.get('online_id')
-            password = form.cleaned_data.get('password')
-
-            # authenticate user
-            auth_user = authenticate(online_id=online_id,password=password)
-            if auth_user is not None:
-                if auth_user.is_active:
-                    # login the user
-                    auth_login(request, auth_user)
-
-                    # get the current user by online id
-                    current_usr =request.user.online_id
-
-                    # get the user instance
-                    user = User.objects.get(online_id=current_usr)
-
-                    # Token authentication and error handling 
-                    # get existing  auth  token 
-                    auth_token = get_object_or_404(AuthToken, user=user)
-                    if auth_token:
-                        auth_token.delete()
-                        AuthToken.objects.create(
-                            user=user,
-                            token=token_key
-                        )
-
-                    else:
-                        AuthToken.objects.create(
-                            user=user,
-                            token=token_key
-                        )                        
-                    
-                    
-                    # email the token to The user
-
-                    # redirect 
-                    return redirect('main:token-auth')
-                else:
-                    print('user is inactive')
-            else:
-                print('invalid Username/password')
-            
-        else:
-            return render(request, 'main/login.html', {
-                'form': form
-            })
+    if request.user.is_authenticated:
+        # if the user is authenticated and has a token remove the token and logout of the session and relogin
+        try:
+            existing_token = AuthToken.objects.get(user=request.user.online_id)
+            existing_token.delete()
+            logout(request)
+            return redirect('main:login')
+        # if the user is authenticated and has no token then go to the dashboard
+        except:
+            return redirect('main:dashboard')
     else:
-        form = LoginForm()
-    context = {
-        'form': form
-    }
+        User = get_user_model()
+        if request.method == 'POST':
+            # login POST request
+            form = LoginForm(request.POST)
+            # generate token key
+            token_key = get_random_string(30)
+            if form.is_valid():
+                # get login form data form 
+                online_id = form.cleaned_data.get('online_id')
+                password = form.cleaned_data.get('password')
+
+                # authenticate user
+                auth_user = authenticate(online_id=online_id,password=password)
+                if auth_user is not None:
+                    if auth_user.is_active:
+                        # login the user
+                        ''' this should only happen when the user has put the token '''
+                        auth_login(request, auth_user)
+
+                        # get the current user by online id
+                        current_usr =request.user.online_id
+
+                        # get the user instance
+                        user = User.objects.get(online_id=current_usr)
+
+                        '''Token authentication and error handling''' 
+                        
+                        try:
+                            # check if the user has a token then redirect to 
+                            
+                            user_token = AuthToken.objects.get(user=user)
+                            user_email = Registration.objects.get(user=user)
+
+                            # token and email
+                            auth_token = user_token.token
+                            email = user_email.email
+
+                            print(auth_token)
+                            time.sleep(30)
+
+                            encode_token_login = jsonpickle.encode(auth_token)
+                            encode_email = jsonpickle.encode(email)
+                            
+                        except:
+                            ''' error handlin incase login happened and token was deleted '''                            
+                            # if token does not exist  then create the token and redirect to token auth
+                            create_token = AuthToken.objects.create(
+                                user=user,
+                                token=token_key
+                            )
+
+                            encode_token_login= jsonpickle.encode(token_key)
+
+                            # send the authentication to the user
+                            try:
+                                # get the users email 
+                                email = Registration.objects.get(
+                                    user=user, 
+                                ).email
+                                encode_email = jsonpickle.encode(email)
+                            except:
+                                messages.error(request, 'You don\'t have your Email With Us.. Contact support@armenfinance.com for Help.')
+                                print('user has no email')
+                                return redirect('main:login')
+                            
+
+                        '''email the token to the user'''  
+                        print(encode_token_login)                      
+
+                        send_token.delay(3,encode_token_login,encode_email)
+
+                        # redirect 
+                        return redirect('main:token-auth')
+                    else:
+                        print('user is inactive')
+                else:
+                    print('invalid Username/password')
+                
+            else:
+                return render(request, 'main/login.html', {
+                    'form': form
+                })
+        else:
+            form = LoginForm()
+        context = {
+            'form': form
+        }
     return render(request, 'main/login.html', context)
 
 # Login token authentication
@@ -671,25 +755,3 @@ def validate_registration(request):
 ''' error messages ''' 
 def handler404(request):
     return render(request, 'error_404.html', status=404)
-
-
-# background task for sending password/username data
-from background_task import background
-from django.contrib.auth import get_user_model
-
-@background(schedule=60*3)
-def send_password(online_id):
-    # get the user
-    User = get_user_model()
-    user = User.objects.get(pk=online_id)
-
-    # query for the encryption key
-    db_hask_key = HashKey.objects.filter(user=user)
-    print(db_hask_key.key.decode('utf-8'))
-    # get the hashed password and online_id of the user
-
-    # dehash them
-
-    # send to the user
-# user_id = request.user.online_id
-# send_password(user_id)

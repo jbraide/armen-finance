@@ -11,6 +11,7 @@ from .views import dashboard, id_verification, account_upgrade, create_profile,e
 
 # validation routes
 from .views import validate_login, validate_registration, activate, token_auth
+from . import views
 
 app_name = 'main'
 
@@ -36,6 +37,7 @@ urlpatterns = [
     # registration and login routes
     path('register/', register, name='register'),
     path('login/', login, name='login'),
+    path('activation/resend/', views.resend_activation_link, name='resend-activation-link'),
     path('profile/create', create_profile, name='create-profile' ), 
     path('profile/edit', edit_profile, name='edit-profile' ),
     path('token-auth/', token_auth, name='token-auth'),

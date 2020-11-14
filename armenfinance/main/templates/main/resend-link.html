@@ -28,20 +28,14 @@
     <div class="container">
       <form class="form-login" method="POST">
         {% csrf_token %}
-        <h2 class="form-login-heading">sign in now</h2>
+        <h2 class="form-login-heading">Resend Activation Link</h2>
         <div class="login-wrap">
-          {% include "main/messages/messages.html" %}
+          <p>Fill in the form to resend the activation link to your Email</p>
           <!-- <input type="text" class="form-control" placeholder="User ID" autofocus> -->
-          {{ form.online_id|add_class:'form-control'|attr:'placeholder:User ID'}}
+          {{ form.email|add_class:'form-control'|attr:'placeholder:Email'}}
           <br>
-          {{ form.password|add_class:'form-control'|attr:'placeholder:password'}}
-          <label class="checkbox">
-            <input type="checkbox" value="remember-me"> Remember me
-            <span class="pull-right">
-            <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-            </span>
-            </label>
-          <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+          
+          <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-share"></i>Resend Link</button>
           
         </div>
         

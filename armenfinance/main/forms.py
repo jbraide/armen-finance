@@ -6,11 +6,13 @@ from .models import Profile, Withdraw, VerificationDocument, Registration, AuthT
 ''' Registration data '''
 
 # registration 
-class RegistrationForm(forms.ModelForm):
-    
+class RegistrationForm(forms.ModelForm):    
     class Meta:
         model = Registration
         fields = ('email',)
+
+class ResendLinkForm(forms.Form):
+    email = forms.CharField(max_length=30,required=False)
 
 # login form
 class LoginForm(forms.Form):
