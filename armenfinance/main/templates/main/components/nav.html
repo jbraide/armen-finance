@@ -1,0 +1,72 @@
+{% block nav %}
+<!-- banner -->
+<div class="">
+    <!-- navigation -->
+    <nav class="navigation desktop">
+        <div class="container">
+            <div class="row">
+
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+                </div>
+                <!-- open an account nav -->
+                <div class="col-2" id="open-account-nav">
+                    <a href="register.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <a href="">
+                        <img src="/static/img/logo_transparent.png" alt="">
+
+                    </a>
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                </div>
+
+                <!-- about us and search bar -->
+                <div class="col-lg-4" id="about-us-nav">
+                    <a href="">About Us</a>
+                    <a href="">
+                        <span class="fas fa-search"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- sidebar content -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'main:login' %}">Login</a>
+        <a href="{% url 'main:register' %}">Signup</a>
+        <a href="{% url 'main:about' %}">About</a>
+        <a href="{% url 'main:contact' %}">Contact</a>
+    </div>
+    <!-- navigation -->
+    <nav class="navigation mobile">
+        <div class="container">
+            <div class="row">
+
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                    <img src="/static/img/logo_transparent.png" alt="">
+                </div>
+
+                <!-- LOGIN -->
+                <div class="col-4" id="about-us-nav">
+                    <a href="" class="btn btn-outline-success px-4">LOGIN</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- end of navigation -->
+    {% endblock %}

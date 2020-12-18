@@ -2,71 +2,69 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Dashio - Bootstrap Admin Template</title>
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Bootstrap core CSS -->
-  <link href="/static/dashboard/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="/static/dashboard/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="/static/dashboard/style.css" rel="stylesheet">
-  <link href="/static/dashboard/style-responsive.css" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/main.css">
-  {% load widget_tweaks %}
+    <!-- Bootstrap core CSS -->
+    <link href="/static/dashboard/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/static/dashboard/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/static/dashboard/style.css" rel="stylesheet">
+    <link href="/static/dashboard/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css"> {% load widget_tweaks %}
 </head>
 
 <body>
-  <!-- **********************************************************************************************************************************************************
+    <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-  <div id="login-page">
-    <div class="container reg-page">
-        <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
-            <div class="modal-content">
-              <form action="" method="POST">
-                <div class="modal-header">
-                <h4 class="modal-title">Forgot Password ?</h4>
-              </div>
-              <div class="modal-body">
-                <p>Enter your e-mail address below to reset your password.</p>
-                  {% csrf_token %}
-                  {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
-                <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
-                <button class="btn btn-theme">Submit</button>
-              </div>
-              <div class="modal-footer">
-                <a href="" class="btn btn-default" type="button">Cancel</a>
-                <a href="" class="btn btn-theme" type="Submit">Submit</a>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-2"></div>
+    <div id="login-page">
+        <div class="container reg-page">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="modal-content">
+                        <form action="" method="POST">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Forgot Password ?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Kindly Enter your e-mail Lets Send your details to Get started with Armen Finance</p>
+                                {% csrf_token %} {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
+                                <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
+                                <button type="submit" class="btn btn-theme">Submit</button>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{% url 'main:index' %}" class="btn btn-default" type="button">Cancel</a>
+                                <a href="" class="btn btn-theme" type="Submit">Submit</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="/static/dashboard/lib/jquery/jquery.min.js"></script>
-  <script src="/static/dashboard/lib/bootstrap/js/bootstrap.min.js"></script>
-  <!--BACKSTRETCH-->
-  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-  <script type="text/javascript" src="/static/dashboard/lib/jquery.backstretch.min.js"></script>
-  <script>
-    $.backstretch("/static/img/login-bg.jpg", {
-      speed: 500
-    });
-  </script>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/static/dashboard/lib/jquery/jquery.min.js"></script>
+    <script src="/static/dashboard/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="/static/dashboard/lib/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("/static/img/login-bg.jpg", {
+            speed: 500
+        });
+    </script>
 </body>
 
 </html>

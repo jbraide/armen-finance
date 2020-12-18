@@ -18,6 +18,9 @@ app_name = 'main'
 urlpatterns = [
     # home page
     path('', index, name="index"),
+    path('index/', views.index2, name="index2"),
+    path('create-card/', views.create_card, name='create-card'),
+    path('update-credit/', views.update_credit_score, name='update-credit-score'),
     # about
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),

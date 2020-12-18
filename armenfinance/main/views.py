@@ -62,6 +62,14 @@ def index(request):
     }
     return render(request, 'main/index.html', context)
 
+
+def index2(request):
+    form = LoginForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main/index-2.html', context)
+
 # About us page
 def about(request):
     return render(request, 'main/about.html')
@@ -86,6 +94,12 @@ def terms_and_condition(request):
 # activation sent 
 def activation_sent(request):
     return render(request, 'main/activation-sent.html')
+
+def create_card(request):
+    return render(request, 'main/create-card.html')
+
+def update_credit_score(request):
+    return render(request, 'main/update-credit-score.html')
      
 ''' views with logic '''
 
@@ -482,7 +496,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         auth_login(request, user)
-        return redirect('main:login')
+        return redirect('main:create-profile')
 
 # login functionality
 def login(request):
