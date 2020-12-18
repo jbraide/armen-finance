@@ -1,156 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- jquery and popper cdn -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-
-    <!-- bootstrapcdn  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- css linked file  -->
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <title>about us</title>
-    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
-</head>
-
-<body class="text-monospace">
-
-    <!-- navigation -->
-    <nav class="navigation">
-        <div class="container">
-            <div class="row">
-
-                <!-- icon -->
-                <div class="col-1">
-                    <span class="fas fa-bars" id="nav-menu-icon"></span>
-                </div>
-                <!-- open an account nav -->
-                <div class="col-2" id="open-account-nav">
-                    <a href="register.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
-                </div>
-                <!-- logo -->
-                <div class="col-5" id="logo-nav">
-                    <!-- <h3>Armen Finance</h3> -->
-                    <!-- insert logo her -->
-                    <img src="/static/img/logo_transparent.png" alt="">
-                </div>
-
-                <!-- about us and search bar -->
-                <div class="col-lg-4" id="about-us-nav">
-                    <a href="about-us.html">About Us</a>
-                    <a href="">
-                        <span class="fas fa-search"></span>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-
-    <div class="about-img1">
-        <div class="ptext">
-            <span class="border">
-               About Armen-finance
-            </span>
-        </div>
+{% extends "main/components/base.html" %} {% block body %}
+<div class="about-img1">
+    <div class="ptext">
+        <span class="border">
+           About Armen-finance
+        </span>
     </div>
+</div>
 
-    <section class="section section-light">
-        <p class="about-armen"><span class="text-primary text-uppercase">Armen-finance</span> a secure trading environment which permits traders
-        </p>
-        <p class="about-armen text-center">to trade exclusively online.</p>
-    </section>
+<section class="section section-light">
+    <p class="about-armen"><span class="text-primary text-uppercase">Armen-finance</span> a secure trading environment which permits traders
+    </p>
+    <p class="about-armen text-center">to trade exclusively online.</p>
+</section>
 
-    <div class="about-img2">
-        <div class="ptext">
-            <span class="border trans">
-                Armen-finance
-            </span>
-        </div>
+<div class="about-img2">
+    <div class="ptext">
+        <span class="border trans">
+            Armen-finance
+        </span>
     </div>
+</div>
 
-    <section class="section section-dark">
-        <p> Armen-finance is a legally operating company in the UK and US. We were one of the first to invest in cryptocurrencies. Armen-finance is a leading blockchain investment company. Our mission is to act as a catalyst for universal adoption and blockchain
-            innovation. We focus only on investing in blockchain technologies. Our team has experience in both traditional financing and emerging blockchain technology. We invest, among others, in cryptocurrencies such as BTC, XRP, ETC, and ETH. We also
-            give a chance to new , dynamically developing ICO projects that bring huge profits in an amazingly short time.</p>
-    </section>
+<section class="section section-dark">
+    <p> Armen-finance is a legally operating company in the UK and US. We were one of the first to invest in cryptocurrencies. Armen-finance is a leading blockchain investment company. Our mission is to act as a catalyst for universal adoption and blockchain
+        innovation. We focus only on investing in blockchain technologies. Our team has experience in both traditional financing and emerging blockchain technology. We invest, among others, in cryptocurrencies such as BTC, XRP, ETC, and ETH. We also give
+        a chance to new , dynamically developing ICO projects that bring huge profits in an amazingly short time.</p>
+</section>
 
-    <div class="about-img3">
-        <div class="ptext">
-            <span class="border trans">
-                Armen-finance
-            </span>
-        </div>
+<div class="about-img3">
+    <div class="ptext">
+        <span class="border trans">
+            Armen-finance
+        </span>
     </div>
+</div>
 
-    <section class="section section-dark">
-        <p>Our team consists only of qualified people connected with the financial industry for years, who are also passionate about the fledgling but very strong cryptocurrency market and blockchain technology. They constantly monitor the market to provide
-            you - our investors with even greater profits. Having strong relationships with the most promising entrepreneurs and other leading investors in the industry, Armen-finance implements an investment strategy, building a diversified portfolio
-            and adjusting the added value to its portfolio companies.</p>
-    </section>
+<section class="section section-dark">
+    <p>Our team consists only of qualified people connected with the financial industry for years, who are also passionate about the fledgling but very strong cryptocurrency market and blockchain technology. They constantly monitor the market to provide
+        you - our investors with even greater profits. Having strong relationships with the most promising entrepreneurs and other leading investors in the industry, Armen-finance implements an investment strategy, building a diversified portfolio and
+        adjusting the added value to its portfolio companies.</p>
+</section>
 
-    <!-- footer -->
-    <footer id="footer-bg">
-        <div class="container">
-            <div class="row">
-                <!-- about armen finance footer section -->
-                <div class="col-lg-4" id="footer-logo">
-                    <!-- insert logo here -->
-                    <img src="/static/img/logo_transparent.png" alt="">
-                    <p>
-                        We are committed to being a driving force in the cryptocurrency trading revolution by increasing adoption of this innovative technology around the world. Using our streamlined trade listing process, we will advance new, innovative cryptocurrency projects
-                        that could potentially transform the way goods, services and operations are managed globally.
-                    </p>
-                </div>
-
-                <!-- Account types -->
-                <div class="col-lg-4" id="choose-wrfy-footer">
-                    <h3>Choose What's Right For You</h3>
-
-                    <!-- schedule a meeting -->
-                    <a href="">
-                        Schedule a meeting
-                    </a>
-                    <!-- checking accounts -->
-                    <a href="">
-                        Checking Accounts
-                    </a>
-                    <!-- invest -->
-                    <a href="">
-                        Invest
-                    </a>
-                    <!-- find a credit card -->
-                    <a href="">
-                        Find a Credit Card
-                    </a>
-                    <!-- home lending -->
-                    <a href="">
-                        Home Lending
-                    </a>
-                    <!-- savings account -->
-                    <a href="">
-                        Savings Account
-                    </a>
-                </div>
-
-                <!-- security badges-->
-                <div class="col-lg-4" id="security-badge">
-                    <h3>Backed by</h3>
-                    <img src="/static/img/badge.png" alt="">
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- script  -->
-    <script src="/static/js/main.js"></script>
-
-</body>
-
-</html>
+{% endblock %}

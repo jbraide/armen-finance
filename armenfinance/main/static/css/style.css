@@ -646,7 +646,7 @@ a {
     #open-account-nav>a {
         color: white;
     }
-    #logo-nav>img {
+    #logo-nav>a>img {
         width: 50%;
         height: auto;
         margin-left: 40%;
@@ -701,7 +701,7 @@ a {
     #create-account-banner>p {
         font-size: 1.4rem;
         font-weight: 300;
-        margin: 2rem 0;
+        margin: 0.8rem 0;
         position: absolute;
         top: 100%;
         left: -118px;
@@ -709,7 +709,7 @@ a {
     #create-account-banner>a {
         padding: 1.2rem 0;
         position: absolute;
-        top: 148%;
+        top: 130%;
         right: 115px
     }
     /* promotional offer banner */

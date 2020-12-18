@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armen Finance</title>
+
+    <link rel="shortcut icon" href="./static/img/logo.png" type="image/x-icon">
+    <!-- jquery and popper cdn -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!-- bootstrapcdn  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+    <!-- main css file -->
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+
+    <!-- owl carousel -->
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous"
+    />
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+
+    <!-- custom script tag -->
+    <script src="./static/js/main.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- banner -->
+    <div class="">
+        <!-- navigation -->
+        <nav class="navigation desktop">
+            <div class="container">
+                <div class="row">
+
+                    <!-- icon -->
+                    <div class="col-1">
+                        <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+                    </div>
+                    <!-- open an account nav -->
+                    <div class="col-2" id="open-account-nav">
+                        <a href="register.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                    </div>
+                    <!-- logo -->
+                    <div class="col-5" id="logo-nav">
+                        <!-- <h3>Armen Finance</h3> -->
+                        <!-- insert logo her -->
+                        <img src="./static/img/logo_transparent.png" alt="">
+                    </div>
+
+                    <!-- about us and search bar -->
+                    <div class="col-lg-4" id="about-us-nav">
+                        <a href="">About Us</a>
+                        <a href="">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        <!-- sidebar content -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{% url 'main:login' %}">Login</a>
+            <a href="{% url 'main:register' %}">Signup</a>
+            <a href="{% url 'main:about' %}">About</a>
+            <a href="{% url 'main:contact' %}">Contact</a>
+        </div>
+        <!-- navigation -->
+        <nav class="navigation mobile">
+            <div class="container">
+                <div class="row">
+
+                    <!-- icon -->
+                    <div class="col-1">
+                        <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+
+                    </div>
+                    <!-- logo -->
+                    <div class="col-5" id="logo-nav">
+                        <!-- <h3>Armen Finance</h3> -->
+                        <!-- insert logo her -->
+                        <img src="./static/img/logo_transparent.png" alt="">
+                    </div>
+
+                    <!-- LOGIN -->
+                    <div class="col-4" id="about-us-nav">
+                        <a href="" class="btn btn-outline-success px-4">LOGIN</a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <!-- end of banner -->
+
+    <!-- credit card banner -->
+    <div class="credit-card-banner">
+        <div class="credit-card-banner-inner">
+            <h3>Armen Finance Credit Cards</h3>
+            <p>Power to purchase that takes you places with Global Service & Access to Incredible Benefits </p>
+        </div>
+    </div>
+
+    <!-- credit card information -->
+    <div class="armen-finance-gold container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <!-- Gold Card -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img class="credit-card-image" src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight/image.adaptive.479.high.jpg/1512460229288.jpg" alt="">
+                    </div>
+
+                    <div class="col-lg-6 credit-card-body">
+                        <h2>Armen Finance Gold</h2>
+                        <h4>Features</h4>
+                        <p>
+                            <ul>
+                                <li>Daily spend limit on ATM ($1,000) , POS ($10,000) and WEB ($5,000) anywhere in the World with your ArmenFinance Gold card.</li>
+                                <li>Access to international emergency services with your ArmenFinance Gold card i.e. Emergency Card Replacement & Emergency Cash Advance in situations where your card gets lost or damaged.</li>
+                                <li>International Credit Card Capabilities.</li>
+                            </ul>
+
+
+                            <!-- Gold card -->
+                            <button type="button" class="btn btn-success flat" data-toggle="modal" data-target="#gold-card">
+                                Learn More
+                            </button>
+
+                            <!-- Gold card Modal -->
+                            <div class="modal fade" id="gold-card" tabindex="-1" role="dialog" aria-labelledby="gold-cardTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <img src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight/image.adaptive.479.high.jpg/1512460229288.jpg" alt="" class="popup-image">
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>SECURITY, SAFETY AND SPEED</h3>
+                                            <p>Ready to Updgrade your benefits and purchasing power? Put your strong credit to work and enjoy recognition, benfits, and protection for whatever you buy, wherever you go with ArmenFinance Gold Card.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="" type="button" class="btn btn-success btn-block">Create Card</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Platinum Card -->
+                <div class="row" class="">
+                    <div class="col-lg-6 credit-card-body desktop">
+                        <h2>Armen Finance Platinum Card</h2>
+                        <h4>Features</h4>
+                        <p>
+                            <ul>
+
+                                <li>Daily spend limit on ATM ($2,500) , POS ($20,000) and WEB ($7,000) anywhere in the World with your ArmenFinance Gold card.</li>
+                                <li>Access to international emergency services with your ArmenFinance Gold card i.e. Emergency Card Replacement & Emergency Cash Advance in situations where your card gets lost or damaged.</li>
+                                <li>International Credit Card Capabilities.</li>
+                            </ul>
+
+                            <!-- Platinum -->
+                            <button type="button" class="btn btn-success flat" data-toggle="modal" data-target="#platinum-card">
+                        Learn More
+                    </button>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 desktop">
+                        <img class="credit-card-image" src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight_865623164/image.adaptive.479.high.jpg/1512461762448.jpg" alt="">
+
+                    </div>
+
+                    <div class="col-lg-6 mobile">
+                        <img class="credit-card-image" src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight_865623164/image.adaptive.479.high.jpg/1512461762448.jpg" alt="">
+
+                    </div>
+
+                    <div class="col-lg-6 credit-card-body mobile">
+                        <h2>Armen Finance Platinum Card</h2>
+                        <h4>Features</h4>
+                        <p>
+                            <ul>
+
+                                <li>Daily spend limit on ATM ($2,500) , POS ($20,000) and WEB ($7,000) anywhere in the World with your ArmenFinance Gold card.</li>
+                                <li>Access to international emergency services with your ArmenFinance Gold card i.e. Emergency Card Replacement & Emergency Cash Advance in situations where your card gets lost or damaged.</li>
+                                <li>International Credit Card Capabilities.</li>
+                            </ul>
+
+                            <!-- Platinum -->
+                            <button type="button" class="btn btn-success flat" data-toggle="modal" data-target="#platinum-card">
+                        Learn More
+                    </button>
+                        </p>
+                    </div>
+
+
+
+                    <!-- Platinum Modal -->
+                    <div class="modal fade" id="platinum-card" tabindex="-1" role="dialog" aria-labelledby="platinum-cardTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <img src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight_865623164/image.adaptive.479.high.jpg/1512461762448.jpg" alt="" class="popup-image">
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Platinum Benefits Revealed</h3>
+                                    <p>The defining purchasing tool for premium cardholders looking for worldwide acceptance, excellent service and access to remarkable benefits. Enjoy a life less ordinary and endlessly rewarding with benefits and services
+                                        that allow you to get the best value with unmatched savings.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="" type="button" class="btn btn-success btn-block">Create Card</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- World Card -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img class="credit-card-image" src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight_765789499/image.adaptive.479.high.jpg/1512462145280.jpg" alt="">
+                    </div>
+
+                    <div class="col-lg-6 credit-card-body">
+                        <h2>Armen Finance World Card</h2>
+                        <h4>Features</h4>
+                        <p>
+                            <ul>
+                                <li>Daily spend limit on ATM ($5,000) , POS ($36,000) and WEB ($10,000) anywhere in the World with your ArmenFinance Gold card.</li>
+                                <li>Access to international emergency services with your ArmenFinance Gold card i.e. Emergency Card Replacement & Emergency Cash Advance in situations where your card gets lost or damaged.</li>
+                                <li>International Credit Card Capabilities.</li>
+                            </ul>
+                            <!-- World -->
+                            <button type="button" class="btn btn-success flat" data-toggle="modal" data-target="#world-card">
+                                Learn More
+                            </button>
+                        </p>
+                    </div>
+
+
+
+                    <!-- World Modal -->
+                    <div class="modal fade" id="world-card" tabindex="-1" role="dialog" aria-labelledby="world-cardTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <img src="https://www.mastercard.com.ng/en-ng/consumers/find-card-products/credit-cards/_jcr_content/contentpar/herolight_765789499/image.adaptive.479.high.jpg/1512462145280.jpg" alt="" class="popup-image">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Travel, Luxury & Assurance</h3>
+                                    <p>We are unlocking for you a world of travel, lifestyle, and insurance benefits giving you the flexibility to explore the places and pursuits that matter most to you. Enjoy exclusive access and peace of mind whether you
+                                        are traveling on a business trip or for vacation.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="" type="button" class="btn btn-success btn-block">Create Card</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <footer id="footer-bg">
+        <div class="container">
+            <div class="row">
+                <!-- about armen finance footer section -->
+                <div class="col-lg-4" id="footer-logo">
+                    <!-- insert logo here -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                    <p>
+                        We are committed to being a driving force in the cryptocurrency trading revolution by increasing adoption of this innovative technology around the world. Using our streamlined trade listing process, we will advance new, innovative cryptocurrency projects
+                        that could potentially transform the way goods, services and operations are managed globally.
+                    </p>
+                </div>
+
+                <!-- Account types -->
+                <div class="col-lg-4" id="choose-wrfy-footer">
+                    <h3>Choose What's Right For You</h3>
+
+                    <!-- schedule a meeting -->
+                    <a href="">
+                        Schedule a meeting
+                    </a>
+                    <!-- checking accounts -->
+                    <a href="">
+                        Checking Accounts
+                    </a>
+                    <!-- invest -->
+                    <a href="">
+                        Invest
+                    </a>
+                    <!-- find a credit card -->
+                    <a href="">
+                        Find a Credit Card
+                    </a>
+                    <!-- home lending -->
+                    <a href="">
+                        Home Lending
+                    </a>
+                    <!-- savings account -->
+                    <a href="">
+                        Savings Account
+                    </a>
+                </div>
+
+                <!-- security badges-->
+                <div class="col-lg-4" id="security-badge">
+                    <h3>Backed by</h3>
+                    <img src="./static/img/badge.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
