@@ -138,10 +138,6 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-        Balance.objects.create(
-            user=instance,
-            amount=0
-        )
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def save_user_profile(sender, instance, **kwargs):
@@ -150,32 +146,10 @@ def save_user_profile(sender, instance, **kwargs):
 '''
     Dashboard  models
 '''
-
-''' account number + transfer models '''
 from django.core.validators import MaxValueValidator
 class AccountDetails(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    account_number = models.CharField(max_length=11, default='')
-
-class ArmenToArmenTransfer(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    destination_account = models.CharField(max_length=11, default='')
-    amount = models.PositiveIntegerField()
-    transfer_description = models.CharField(max_length=400, default='')
-
-class ArmenToForeignAccountTransfer(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    purpose = models.CharField(max_length=40, default='')
-    country = CountryField(blank_label='(select country)', blank=True, null=True)
-    beneficiary_name = models.CharField(max_length=100)
-    beneficiary_account = models.CharField(max_length=22)
-    beneficiary_address = models.CharField(max_length=300)
-    beneficiary_branch_address = models.CharField(max_length=300)
-    city = models.CharField(max_length=100)
-    amount = models.PositiveIntegerField()
-    routing_number = models.PositiveIntegerField()
-    transfer_description = models.CharField(max_length=400, default='')
-
+    account_number = models.PositiveIntegerField(validators=[MaxValueValidator(11)])
 
 # balance
 class Balance(models.Model):
@@ -232,6 +206,3 @@ class Transaction(models.Model):
     transaction_id = models.UUIDField(default=uuid.uuid4())
     amount = models.IntegerField()
     type = models.CharField(max_length=30, choices=types)
-
-
-    
