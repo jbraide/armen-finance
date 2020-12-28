@@ -11,7 +11,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import CustomUser, Registration, AuthToken, AccountDetails
+from .models import CustomUser, Registration, AuthToken
 from .forms  import RegistrationForm
 
 
@@ -105,7 +105,5 @@ class HashKeyAdmin(admin.ModelAdmin):
 class HashedDetailsAdmin(admin.ModelAdmin):
     list_display = ['email','online_id', 'password']
 
-# account number 
-@admin.register(AccountDetails)
-class AccountDetailsAdmin(admin.ModelAdmin):
-    list_display = ['user', 'account_number']
+
+
