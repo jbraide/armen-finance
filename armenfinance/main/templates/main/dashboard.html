@@ -33,27 +33,23 @@
 					<div class="col-lg-12 col-12">
 						<a class="box box-link-pop " href="javascript:void(0)">
 							<div class="box-body py-20 bg-success">
-								<h4 class="font-weight-300">
-									Account Number
-								</h4>
 								<h3 class="font-weight-600 mt-0">
+									Account Number
 									<br>
-									{{ request.user.accountdetails.account_number }}
+									65222157855
 								</h3>
 							</div>
 					   </a>			
 					  </div>
 					  <div class="col-12">
-						  {% include "main/messages/messages.html" %}
 						  
-					<!-- account balance information -->
 						<div class="box box-body">
 						  <h6>
 							<span class="text-uppercase">Total Account Balance</span>
 							<!-- <span class="float-right"><a class="btn btn-xs btn-primary" href="#">View</a></span> -->
 						  </h6>
 						  <br>
-						  <p class="font-size-26">$  {{ balance.amount }}</p>
+						  <p class="font-size-26">$845,1258</p>
 						</div>
 					</div>
 					
@@ -160,7 +156,7 @@
 						<div class="row">
 							  <!--Transfer  -->
 						  <div class="col-12 col-md-4">
-							  <a class="box box-link-shadow text-center" href="{% url 'main:transfer-to-armen' %}">
+							  <a class="box box-link-shadow text-center" href="">
 							  <div class="box-body py-25">
 								  <p class="mt-5"><i class="ti-exchange-vertical fa-4x"></i></p>
 								  <p class="font-weight-600">Transfer</p>
