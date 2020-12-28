@@ -245,6 +245,7 @@ h5 {
     border-top-left-radius: 4px;
     width: 80%;
     cursor: pointer;
+    height: 155px;
 }
 
 .gallery-image:hover {
