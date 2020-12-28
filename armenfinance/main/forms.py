@@ -1,18 +1,26 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Withdraw, VerificationDocument, Registration, AuthToken, ArmenToArmenTransfer
+from .models import Profile, Withdraw, VerificationDocument, Registration, AuthToken
 
+
+# get_user_model
+# from django.contrib.auth import get_user_model
+
+# class RegistrationForm(UserCreationForm):
+#     email = forms.EmailField(max_length=50)
+
+#     class Meta:
+#         model = get_user_model()
+#         fields = ('email', 'password1', 'password2')
 ''' Registration data '''
 
 # registration 
-class RegistrationForm(forms.ModelForm):    
+class RegistrationForm(forms.ModelForm):
+    
     class Meta:
         model = Registration
         fields = ('email',)
-
-class ResendLinkForm(forms.Form):
-    email = forms.CharField(max_length=30,required=False)
 
 # login form
 class LoginForm(forms.Form):
@@ -54,10 +62,3 @@ class VerificationDocumentForm(forms.ModelForm):
     class Meta:
         model = VerificationDocument
         fields = ('document_type','front_document', 'back_document')
-
-class ArmenToArmenTransferForm(forms.ModelForm):
-    
-    class Meta:
-        model = ArmenToArmenTransfer
-        fields = ('destination_account', 'amount', 'transfer_description')
-
