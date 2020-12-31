@@ -1020,7 +1020,10 @@ a {
     }
     #create-account-banner>a {
         padding: 0.1rem;
+        position: relative;
         margin-bottom: 4rem;
+        top: 90%;
+        right: 17px;
     }
     /* promotional offer banner */
     #promotional-offer-banner {
