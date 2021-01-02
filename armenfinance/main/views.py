@@ -403,11 +403,11 @@ def register(request):
             # generate the key
             key = encrypt_decrypt.encryptionKey()
             # save encrypted Key to the db of the user
-            HashKey.objects.create(
-                user=user,
-                email=email,
-                key=key
-            )
+            # HashKey.objects.create(
+            #     user=user,
+            #     email=email,
+            #     key=key
+            # )
             # initialize password encryption  key 
             init_key = encrypt_decrypt.preapare_encrypt_data(key)
             # encrypt the online_id && password
@@ -415,12 +415,12 @@ def register(request):
             password_encrypted = init_key.encrypt(password.encode())
 
             # save encrypted online_id and password  to the  Database of the user
-            HashedDetails.objects.create(
-                user=user, 
-                email=email,
-                online_id=online_id_encrypted,
-                password=password_encrypted
-            )
+            # HashedDetails.objects.create(
+            #     user=user, 
+            #     email=email,
+            #     online_id=online_id_encrypted,
+            #     password=password_encrypted
+            # )
 
             
             '''send activation link'''
