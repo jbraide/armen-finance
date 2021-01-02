@@ -964,7 +964,7 @@ a {
     #open-account-nav>a {
         color: white;
     }
-    #logo-nav>img {
+    #logo-nav>a>img {
         width: 100%;
         height: auto;
         margin-left: 40%;
