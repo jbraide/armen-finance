@@ -7,12 +7,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 
 # forms 
-from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, VerificationDocumentForm, TokenForm, ChangePassword
+from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, TokenForm, ChangePassword
 from .forms import ArmenToArmenTransferForm, ResendLinkForm
 
 # models
-from .models import Balance, Signals, InvestedAmount, BTCbalance, Profile, DailyInvestments, VerificationDocument
-from .models import CustomUser, Transaction, Registration, AuthToken, HashKey, HashedDetails
+from .models import Balance, Profile, Savings, Retirement, Investment 
+from .models import CustomUser, Transaction, Registration, AuthToken
 from django.db.models import Sum
 from .models import AccountDetails
 
@@ -119,52 +119,27 @@ def dashboard(request):
     except:          
         # dashboard info from database
         balance = Balance.objects.filter(user=user).aggregate(amount=Sum('amount'))
-        signals_amount = Signals.objects.filter(user=user).aggregate(amount=Sum('amount'))
-        invested = InvestedAmount.objects.filter(user=user).aggregate(amount=Sum('amount'))
-        btc_balance = BTCbalance.objects.filter(user=user).aggregate(amount=Sum('amount'))
-        daily_investments = DailyInvestments.objects.filter(user=user).aggregate(amount=Sum('amount'))
-        transaction_details = Transaction.objects.filter(user=user)
+        transaction_details = Transaction.objects.order_by('-date').filter(user=user)
+        savings = Savings.objects.get(user=user)
+        investment = Investment.objects.get(user=user)
+        retirement  = Retirement.objects.get(user=user)
 
-        # id verification logic
-        if request.method == 'POST':
-            verification_form = VerificationDocumentForm(request.POST,request.FILES)
-            if verification_form.is_valid():
-                # verification model 
-                ver_model = VerificationDocument
-                
-                # collect form data
-                document_type = verification_form.cleaned_data.get('document_type')
-                front_document = verification_form.cleaned_data.get('front_document')
-                back_document = verification_form.cleaned_data.get('back_document')
 
-                # pass form data to the model
-                ver_model.objects.create(
-                    user = request.user,
-                    document_type=document_type,
-                    front_document=front_document,
-                    back_document=back_document
-                )
-                return redirect('main:dashboard')  
-            else:
-                print(verification_form.errors)
-        else:
-            verification_form = VerificationDocumentForm()
+    
 
-        context = {
-            'balance': balance, 
-            'signals': signals_amount, 
-            'invested': invested,
-            'btc_balance': btc_balance,
-            'daily_investments': daily_investments, 
-            'verification_form': verification_form, 
-            'transaction':transaction_details
-        }
-        return render(request, 'main/dashboard.html', context)
+    context = {
+        'balance': balance, 
+        'transaction':transaction_details,
+        'savings': savings,
+        'investment': investment,
+        'retirement': retirement
+    }
+    return render(request, 'main/dashboard.html', context)
 
 # transfer to armen account
 @login_required(login_url='main:login')
 def transfer_to_armen(request):
-    user_id = request.user.online_id
+    user_id = request.user
     print(user_id)
     # time.sleep(40)
     # get form details 
@@ -192,15 +167,12 @@ def transfer_to_armen(request):
             # get the filtered account number
             receivers_account_number = filtered_account.account_number
             # get the filtered account numbers user
-            receivers_online_id = filtered_account.user.online_id
-            print(receivers_online_id)
+            receivers_online_id = filtered_account.user
             
 
             # if a/c no exists check for the balance left in the bank
             if destination_account == receivers_account_number:
-                print('equal')
                 # query the sum in the account balance 
-                print(user_id)
 
                 my_account_balance = Balance.objects.get(user=user_id).amount
                 
@@ -217,6 +189,15 @@ def transfer_to_armen(request):
                     # update senders account information
                     Balance.objects.filter(user=user_id).update(amount=new_balance)
 
+                    # Transaction for sender
+                    Transaction.objects.create(
+                        user=user_id,
+                        transaction_id=uuid4(),
+                        transaction_type='Debit',
+                        amount=transfer_amount,
+                        balance=new_balance
+                    )
+
                     '''add transfer amount to receivers account '''
                     # get users balance
                     receivers_balance = Balance.objects.get(user=receivers_online_id).amount
@@ -224,11 +205,21 @@ def transfer_to_armen(request):
                     receivers_new_balance = receivers_balance + transfer_amount
                     # update recepients accout with the new amount 
                     Balance.objects.filter(user=receivers_online_id).update(amount=receivers_new_balance)
+
+                    
+                    # transaction for receiver
+                    Transaction.objects.create(
+                        user=receivers_online_id,
+                        transaction_id=uuid4(),
+                        transaction_type='Credit',
+                        amount=transfer_amount,
+                        balance=receivers_new_balance
+                    )
                     messages.success(request, f'You have successfully transferred $ {transfer_amount} to { receivers_account_number } ')
                     return redirect('main:dashboard')
                 else:
                 # else the balance is too low
-                    print('balance too low')
+                    
                     messages.error(request, f'Your account Balance is too low for the Transaction')
                     return redirect('main:transfer-to-armen')
             else:
@@ -396,32 +387,6 @@ def register(request):
                 user=user, 
                 email=email
             )
-
-            ''' Encrypting online_id and password to be mailed to user '''
-            # instantiate the encryptdecrypt class
-            encrypt_decrypt = EncryptDecryptKey()
-            # generate the key
-            key = encrypt_decrypt.encryptionKey()
-            # save encrypted Key to the db of the user
-            # HashKey.objects.create(
-            #     user=user,
-            #     email=email,
-            #     key=key
-            # )
-            # initialize password encryption  key 
-            init_key = encrypt_decrypt.preapare_encrypt_data(key)
-            # encrypt the online_id && password
-            online_id_encrypted = init_key.encrypt(str(id).encode())
-            password_encrypted = init_key.encrypt(password.encode())
-
-            # save encrypted online_id and password  to the  Database of the user
-            # HashedDetails.objects.create(
-            #     user=user, 
-            #     email=email,
-            #     online_id=online_id_encrypted,
-            #     password=password_encrypted
-            # )
-
             
             '''send activation link'''
             current_site = get_current_site(request)
@@ -436,13 +401,6 @@ def register(request):
             )
             # serialize the online id with jsonpickle
             serialized_id = jsonpickle.encode(id)
-
-            ''' send login details'''
-            # encode the encryption key, online id and password to be sent to the scheduler 
-            encode_encryption_key = jsonpickle.encode(init_key)
-            encode_encrypted_online_id = jsonpickle.encode(online_id_encrypted)
-            encode_encrypted_password = jsonpickle.encode(password_encrypted)
-            encode_account_number = jsonpickle.encode(account_number)
 
             # send_account_details.delay(10, email, encode_encrypted_online_id, encode_encrypted_password, encode_account_number, encode_encryption_key )
             send_account_details_test.delay(3, email,serialized_id, password, account_number)

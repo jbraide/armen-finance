@@ -20,8 +20,21 @@
     <!-- Custom styles for this template -->
     <link href="/static/dashboard/style.css" rel="stylesheet">
     <link href="/static/dashboard/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/main.css"> {% load widget_tweaks %}
 </head>
+<style>
+    .submit-button-desktop {
+        margin-top: 2%;
+        padding: 1.8% 0;
+        width: 100%;
+    }
+    
+    .submit-button {
+        margin-top: 6%;
+        width: 100%;
+    }
+</style>
 
 <body>
     <!-- **********************************************************************************************************************************************************
@@ -29,29 +42,59 @@
       *********************************************************************************************************************************************************** -->
     <div id="login-page">
         <div class="container reg-page">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="modal-content">
-                        <form action="" method="POST">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Forgot Password ?</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>Kindly Enter your e-mail Lets Send your details to Get started with Armen Finance</p>
-                                {% csrf_token %} {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
-                                <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
-                                <button type="submit" class="btn btn-theme">Submit</button>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="{% url 'main:index' %}" class="btn btn-default" type="button">Cancel</a>
-                                <a href="" class="btn btn-theme" type="Submit">Submit</a>
-                            </div>
-                        </form>
+            <!-- desktop -->
+            <div class="desktop">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="modal-content" style="margin-top: 40%;">
+                            <form action="" method="POST">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create Account</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Kindly Enter your e-mail Lets Send your details to Get started with Armen Finance</h5>
+                                    {% csrf_token %} {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
+                                    <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
+                                    <button type="submit" class="btn btn-theme submit-button-desktop ">Submit</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'main:index' %}" class="btn btn-default" type="button">Home</a>
+                                    <a href="{% url 'main:login' %}" class="btn btn-theme">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                    <div class="col-md-2"></div>
                 </div>
             </div>
+            <!-- mobile -->
+            <div class="mobile">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="modal-content" style="margin-top: 60%;">
+                            <form action="" method="POST">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create Account</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Kindly Enter your e-mail Lets Send your details to Get started with Armen Finance</h5>
+                                    {% csrf_token %} {{ form.email|add_class:'form-control placeholder-no-fix'|attr:'placeholder:Email' }}
+                                    <!-- <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"> -->
+                                    <button type="submit" class="btn btn-theme submit-button">Submit</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'main:index' %}" class="btn btn-default" type="button">Home</a>
+                                    <a href="{% url 'main:login' %}" class="btn btn-theme">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- js placed at the end of the document so the pages load faster -->

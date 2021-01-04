@@ -1,0 +1,73 @@
+source ~/Documents/web_projects/venv/bin/activate && cd armenfinance && python manage.py runserver 127.0.0.1:2000
+python manage.py makemigrations && python manage.py migrate
+
+
+user id = 66d25a3e-4816-4bb6-9475-bc5fed412a55
+
+cp -r ./frontend/static ./armenfinance/main
+
+username 6efaa0b7-69ac-4a93-ad72-32394ea648e6, password TeQeoOux7Qwuh5
+
+
+
+# cloud things 
+
+ssh root@143.110.189.108
+
+CREATE DATABASE armenfinance;
+CREATE USER armenfinance WITH PASSWORD 'armenfinance';
+
+
+ALTER ROLE armenfinance SET client_encoding TO 'utf8';
+ALTER ROLE armenfinance SET default_transaction_isolation TO 'read committed';
+ALTER ROLE armenfinance SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE armenfinance TO armenfinance;
+
+
+# Gunicorn configuration 
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=banking
+Group=www-data
+WorkingDirectory=/home/banking/onlinebank/armenfinance
+ExecStart=/home/banking/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/banking/armenfinance.sock armenfinance.wsgi:application --env DJANGO_SETTINGS_MODULE='armenfinance.settings.development'
+
+[Install]
+WantedBy=multi-user.target
+ 
+
+# nginx 
+server {
+    listen 80;
+    server_name armenfinance.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/banking/onlinebank/armenfinance;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/banking/armenfinance.sock;
+    }
+}
+
+
+{% comment %} celery configuration {% endcomment %}
+#supervisor
+
+sudo nano /etc/supervisor/conf.d/armenfinance.conf
+
+
+[program:armenfinance]
+command=/home/banking/venv/bin/celery -A armenfinance --loglevel=INFO
+directory=/home/banking/onlinebank/armenfinance/
+user=www-data
+autostart=true
+autorestart=true
+stdout_logfile=/home/banking/onlinebank/armenfinance/logs/celeryd.log
+redirect_stderr=true

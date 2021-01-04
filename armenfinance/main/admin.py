@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Balance, InvestedAmount, Signals, BTCbalance, VerificationDocument
-from .models import DailyInvestments, Transaction, HashKey, HashedDetails
+from .models import Profile, Balance, Transaction
 
 '''
     custom user admin fieldset
@@ -11,7 +10,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import CustomUser, Registration, AuthToken, AccountDetails
+from .models import CustomUser, Registration, AuthToken, AccountDetails, Savings, Investment, Retirement
 from .forms  import RegistrationForm
 
 
@@ -58,27 +57,6 @@ class ProfileAdmin(admin.ModelAdmin):
 class BalanceAdmin(admin.ModelAdmin):
     list_display = ['user', 'amount']
 
-@admin.register(InvestedAmount)
-class InvestedAmountAdmin(admin.ModelAdmin):
-    list_display = ['user','amount',]
-
-@admin.register(Signals)
-class SignalsAdmin(admin.ModelAdmin):
-    list_display = ['user','amount',]
-
-@admin.register(BTCbalance)
-class BTCbalanceAdmin(admin.ModelAdmin):
-    list_display = ['user', 'amount']
-
-# verfication documents
-@admin.register(VerificationDocument)
-class VerificationDocumentAdmin(admin.ModelAdmin):
-    list_display = ['user',]
-
-# btc balance
-@admin.register(DailyInvestments)
-class DailyInvestmentsAdmin(admin.ModelAdmin):
-    list_display = ['user', 'amount']
 
 # transaction history
 @admin.register(Transaction)
@@ -95,17 +73,21 @@ class RegistrationAdmin(admin.ModelAdmin):
 class AuthTokenAdmin(admin.ModelAdmin):
     list_display = ['user', 'token']
 
-# hash key
-@admin.register(HashKey)
-class HashKeyAdmin(admin.ModelAdmin):
-    list_display = ['email','user','key'] 
-
-# hashed online_id, password
-@admin.register(HashedDetails)
-class HashedDetailsAdmin(admin.ModelAdmin):
-    list_display = ['email','online_id', 'password']
 
 # account number 
 @admin.register(AccountDetails)
 class AccountDetailsAdmin(admin.ModelAdmin):
     list_display = ['user', 'account_number']
+
+''' savings / investment / Retirement'''
+@admin.register(Savings)
+class SavingsAdmin(admin.ModelAdmin):
+    list_display = ['user', 'balance' ]
+
+@admin.register(Retirement)
+class RetirementAdmin(admin.ModelAdmin):
+    list_display = ['user', 'balance' ]
+
+@admin.register(Investment)
+class InvestmentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'balance' ]

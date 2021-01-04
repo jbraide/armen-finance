@@ -96,28 +96,63 @@ class AuthToken(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     token = models.CharField(max_length=30, unique=True)
 
-# Hash encryption 
-class HashKey(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    email = models.EmailField(max_length=100, unique=True)
-    key = models.CharField(max_length=100, default='')
+''' investment retirment & savings '''
 
-# online id && password store
-class HashedDetails(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    email = models.EmailField(max_length=100, unique=True)
-    online_id = models.CharField(max_length=200, default='')
-    password = models.CharField(max_length=200, default='')
+class Transaction(models.Model):
+    types = (
+        ('Debit', 'Debit'), 
+        ('Credit', 'Credit'),
+    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    transaction_id = models.UUIDField(default=uuid.uuid4())
+    date = models.DateTimeField(auto_now_add=True)
+    transaction_type = models.CharField(max_length=20,choices=types)
+    amount = models.IntegerField()
+    balance = models.IntegerField()
+
+
+class Savings(models.Model):
+    status = (
+        ('Increased', 'Increased'), 
+        ('Decreased', 'Decreased'),
+    )
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    percentage = models.PositiveIntegerField()
+    percentage_status = models.CharField(max_length=20, choices=status)
+    duration = models.IntegerField()
+    balance = models.IntegerField()
+
+class Investment(models.Model):
+    status = (
+        ('Increased', 'Increased'), 
+        ('Decreased', 'Decreased'),
+    )
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    percentage = models.PositiveIntegerField()
+    percentage_status = models.CharField(max_length=20, choices=status)
+    duration = models.IntegerField()
+    balance = models.IntegerField()
+
+class Retirement(models.Model):
+    status = (
+        ('Increased', 'Increased'), 
+        ('Decreased', 'Decreased'),
+    )
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    percentage = models.PositiveIntegerField()
+    percentage_status = models.CharField(max_length=20, choices=status)
+    duration = models.IntegerField()
+    balance = models.IntegerField()
+
 
 
 # profile
 
 plans = (
-    ('Mini', 'Mini'),
-    ('Entry', 'Entry'),
-    ('Silver', 'Silver'),
-    ('Gold', 'Gold'),
-    ('Platinum', 'Platinum')
+    ('Checking Accounts', 'Checking Accounts'),
+    ('Invest', 'Invest'),
+    ('Home Lending', 'Home Lending'),
+    ('Savings', 'Savings'),
 )
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
@@ -142,6 +177,29 @@ def create_user_profile(sender, instance, created, **kwargs):
             user=instance,
             amount=0
         )
+        Savings.objects.create(
+            user=instance, 
+            percentage = 0,
+            percentage_status='',
+            duration=0,
+            balance=0
+        )
+        Investment.objects.create(
+            user=instance, 
+            percentage = 0,
+            percentage_status='',
+            duration=0,
+            balance=0
+        )
+        Retirement.objects.create(
+            user=instance, 
+            percentage = 0,
+            percentage_status='',
+            duration=0,
+            balance=0
+        )
+
+
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def save_user_profile(sender, instance, **kwargs):
@@ -182,56 +240,19 @@ class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
 
-# invested amount
-class InvestedAmount(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    amount = models.PositiveIntegerField()
-
-# forex signals 
-class Signals(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    amount = models.PositiveIntegerField()
-
-# Notifications
-class Notification(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    status = models.BooleanField(default=False)
-    details = models.CharField(max_length=40)
-    amount = models.PositiveIntegerField()
 
 # withdrawal
 class Withdraw(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)    
     password = models.CharField(max_length=30, default = '')
 
-# bitcoin balance
-class BTCbalance(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=11, decimal_places=11)
-
-# daily Investments
-class DailyInvestments(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
-    amount = models.PositiveIntegerField()
-
-# verification documents
-class VerificationDocument(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    document_type = models.CharField(max_length=30)
-    front_document = models.FileField(upload_to='doc/front_page/', blank=False, null=False)
-    back_document = models.FileField(upload_to='doc/back_page/', blank=False, null=False)
-    verified = models.BooleanField(default=False, blank=True)
-
-class Transaction(models.Model):
-    types = (
-        ('deposit', 'deposit'), 
-        ('withdraw', 'withdraw'),
-    )
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
-    transaction_id = models.UUIDField(default=uuid.uuid4())
-    amount = models.IntegerField()
-    type = models.CharField(max_length=30, choices=types)
+# # verification documents
+# class VerificationDocument(models.Model):
+#     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+#     document_type = models.CharField(max_length=30)
+#     front_document = models.FileField(upload_to='doc/front_page/', blank=False, null=False)
+#     back_document = models.FileField(upload_to='doc/back_page/', blank=False, null=False)
+#     verified = models.BooleanField(default=False, blank=True)
 
 
     

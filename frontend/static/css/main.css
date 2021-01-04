@@ -54,6 +54,7 @@ body {
     top: 30px;
 }
 
+
 /* button {
     background: linear-gradient(117deg, rgba(2, 0, 36, 1) 0%, rgba(8, 169, 255, 0.9640231092436975) 51%, rgba(0, 212, 255, 1) 100%);
     color: #f5f5f5;
@@ -179,7 +180,7 @@ h5 {
     text-align: center;
     font-size: 18px;
     font-weight: 700;
-    color: #343a40;
+    color: #f1f6fa;
     margin-bottom: 30px;
 }
 
@@ -244,6 +245,7 @@ h5 {
     border-top-left-radius: 4px;
     width: 80%;
     cursor: pointer;
+    height: 155px;
 }
 
 .gallery-image:hover {

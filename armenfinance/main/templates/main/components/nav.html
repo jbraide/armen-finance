@@ -35,7 +35,7 @@
         </div>
     </nav>
     <!-- sidebar content -->
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav" style="z-index: 9;">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{% url 'main:login' %}">Login</a>
         <a href="{% url 'main:register' %}">Signup</a>
@@ -43,7 +43,7 @@
         <a href="{% url 'main:contact' %}">Contact</a>
     </div>
     <!-- navigation -->
-    <nav class="navigation mobile">
+    <nav class="navigation mobile" style="z-index: 4;">
         <div class="container">
             <div class="row">
 

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Withdraw, VerificationDocument, Registration, AuthToken, ArmenToArmenTransfer
+from .models import Profile, Withdraw, Registration, AuthToken, ArmenToArmenTransfer
 
 ''' Registration data '''
 
@@ -49,11 +49,6 @@ class WithdrawalForm(forms.ModelForm):
     class Meta: 
         model = Withdraw
         fields = ('amount', 'password')
-
-class VerificationDocumentForm(forms.ModelForm):    
-    class Meta:
-        model = VerificationDocument
-        fields = ('document_type','front_document', 'back_document')
 
 class ArmenToArmenTransferForm(forms.ModelForm):
     
