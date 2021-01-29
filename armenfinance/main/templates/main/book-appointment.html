@@ -1,0 +1,58 @@
+{% extends "main/components/base.html" %} {% block body %}
+
+<!-- Book appointment image section -->
+<div class="book-appointment-header">
+    <div class="book-appointment-inner">
+        <h3>SCHEDULE AN APPOINTMENT</h3>
+    </div>
+</div>
+
+<!-- book appointment body -->
+<div class="book-appointment-body">
+    <div class="container">
+        <div class="row book-appointment-body-margin">
+            <div class="col-lg-6">
+                <h2 id="save-time">Save Time by Booking Ahead</h2>
+                <p>
+                    We know your time is valuable. Whether you want to open a new account, apply for a business loan, or talk about setting your financial goals, our specialists are here to help at your convenience.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="schedule-form">
+                    <h3 id="schedule-meeting-head">SCHEDULE A MEETING</h3>
+                    <form action="" class="">
+                        <label for="">Full Name*</label>
+                        <input type="text" class="form-control">
+                        <label for="">Phone*</label>
+                        <input type="text" class="form-control">
+                        <label for="">Email*</label>
+                        <input type="email" name="" id="" class="form-control">
+                        <label for="">Meeting Format</label>
+                        <select name="" id="" class="form-control">
+                                <option value="">In-Person</option>
+                                <option value="">Video Call</option>
+                            </select>
+                        <label for="">Reason For Meeting</label>
+                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+
+                        <label for="">Preferred Meeting Date & Time</label>
+                        <input type="text" id="date-field" class="form-control">
+
+                        <button class="btn btn-primary btn-block mt-4">
+                                Book Appointment
+                            </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#date-field').flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minDate: "today",
+        maxDate: new Date().fp_incr(30) // 30 days from now
+    });
+</script>
+{% endblock %}

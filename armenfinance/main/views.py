@@ -91,6 +91,14 @@ def payment_policy(request):
 def terms_and_condition(request):
     return render(request,'main/terms-and-conditions.html')
 
+# online savings 
+def online_savings(request):
+    return render(request, 'main/savings-account.html')
+
+# book appointment
+def book_appointment(request):
+    return render(request, 'main/book-appointment.html')
+
 # activation sent 
 def activation_sent(request):
     return render(request, 'main/activation-sent.html')

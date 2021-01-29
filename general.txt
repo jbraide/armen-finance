@@ -8,6 +8,7 @@ cp -r ./frontend/static ./armenfinance/main
 
 username 6efaa0b7-69ac-4a93-ad72-32394ea648e6, password TeQeoOux7Qwuh5
 
+a/c number = 53014666637
 
 
 # cloud things 

@@ -1,0 +1,23 @@
+/* global */
+
+html {
+    font-family: Muli, sans-serif;
+}
+
+
+/* OTP input */
+
+#input-otp {
+    border: 1px solid #efefef;
+    font-size: 12px;
+    padding: 20px 10px;
+    color: #4E4E4E;
+}
+
+
+/* Checkbox */
+
+#showOtp-box {
+    font-size: 12px;
+    color: #4E4E4E;
+}

@@ -1,0 +1,175 @@
+{% extends "main/components/base.html" %} {% block body %}
+<!-- banner -->
+<div class="">
+    <!-- navigation -->
+    <nav class="navigation desktop">
+        <div class="container">
+            <div class="row">
+
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+                </div>
+                <!-- open an account nav -->
+                <div class="col-2" id="open-account-nav">
+                    <a href="register.html" class="">Open an account <span class="pl-3 fas fa-chevron-down"></span></a>
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                </div>
+
+                <!-- about us and search bar -->
+                <div class="col-lg-4" id="about-us-nav">
+                    <a href="">About Us</a>
+                    <a href="">
+                        <span class="fas fa-search"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- sidebar content -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'main:login' %}">Login</a>
+        <a href="{% url 'main:register' %}">Signup</a>
+        <a href="{% url 'main:about' %}">About</a>
+        <a href="{% url 'main:contact' %}">Contact</a>
+    </div>
+    <!-- navigation -->
+    <nav class="navigation mobile">
+        <div class="container">
+            <div class="row">
+
+                <!-- icon -->
+                <div class="col-1">
+                    <span class="fas fa-bars" id="nav-menu-icon" onclick="openNav()"></span>
+
+                </div>
+                <!-- logo -->
+                <div class="col-5" id="logo-nav">
+                    <!-- <h3>Armen Finance</h3> -->
+                    <!-- insert logo her -->
+                    <img src="./static/img/logo_transparent.png" alt="">
+                </div>
+
+                <!-- LOGIN -->
+                <div class="col-4" id="about-us-nav">
+                    <a href="" class="btn btn-outline-success px-4">LOGIN</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+</div>
+<!-- end of banner -->
+
+<!-- Book appointment image section -->
+<div class="savings-account-header">
+    <div class="savings-account-inner">
+        <h3>Online Savings Account</h3>
+        <p>
+            Earn interest over 5x the National Savings Average
+        </p>
+        <a href="" class="btn btn-primary btn-block">Create An account</a>
+    </div>
+</div>
+
+<!-- savings account background -->
+<div class="savings-account-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="sidebar-bg-left">
+                    <h3>
+                        0.45% APY <sup> <i id="tooltip" class="fas fa-info" data-toggle="tooltip" data-placement="top" title="The Annual Percentage Yield (APY) for the Online Savings Account as of 01/28/2021 is more than five times the national average APY for interest-bearing savings accounts with balances of $500 as reported by Informa Research Services, Inc. as of 01/28/2021. Interest rates and APYs are subject to change at any time. Although the information provided by Informa Research Services has been obtained from the various institutions, accuracy cannot be guaranteed."></i></sup>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="sidebar-bg-right">
+                    <h3>
+                        Grow your money with a savings account interest rate over 5x the National Savings Average
+                    </h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="savings-account-features-container">
+    <div class="container">
+        <div class="savings-benefits">
+            <h4 id="benefits-heading">Benefits</h4>
+            <div class="savings-account-features-header">
+                <h3>
+                    Savings Account Features
+                </h3>
+                <p>
+                    Apply today, and enjoy an online savings account with <b>no quarterly Service Charge</b>, plus features that give yout the opportunity to:
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                </h3>
+                <p class="features-detail">
+                    Earn Interest on your Savings Account Balance.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-wallet"></i>
+                </h3>
+                <p class="features-detail">
+                    Access your money, with up to 8 withdrawals per statement cycle fee free.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-history"></i>
+                </h3>
+                <p class="features-detail">
+                    Get 24/7 access with our website.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-user-shield"></i>
+                </h3>
+                <p class="features-detail">
+                    Link to an Armen Finance Account for overdraft protection
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-money-check"></i>
+                </h3>
+                <p class="features-detail">
+                    Pay no POS fees on transactions.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="features-icon">
+                    <i class="fas fa-cloud"></i>
+                </h3>
+                <p class="features-detail">
+                    Open a savings account online with a $ 25 minimum opening deposit
+                </p>
+            </div>
+
+            <a href="" class="btn btn-success btn-block py-3 savings-button">Create an Account</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

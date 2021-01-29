@@ -32,6 +32,23 @@
     <!-- custom script tag -->
     <script src="/static/js/main.js"></script>
 
+    <!-- flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <style>
+        #choose-wrfy-footer>a {
+            color: #9b9999;
+        }
+    </style>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+
 </head>
 
 <body>
@@ -56,7 +73,7 @@
                     <h3>Choose What's Right For You</h3>
 
                     <!-- schedule a meeting -->
-                    <a href="">
+                    <a href="{% url 'main:book-appointment' %}">
                         Schedule a meeting
                     </a>
                     <!-- checking accounts -->
@@ -80,7 +97,7 @@
                         Home Lending
                     </a>
                     <!-- savings account -->
-                    <a href="">
+                    <a href="{% url 'main:savings-account' %}">
                         Savings Account
                     </a>
 

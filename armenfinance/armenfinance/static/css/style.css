@@ -922,6 +922,106 @@ a {
         background-color: rgba(2, 0, 36, 1);
         color: wheat;
     }
+    /* Book an appointment */
+    .book-appointment-header {
+        background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../img/book-appointment.jpg") center;
+        height: 280px;
+        width: 100%;
+    }
+    .book-appointment-inner {
+        padding-left: 38%;
+        padding-top: 11%;
+    }
+    .book-appointment-inner>h3 {
+        color: white;
+    }
+    .book-appointment-body-margin {
+        margin-top: 9%;
+        margin-bottom: 5%
+    }
+    #save-time,
+    #schedule-meeting-head {
+        font-size: 3rem;
+        margin-bottom: 4%;
+    }
+    /* savings account */
+    .savings-account-header {
+        background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../img/savings.jpg");
+        height: 400px;
+        width: 100%;
+    }
+    .savings-account-inner {
+        /* padding: 0 20%; */
+        padding-left: 5%;
+        padding-top: 10%;
+    }
+    .savings-account-inner>h3 {
+        color: white;
+        font-size: 3rem;
+    }
+    .savings-account-inner>p {
+        color: #f1f1f1;
+        font-size: 1.2rem;
+    }
+    .savings-account-inner>.btn {
+        width: 39%;
+        background: #343a40;
+        color: #f4f4f4;
+        border: none;
+        padding: 1.2% 0;
+    }
+    .savings-account-inner>.btn:hover {
+        width: 39%;
+        background: #818181;
+        color: #f4f4f4;
+        border: none;
+        padding: 1.2% 0;
+    }
+    .savings-account-bg {
+        background: #192734;
+        height: 200px;
+        width: 75%;
+        margin: 5% auto;
+        margin-top: -2%;
+        color: white;
+    }
+    #tooltip {
+        color: teal;
+        font-size: 0.8rem;
+    }
+    .sidebar-bg-right>h3 {
+        /* margin-left: 10%; */
+        text-align: center;
+        margin-top: 10%;
+    }
+    .sidebar-bg-left>h3 {
+        margin-left: 31%;
+        margin-top: 14%;
+    }
+    .savings-benefits {
+        margin: 5% 0;
+    }
+    .savings-account-features-container {
+        margin-bottom: 6%;
+    }
+    .savings-account-features {
+        margin-bottom: 5%;
+    }
+    .features-detail {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #343a40;
+        text-align: center;
+    }
+    #benefits-heading {
+        font-size: 2.1rem;
+        font-weight: bold;
+    }
+    .features-icon {
+        margin: 5% 0;
+        font-size: 2rem;
+        text-align: center;
+    }
 }
 
 
@@ -1211,6 +1311,130 @@ a {
     #jumbotron-color {
         background-color: rgba(2, 0, 36, 1);
         color: wheat;
+    }
+    /* Book an appointment */
+    .book-appointment-header {
+        background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../img/book-appointment.jpg") center;
+        height: 350px;
+        width: 100%;
+    }
+    .book-appointment-body {
+        text-align: center;
+    }
+    .book-appointment-inner {
+        padding-left: 23%;
+        padding-top: 49%;
+    }
+    .book-appointment-inner>h3 {
+        color: white;
+    }
+    .book-appointment-body-margin {
+        margin-top: 9%;
+        margin-bottom: 5%
+    }
+    #save-time,
+    #schedule-meeting-head {
+        font-size: 3rem;
+        margin-bottom: 9%;
+    }
+    /* 
+    
+    savings account
+    
+    */
+    /* savings background image & text */
+    .savings-account-header {
+        background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../img/savings.jpg");
+        height: 400px;
+        width: 100%;
+    }
+    .savings-account-inner {
+        /* padding: 0 20%; */
+        padding-left: 7%;
+        padding-top: 27%;
+    }
+    .savings-account-inner>h3 {
+        color: white;
+        font-size: 2.5rem;
+    }
+    .savings-account-inner>p {
+        color: #f1f1f1;
+        font-size: 1.2rem;
+    }
+    .savings-account-inner>.btn {
+        width: 50%;
+        padding: 2.7% 0;
+        background: #343a40;
+        color: #f4f4f4;
+        border: none;
+    }
+    .savings-account-inner>.btn:hover {
+        background: #818181;
+        /* color: #f4f4f4; */
+        border: none;
+    }
+    /* savings interest  */
+    .savings-account-bg {
+        background: #192734;
+        height: 200px;
+        width: 95%;
+        margin: 5% auto;
+        margin-top: -6%;
+        color: white;
+    }
+    #tooltip {
+        color: teal;
+        font-size: 0.8rem;
+    }
+    .sidebar-bg-right>h3 {
+        text-align: center;
+        margin-top: 4%;
+        font-size: 1.1rem;
+    }
+    .sidebar-bg-left>h3 {
+        margin-left: 31%;
+        margin-top: 14%;
+    }
+    /* savings benefits */
+    .savings-benefits {
+        margin: 5% 0;
+    }
+    .savings-account-features-container {
+        margin-bottom: 6%;
+    }
+    .savings-account-features-header {
+        text-align: center;
+    }
+    .savings-account-features-header>h3 {
+        margin-bottom: 11%;
+    }
+    .savings-account-features-header>p {
+        line-height: 200%;
+    }
+    .savings-account-features {
+        margin-bottom: 5%;
+    }
+    .features-detail {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #343a40;
+        text-align: center;
+    }
+    #benefits-heading {
+        text-align: center;
+        margin: 11% 0;
+        font-size: 2.1rem;
+        font-weight: bold;
+    }
+    .features-icon {
+        margin: 5% 0;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .savings-button {
+        width: 90%;
+        margin: 3% auto;
+        margin-top: 8%;
     }
 }
 

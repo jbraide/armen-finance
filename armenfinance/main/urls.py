@@ -27,6 +27,9 @@ urlpatterns = [
     # terms and conditions, Privacy policy
     path('terms-and-conditions/', terms_and_condition, name='terms-and-conditions'),
     path('privacy-policy', privacy_policy, name='privacy-policy'),
+    # other
+    path('savings-account/', views.online_savings, name='savings-account'),
+    path('book-appointment/', views.book_appointment, name='book-appointment'),
     # dashboard routes
     path('dashboard/', dashboard, name="dashboard"),
     path('transfer/armen',transfer_to_armen,name='transfer-to-armen'),
