@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # forms 
 from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, TokenForm, ChangePassword
-from .forms import ArmenToArmenTransferForm, ResendLinkForm
+from .forms import ArmenToArmenTransferForm, ResendLinkForm,BookAppointmentForm
 
 # models
 from .models import Balance, Profile, Savings, Retirement, Investment 
@@ -97,7 +97,27 @@ def online_savings(request):
 
 # book appointment
 def book_appointment(request):
-    return render(request, 'main/book-appointment.html')
+    if request.method == 'POST':
+        form = BookAppointmentForm(request.POST)
+        if form.is_valid():
+            # stop the database saving
+            user = form.save(commit=False)
+            # meeting time
+            meeting_time = form.cleaned_data.get('meeting_time')
+            user.meeting_time = meeting_time
+            user.save()
+            # print(meeting_time)
+            messages.success(request,'Appointment Booked')
+            return redirect('main:book-appointment')
+        else:
+            messages.error(request, 'Error in the Form')
+    else:
+        form = BookAppointmentForm()
+
+    context =  {
+        'form': form
+    }
+    return render(request, 'main/book-appointment.html', context)
 
 # activation sent 
 def activation_sent(request):

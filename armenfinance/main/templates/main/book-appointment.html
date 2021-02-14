@@ -1,4 +1,4 @@
-{% extends "main/components/base.html" %} {% block body %}
+{% extends "main/components/base.html" %} {% load widget_tweaks %} {% block body %}
 
 <!-- Book appointment image section -->
 <div class="book-appointment-header">
@@ -20,23 +20,22 @@
             <div class="col-lg-6">
                 <div class="schedule-form">
                     <h3 id="schedule-meeting-head">SCHEDULE A MEETING</h3>
-                    <form action="" class="">
+                    <form action="" class="" method="post">
+                        {% include "main/messages/messages.html" %} {% csrf_token %}
                         <label for="">Full Name*</label>
-                        <input type="text" class="form-control">
-                        <label for="">Phone*</label>
-                        <input type="text" class="form-control">
-                        <label for="">Email*</label>
-                        <input type="email" name="" id="" class="form-control">
-                        <label for="">Meeting Format</label>
-                        <select name="" id="" class="form-control">
-                                <option value="">In-Person</option>
-                                <option value="">Video Call</option>
-                            </select>
-                        <label for="">Reason For Meeting</label>
-                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <!-- <input type="text" class="form-control"> -->
+                        {{ form.full_name|add_class:'form-control'}}
+                        <label for="">Phone*</label> {{ form.phone_number|add_class:'form-control'}}
 
-                        <label for="">Preferred Meeting Date & Time</label>
-                        <input type="text" id="date-field" class="form-control">
+                        <label for="">Email*</label> {{ form.email|add_class:'form-control'}}
+
+                        <label for="">Speak with</label> {{ form.speak_with|add_class:'form-control'}}
+
+                        <label for="">Reason For Meeting</label> {{ form.reason_for_meeting|add_class:'form-control'}}
+
+
+                        <label for="">Preferred Meeting Date & Time</label> {{ form.meeting_time|add_class:'form-control'|attr:'id:date-field' }}
+
 
                         <button class="btn btn-primary btn-block mt-4">
                                 Book Appointment

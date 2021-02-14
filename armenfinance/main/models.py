@@ -246,6 +246,21 @@ class Withdraw(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)    
     password = models.CharField(max_length=30, default = '')
 
+
+class BookAppointment(models.Model):
+    choose = (
+        ('Support', 'Support'),
+        ('Sales', 'Sales'),
+        ('Abuse', 'Abuse'),
+        ('Billing', 'Billing'),
+    )
+    full_name = models.CharField(max_length=100, default='', help_text='Enter Full Name', blank=False)
+    phone_number = PhoneNumberField(blank=True, help_text='Contact Phone Number')
+    email = models.EmailField(max_length=50, blank=False)
+    speak_with = models.CharField(choices=choose, max_length=30)
+    reason_for_meeting = models.TextField()
+    meeting_time = models.CharField(max_length=30)
+
 # # verification documents
 # class VerificationDocument(models.Model):
 #     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)

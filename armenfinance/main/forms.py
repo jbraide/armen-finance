@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Withdraw, Registration, AuthToken, ArmenToArmenTransfer
+from .models import Profile, Withdraw, Registration, AuthToken, ArmenToArmenTransfer,BookAppointment
 
 ''' Registration data '''
 
@@ -56,3 +56,8 @@ class ArmenToArmenTransferForm(forms.ModelForm):
         model = ArmenToArmenTransfer
         fields = ('destination_account', 'amount', 'transfer_description')
 
+class BookAppointmentForm(forms.ModelForm):
+    meeting_time = forms.CharField(max_length=30)
+    class Meta:
+        model = BookAppointment
+        fields = '__all__'

@@ -10,7 +10,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import CustomUser, Registration, AuthToken, AccountDetails, Savings, Investment, Retirement
+from .models import CustomUser, Registration, AuthToken, AccountDetails, Savings, Investment, Retirement, BookAppointment
 from .forms  import RegistrationForm
 
 
@@ -91,3 +91,8 @@ class RetirementAdmin(admin.ModelAdmin):
 @admin.register(Investment)
 class InvestmentAdmin(admin.ModelAdmin):
     list_display = ['user', 'balance' ]
+
+@admin.register(BookAppointment)
+class BookAppointmentAdmin(admin.ModelAdmin):
+    list_display= ['full_name',]
+    
