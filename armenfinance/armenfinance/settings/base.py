@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'widget_tweaks',
-    'background_task',
+    # 'background_task',
     # 'phonenumber-field',
     # 'django_apscheduler',
 ]

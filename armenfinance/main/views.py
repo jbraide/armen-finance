@@ -674,7 +674,7 @@ def create_profile(request):
             )
 
             # save the profile data to the form model 
-            profile_form.save()
+            # profile_form.save()
 
             # redirect to the dashboard
             return redirect('main:dashboard')

@@ -72,3 +72,7 @@ autostart=true
 autorestart=true
 stdout_logfile=/home/banking/onlinebank/armenfinance/logs/celeryd.log
 redirect_stderr=true
+
+
+
+celery -A armenfinance worker -l info 
