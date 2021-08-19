@@ -1,4 +1,4 @@
-source ~/Documents/web_projects/venv/bin/activate && cd armenfinance && python manage.py runserver 127.0.0.1:2000
+source venv/bin/activate && cd armenfinance && python manage.py runserver 127.0.0.1:2000
 python manage.py makemigrations && python manage.py migrate
 
 
@@ -76,3 +76,84 @@ redirect_stderr=true
 
 
 celery -A armenfinance worker -l info 
+
+
+
+
+
+<div class="form-group">
+												  <!-- Select a Purpose -->
+												  <label for="" class="my-4">
+													  Select A Purpose
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Select Purpose" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>
+											  <div class="form-group">
+  
+												  <!-- Select a Country -->
+												  <label for="" class="my-4">
+													  Select A Country
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Select Country" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>
+											  <div class="form-group">
+  
+												  <!-- Beneficiary Name -->
+												  <label for="" class="my-4">
+													  Beneficiary Name
+												  </label>
+												  <input type="text" class="form-control form-error" placeholder="Name" class="my-4">
+												  <span class="help-block">Field cannot be empty</span>
+											  </div>		
+											  <div class="form-group">
+												  <!-- Beneficiary Account -->
+												  <label for="" class="my-4">
+													  Beneficiary Account
+												  </label>
+												  <input type="number" class="form-control" placeholder="Account" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Beneficiary Address
+												  </label>
+												  <input type="Text" class="form-control" placeholder="Address" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Beneficiary Branch Address
+												  </label>
+												  <input type="Text" class="form-control" placeholder="Branch Address" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Account Number -->
+												  <label for="" class="my-4">
+													  City
+												  </label>
+												  <input type="text" class="form-control" placeholder="City" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Amount
+												  </label>
+												  <input type="number" class="form-control" placeholder="0.00" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Beneficiary Address -->
+												  <label for="" class="my-4">
+													  Routing Number
+												  </label>
+												  <input type="number" class="form-control" placeholder="Routing Number" class="my-4">
+											  </div>
+											  <div class="form-group">
+												  <!-- Transaction Description -->
+												  <label for="" class="my-4">
+													  Transaction Description
+												  </label>
+												  <input type="text" class="form-control" placeholder="Transaction Description" class="my-4">
+											  </div>
+												  

@@ -40,6 +40,7 @@ urlpatterns = [
     path('id-verification/', id_verification, name='id-verification'), 
     path('logout/', logout_view, name='logout'),
     path('account/upgrade', account_upgrade, name='account-upgrade'),
+    path('transactions/foreign/<str:id>/', views.foreignAccountTransactions, name='foreign-transfer-transactions'),
     # registration and login routes
     path('register/', register, name='register'),
     path('login/', login, name='login'),

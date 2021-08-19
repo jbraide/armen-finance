@@ -13,6 +13,9 @@ from django.utils.translation import ugettext_lazy as _
 from .models import CustomUser, Registration, AuthToken, AccountDetails, Savings, Investment, Retirement, BookAppointment
 from .forms  import RegistrationForm
 
+from . import models 
+
+
 
 @admin.register(CustomUser)
 class CustomUserAdmin(DjangoUserAdmin):
@@ -95,4 +98,14 @@ class InvestmentAdmin(admin.ModelAdmin):
 @admin.register(BookAppointment)
 class BookAppointmentAdmin(admin.ModelAdmin):
     list_display= ['full_name',]
+    
+@admin.register(models.ArmenToForeignAccountTransfer)
+class ForeignAccountTransferAdmin(admin.ModelAdmin):
+    list_display = ['user', 'beneficiary_name']
+
+@admin.register(models.ForeignTransferTransaction)
+class ForeignTfTransactionAdmin(admin.ModelAdmin):
+    list_display = ['user', 'date']
+    
+
     

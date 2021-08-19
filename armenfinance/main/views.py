@@ -8,13 +8,14 @@ from django.contrib.auth.decorators import login_required
 
 # forms 
 from .forms import RegistrationForm, LoginForm, ProfileForm, WithdrawalForm, TokenForm, ChangePassword
-from .forms import ArmenToArmenTransferForm, ResendLinkForm,BookAppointmentForm
+from .forms import ArmenToArmenTransferForm, ArmenToForeignTransferForm, ResendLinkForm,BookAppointmentForm
 
 # models
 from .models import Balance, Profile, Savings, Retirement, Investment 
 from .models import CustomUser, Transaction, Registration, AuthToken
 from django.db.models import Sum
-from .models import AccountDetails
+from .models import AccountDetails, ArmenToForeignAccountTransfer, ForeignTransferTransaction
+
 
 # password reset 
 from django.contrib.auth import update_session_auth_hash
@@ -151,13 +152,14 @@ def dashboard(request):
         savings = Savings.objects.get(user=user)
         investment = Investment.objects.get(user=user)
         retirement  = Retirement.objects.get(user=user)
-
+        foreign_transactions = ForeignTransferTransaction.objects.filter(user=user).all().order_by('-date')[:7]
 
     
 
     context = {
         'balance': balance, 
         'transaction':transaction_details,
+        'foreign_trans': foreign_transactions,
         'savings': savings,
         'investment': investment,
         'retirement': retirement
@@ -268,7 +270,68 @@ def transfer_to_armen(request):
 # transfer to foreign account
 @login_required(login_url='main:login')
 def transfer_to_foreign_account(request):
-    return render(request, 'main/transfer-foreign-account.html')
+    if request.method == 'POST':
+        form = ArmenToForeignTransferForm(request.POST, instance=request.user)
+        if form.is_valid():
+            purpose = form.cleaned_data['purpose']
+            country = form.cleaned_data['country']
+            beneficiary_name = form.cleaned_data['beneficiary_name']
+            beneficiary_account = form.cleaned_data['beneficiary_account']
+            beneficiary_address = form.cleaned_data['beneficiary_address']
+            beneficiary_branch_address = form.cleaned_data['beneficiary_branch_address']
+            city = form.cleaned_data['city']
+            amount = form.cleaned_data['amount']
+            routing_number = form.cleaned_data['routing_number']
+            transfer_description = form.cleaned_data['transfer_description']
+
+            ArmenToForeignAccountTransfer.objects.create(
+                user=request.user,
+                purpose =purpose,
+                country=country,
+                beneficiary_name=beneficiary_name,
+                beneficiary_account=beneficiary_account,
+                beneficiary_address=beneficiary_address,
+                beneficiary_branch_address=beneficiary_branch_address, 
+                city=city, 
+                amount=amount,
+                routing_number=routing_number,
+                transfer_description=transfer_description
+            )
+
+            # get the user balance
+            user = request.user
+            balance = Balance.objects.get(user=user).amount
+
+            # get the last transaction by the user
+            latest_foreign_tf = ArmenToForeignAccountTransfer.objects.filter(user=user).last()
+
+
+            # balance = request.user.balance.amount
+            ForeignTransferTransaction.objects.create(
+                user=user,
+                transaction_id=uuid4(),
+                foreign_tf=latest_foreign_tf,
+                date = datetime.datetime.now(),
+                transaction_type='Foreign transfer',
+                amount=amount,
+                balance=balance
+            )
+            # Transaction.objects.create(
+            #     user=request.user,
+            #     transaction_id=uuid4(),
+            #     date=datetime.datetime.now(),
+            #     transaction_type='Debit',
+            #     amount=amount,
+            #     balance=balance
+            # )
+            messages.success(request, 'Your Foreign Transfer request is Processing')
+            return redirect('main:dashboard')
+    else:
+        form = ArmenToForeignTransferForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main/transfer-foreign-account.html', context)
 
 # fund account
 from django.contrib import messages
@@ -351,9 +414,23 @@ def id_verification(request):
     }
     return render(request, 'main/id-verification.html', context)
 
+@login_required(login_url='login')
 def account_upgrade(request):
     return render(request, 'main/account-upgrade.html')
 
+@login_required(login_url='main:login')
+def foreignAccountTransactions(request, id):
+    try:
+        foreign_trans_info = ForeignTransferTransaction.objects.get(transaction_id=id)
+        print(foreign_trans_info)
+    except:
+        messages.error(request, 'Wrong Info on foreign trans')
+        return redirect('main:dashboard')
+    context = {
+        'trans_id':id,
+        'transaction_info':foreign_trans_info
+    }
+    return render(request, 'main/transaction-details.html', context)
 
 ''' account setup '''
 '''       profile / registration / logout            '''
@@ -721,7 +798,7 @@ def change_password(request):
     return render(request, 'main/change-password.html', context)
 
 # logout route
-@login_required(login_url='/accounts/login')
+@login_required(login_url='main:login')
 def logout_view(request):
     # logout user
     logout(request)

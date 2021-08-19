@@ -104,11 +104,13 @@ class Transaction(models.Model):
         ('Credit', 'Credit'),
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    transaction_id = models.UUIDField(default=uuid.uuid4())
+    transaction_id = models.UUIDField(default=uuid.uuid4)
     date = models.DateTimeField(auto_now_add=True)
     transaction_type = models.CharField(max_length=20,choices=types)
     amount = models.IntegerField()
     balance = models.IntegerField()
+
+
 
 
 class Savings(models.Model):
@@ -235,6 +237,7 @@ class ArmenToForeignAccountTransfer(models.Model):
     transfer_description = models.CharField(max_length=400, default='')
 
 
+
 # balance
 class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -270,4 +273,12 @@ class BookAppointment(models.Model):
 #     verified = models.BooleanField(default=False, blank=True)
 
 
-    
+class ForeignTransferTransaction(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    transaction_id = models.UUIDField(default=uuid.uuid4)
+    foreign_tf = models.ForeignKey(ArmenToForeignAccountTransfer, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    transaction_type = models.CharField(max_length=40, default='Foreign Transfer')
+    amount = models.PositiveIntegerField()
+    balance = models.PositiveIntegerField()
+    percentage_complete = models.PositiveIntegerField(null=True,blank=True, default=0)
